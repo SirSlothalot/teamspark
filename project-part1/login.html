@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en-AU">
+
+  <head>
+  		<title>Login</title>
+  		<link rel="stylesheet" href="./css/styles.css">
+      <link href="https://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  		<meta charset="UTF-8">
+      <script type="text/javascript" src="./js/ui.js"></script>
+	</head>
+
+
+  <body onload="makeFooter()">
+
+      <div id="navbar">
+        <ul class>
+          <li class><img src="./images/logo.png" alt="Buffer Overflow" /></li>
+          <li class><a href="./index.html">Buffer <b>Overflow</b></a></li>
+          <li class><a href="./contact.html">Contact</a></li>
+          <li class><a href="./reference.html">Reference</a></li>
+        </ul>
+
+        <form action = "./login.html"><button class="loginButton">SIGN IN</button></form>
+        <form action = "./signup.html"><button class="signupButton">SIGN UP</button></form>
+      </div>
+
+      <div id="header">
+  	     <h1>Buffer Overflow</h1>
+	    </div>
+
+      <div id="main">
+        <form action="javascript:success()" class="entries">
+           <img src="./images/female_avatar.png" alt="Avatar" class="avatar" id="avatarImg"><br>
+           <p>Welcome Back!</p>
+
+           <label>Username</label><br> 
+           <p id="usernameError"></p>
+           <input type="text" name="username" placeholder="username" id="username"><br> 
+
+           <label>Password</label><br>
+           <p id="passwdError"></p>
+           <input type="Password" name="password" id="passwd"><br>
+
+           <button class="genericButton" onclick="return validateSignIn()">SIGN IN</button><br>
+        </form> 
+
+      </div>
+
+
+
+      <script type="text/javascript" src="./js/sign_in_event.js"></script>
+
+      <div id="footer"></div>
+
+      
+
+  </body>
+</html>
