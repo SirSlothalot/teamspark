@@ -1,0 +1,92 @@
+extends layout
+
+block content
+  #navbar
+  ul
+    li
+      img(src='./images/logo.png', alt='Buffer Overflow')
+    li
+      a(href='./index.html')
+        | Buffer 
+        b Overflow
+    li
+      a(href='./contact.html') Contact
+    li
+      a(href='./reference.html') Reference
+  form(action='./login.html')
+    button.loginButton SIGN IN
+  form(action='./signup.html')
+    button.signupButton SIGN UP
+  #header
+  h1 Buffer Overflow
+  #main
+  form.entries(name='signup', action='javascript:success()')
+    img#avatarImg.avatar(src='./images/logo.png', alt='Avatar')
+    br
+    p
+      | Create a new Buffer 
+      b Overflow
+      |  account
+    label Full Name *
+    br
+    p#nameError
+    input#fullname(type='text', name='fullName', placeholder='Full Name')
+    br
+    label Email Address *
+    br
+    p#emailError
+    input#email(type='text', name='Email', placeholder='name@example.com')
+    br
+    label Pick a Username *
+    br
+    p#usernameError
+    input#username(type='text', name='Username', placeholder='awesomeKing_3239')
+    br
+    label Password *
+    br
+    p#passwdError
+    input#passwd(type='Password', name='password')
+    br
+    label Confirm Password *
+    br
+    p#rePasswdError
+    input#rPasswd(type='Password', name='rePassword')
+    br
+    label Date of Birth *
+    br
+    p#dobError
+    input#dob(type='text', name='dob', placeholder='dd/mm/yyyy')
+    br
+    label Favourite Programming Language
+    br
+    select#language(name='language')
+      option(value='c') C
+      option(value='cpp') C++
+      option(value='cs') C#
+      option(value='haskell') Haskell
+      option(value='java') Java
+      option(value='js') JavaScript
+      option(value='objectivec') Objective-C
+      option(value='perl') Perl
+      option(value='php') PHP
+      option(value='python') Python
+      option(value='ruby') Ruby
+      option(value='scala') Scala
+      option(value='other') Other...
+    br
+    label#preterm
+      br
+      | I have read all the terms and condition and I agree.
+    label#terms Show
+    br
+    input#agreebox(type='checkbox', name='agreement')
+    label I Agree
+    p#agreementErr
+    br
+    br
+    // <input type="submit" value="Submit">
+    button#signupbutton.genericButton(onclick='return validateSignUp()') SIGN UP
+    br
+  script(type='text/javascript', src='./js/sign_up_event.js')
+  #footer
+  p#date
