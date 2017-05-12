@@ -1,5 +1,43 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  #navbar
+    ul
+      li
+        img(src='/images/logo.png', alt='Buffer Overflow')
+      li
+        a(href='/') 
+          b Teamspark
+      li
+        a(href='./contact.html') Contact
+      li
+        a(href='./reference.html') Reference
+    form(action='./login.html')
+      button.loginButton SIGN IN
+    form(action='./signup.html')
+      button.signupButton SIGN UP
+  #main
+    #coverflow01.coverflow
+      h1.covertext
+        | #include "intro.h"
+        br
+        | Introducing the newest way to collaborate
+    .content
+      p Having difficulty finding the perfect team member for your project?
+      p
+        | Want to collaborate on a cool project?
+        br
+        img(src='/images/git_logo.png', alt='idea')
+      p Get more done by collaborating on interesting projects, making new friends
+      p
+        | And sharing ideas!
+        br
+        img(src='/images/idea.png', alt='idea')
+    #coverflow02.coverflow
+      p Stay Motivated
+      p Buffer Overflow finds you team members based on your skillset.
+      p Matching the right project for you.
+    .content
+      p Find like minded people to work with
+      p See your matches
+  #footer
