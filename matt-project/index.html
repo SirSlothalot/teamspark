@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Teamspark</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./resources/css/template.css">
+    <link rel="icon" href="./resources/images/teamspark-icon.png">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="topnav sitename gradient landing-sitename">
+                <li><a>Teamspark</a></li>
+            </ul>
+            <ul class="topnav gradient">
+                <li class="right"><a href="./signup.html">Sign up</a></li>
+                <li class="right"><a href="./login.html">Log in</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="col-12 col-m-12 row parallax-image parallax-image-src-one title-overlay">
+        <div class="huge-title-container">
+            <h1 class="huge-title">Dream it, Pitch it, Do it</h1>
+        </div>
+    </section>
+
+    <section class="col-12 col-m-12 row landing-space">
+
+        <h1 class="big-title">For the driven</h1>
+
+        <p class="landing-paragraph">Sink your teeth into something bigger than a unit of school. Find the people
+            who push your passions, need your talent and teach you more. Whether you want to develop your skills,
+            beaf up your resume or try something new, sign up and find your team.
+
+        <h1 class="big-title">For the clever</h1>
+
+            <p class="landing-paragraph">Pitch your ideas, drive them with a team and have them come to life.
+                Teamspark understands that it's difficult to find a team of likeminded people by word of mouth.
+                If you need help with an idea, sign up, share it, and find your team. You have little to lose, and much to gain.
+
+        <h1 class="big-title">Put it together</h1>
+
+        <p class="landing-paragraph">Teamspark is a platform that creates teams and matches them with ideas.
+            By analysing all the ideas people have posted and analysing the profile of each user, Teamspark's
+            algorithms will form teams and assign those teams to ideas.
+
+        <h2 class="medium-title">Step 1: Analysing an idea</h2>
+
+        <p class="landing-paragraph">Teamspark considers the description of an idea, the skills required to complete that idea,
+            the location of its creator and the time the creator is looking to commit.
+
+        <h2 class="medium-title">Step 2: Find who matches an idea</h2>
+
+        <p class="landing-paragraph">Teamspark identifies people best suited to an idea by comparing an idea's details with user profiles.
+
+        <h2 class="medium-title">Step 3: Form teams from the matched people</h2>
+
+        <p class="landing-paragraph">Teamspark forms teams by finding people in a similar location, with similar interests, of similar age
+            and who, as a team, have the skills required to work on an idea.
+
+    </section>
+
+    <div class="col-12 col-m-12 row parallax-image parallax-image-src-two"></div>
+
+    <section class="col-12 col-m-12 row content-section">
+
+        <div class="form-container">
+            <h1 class="form-title">Sign me up!</h1>
+                <form class="form-input" action="./signup.html">
+                    <label for="email">E-mail address*</label>
+                    <input type="email" id="email" name="email" placeholder="you@somewhere.com" required>
+
+                    <label for="password1">Password*</label>
+                    <input type="password" id="password1" name="password1" placeholder="Password..."
+                           title="Password must contain at least 6 characters, including uppercase, lowercase and numbers."
+                           required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                           onchange="checkValidity(this.title); setPassword(password2, this.value)">
+
+                    <label for="password2">Re-enter password*</label>
+                    <input type="password" id="password2" name="password2" placeholder="Re-enter password..."
+                            title="Please enter the same password as above."
+                            required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                            onchange="checkValidity(this.title)">
+
+                    <input type="submit" value="Go">
+                </form>
+        </div>
+
+    </section>
+
+    <div class="col-12 col-m-12 row parallax-image parallax-image-src-three" ></div>
+
+
+    <footer>
+        <div class="footer-upper">
+            <div class="social-icons">
+                <ul>
+                    <li><a href="about.html" class="social-icon transition-colour about-button">About</a></li>
+                    <li><a href="" class="social-icon"> <i class="transition-colour fa fa-facebook"></i></a></li>
+                    <li><a href="" class="social-icon"> <i class="transition-colour fa fa-twitter"></i></a></li>
+                    <li><a href="" class="social-icon"> <i class="transition-colour fa fa-google-plus"></i></a></li>
+                    <li><a href="" class="social-icon"> <i class="transition-colour fa fa-youtube"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-lower">
+            <span class="date-modified" id='lastModDate'>Last modified: </span>
+        </div>
+
+    </footer>
+
+    <script src="./resources/js/checkForm.js"></script>
+</body>
