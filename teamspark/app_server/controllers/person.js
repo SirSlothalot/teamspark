@@ -17,7 +17,7 @@ function getPersons(req,res){
                 console.log('find complete');
                 res.render('person', {'people':simpleData});
             }
-        };
+        })
 };
 
 //Add a new person

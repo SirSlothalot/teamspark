@@ -24,7 +24,7 @@ process.once('SIGUSR2', function() {
     gracefulShutdown('nodemon restart', function() {
         process.kill(process.pid, 'SIGUSR2');
     });
-};
+});
 
 process.on('SIGINT', function() {
     gracefulShutdown('app termination', function() {
@@ -38,4 +38,4 @@ process.on('SIGTERM', function() {
     });
 });
 
-require('./person.js');
+require('./person_model.js');
