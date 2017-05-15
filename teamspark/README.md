@@ -4,3 +4,6 @@
 ```
 m m m k k@example.com is treated as a valid email address.
 ```
+```
+git subtree push --prefix teamspark heroku master
+```
