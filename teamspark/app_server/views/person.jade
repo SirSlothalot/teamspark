@@ -20,10 +20,10 @@ block content
                     - var e = p.email;
                     +email(e)
                 td
-                    a(href='/person-delete/'+p._id) Delete
+                    a(href='/person/delete/'+p._id) Delete
                     
-    form(action='/', method='post')
-        label(for='name') Name
+    form(action='/person/', method='post')
+        label(for='name') Name 
         input(id ='name', type='text', name='name')
         label(for='age') Age
         input(id='age', type='number', name='age')

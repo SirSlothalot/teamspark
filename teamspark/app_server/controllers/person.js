@@ -37,7 +37,7 @@ module.exports.newPerson = function(req,res){
             });
         } else {
             console.log(data, ' saved');
-            index(req,res);
+            getPersons(req,res);
         }
     });
 };
@@ -54,7 +54,7 @@ module.exports.deletePerson = function(req,res) {
             });
         } else {
             console.log(req.param.id, ' removed');
-            index(req, res);
+            getPersons(req, res);
         }
     });
 }
