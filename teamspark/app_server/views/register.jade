@@ -1,46 +1,22 @@
 extends layout
 
 block content
-  #navbar
-  ul
-    li
-      img(src='./images/logo.png', alt='Buffer Overflow')
-    li
-      a(href='./index.html')
-        | Buffer 
-        b Overflow
-    li
-      a(href='./contact.html') Contact
-    li
-      a(href='./reference.html') Reference
-  form(action='./login.html')
-    button.loginButton SIGN IN
-  form(action='./signup.html')
-    button.signupButton SIGN UP
-  #header
-  h1 Buffer Overflow
-  #main
-  form.entries(name='signup', action='javascript:success()')
-    img#avatarImg.avatar(src='./images/logo.png', alt='Avatar')
+  form.entries(name='/register', method="post", onload='makeFooter()')
+    img#avatarImg.avatar(src='/images/logo.png', alt='Avatar')
     br
     p
-      | Create a new Buffer 
-      b Overflow
+      | Create a new 
+      b Teamspark
       |  account
     label Full Name *
     br
     p#nameError
-    input#fullname(type='text', name='fullName', placeholder='Full Name')
+    input#fullname(type='text', name='fullname', placeholder='Full Name')
     br
     label Email Address *
     br
     p#emailError
-    input#email(type='text', name='Email', placeholder='name@example.com')
-    br
-    label Pick a Username *
-    br
-    p#usernameError
-    input#username(type='text', name='Username', placeholder='awesomeKing_3239')
+    input#email(type='text', name='email', placeholder='name@example.com')
     br
     label Password *
     br
@@ -59,7 +35,7 @@ block content
     br
     label Favourite Programming Language
     br
-    select#language(name='language')
+    select#language(name='programmingLanguage')
       option(value='c') C
       option(value='cpp') C++
       option(value='cs') C#
@@ -76,17 +52,21 @@ block content
     br
     label#preterm
       br
-      | I have read all the terms and condition and I agree.
-    label#terms Show
+      | I have read all the 
+      label#terms terms and conditions
+      |  and I agree. 
+    //label#terms Show
     br
     input#agreebox(type='checkbox', name='agreement')
     label I Agree
+    br
     p#agreementErr
     br
     br
     // <input type="submit" value="Submit">
-    button#signupbutton.genericButton(onclick='return validateSignUp()') SIGN UP
+    input(type='submit', value='Submit')
+    //button#signupbutton.genericButton(onclick='return validateSignUp()') SIGN UP
     br
-  script(type='text/javascript', src='./js/sign_up_event.js')
+  script(type='text/javascript', src='/js/sign_up_event.js')
   #footer
   p#date

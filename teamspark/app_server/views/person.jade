@@ -23,8 +23,8 @@ block content
             th Delete?
         each p in people
             tr
-                td #{p.name}
-                td #{p.age}
+                td #{p.fullname}
+                td #{p.dob}
                 td
                     - var e = p.email;
                     +email(e)
