@@ -5,24 +5,29 @@ var SALT_WORK_FACTOR = 10;
 
 var personSchema = new mongoose.Schema(
     {
-        firstname:{type:String, require:true},
-        surname:{type:String, require:true},
+        name: String,
+        age: Number,
+        email: String;
 
-        email:{type:String, require:true},
-        password:{type:String, require:true},
-
-        age:{type:Number, require:true},
-        spoken-language:{type:String}, require:true},
-
-        country:{type:String, require:true},
-        state:{type:String, require:true},
-        suburb:{type:String, require:true},
-
-        programming-language:{type: String, require:true}
+        // firstname:{type:String, require:true},
+        // surname:{type:String, require:true},
+        //
+        // email:{type:String, require:true},
+        // password:{type:String, require:true},
+        //
+        // age:{type:Number, require:true},
+        // spoken-language:{type:String}, require:true},
+        //
+        // country:{type:String, require:true},
+        // state:{type:String, require:true},
+        // suburb:{type:String, require:true},
+        //
+        // programming-language:{type: String, require:true}
     }
 );
 
-mongoose.model('Person', personSchema, person);
+
+
 
 //------------------Encrypting the password-----------------------------------
 https://www.mongodb.com/blog/post/password-authentication-with-mongoose-part-1
@@ -54,3 +59,7 @@ personSchema.methods.comparePassword = function(candidatePassword, cb) {
         cb(null, isMatch);
     });
 };
+
+
+
+mongoose.model('Person', personSchema, person);

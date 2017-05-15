@@ -4,7 +4,7 @@ var dbURI = 'mongodb://localhost/teamspark';
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', function() {
-  console.log('Mongoose connected to ' + dbURO);
+  console.log('Mongoose connected to ' + dbURI);
 });
 mongoose.connection.on('error', function(err) {
   console.log('Mongoose connection error: ' + err);
@@ -19,3 +19,23 @@ var gracefulShutdown = function(msg, callback) {
     callback();
   });
 };
+
+process.once('SIGUSR2', function() {
+    gracefulShutdown('nodemon restart', function() {
+        process.kill(process.pid, 'SIGUSR2');
+    });
+};
+
+process.on('SIGINT', function() {
+    gracefulShutdown('app termination', function() {
+        process.exit(0);
+    });
+});
+
+process.on('SIGTERM', function() {
+    gracefulShutdown('Heroku app shutdown', function() {
+        process.exit(0);
+    });
+});
+
+require('./person.js');
