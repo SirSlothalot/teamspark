@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var dbURI = 'mongodb://localhost/teamspark';
+var dbURI = 'mongodb://teamspark:teamspark@ds141401.mlab.com:41401/teamspark';
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', function() {
