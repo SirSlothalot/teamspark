@@ -36,6 +36,18 @@ div.referenceDiv
     text-align: center;
 }
 
+
+div.errorDiv
+{
+    padding: 40px;
+    margin: 40px auto;
+    background-color: white;
+    color: red;
+    opacity: 0.9;
+    text-align: center;
+    /*font-size: 150%;*/
+}
+
 a.reference
 {
     color : blue;
@@ -102,6 +114,7 @@ p
     color: white;
     padding: 20px;
     text-align: center;
+    font-size: 10px;
 }
 
 button
@@ -203,11 +216,11 @@ button.signupButton:hover
     color : green;
 }
 
-img
+.errorDiv img
 {
     border:0;
-    width:30px;
-    height:30px;
+    width:400px;
+    height:300px;
 }
 
 #avatarImg
