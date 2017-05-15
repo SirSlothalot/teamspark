@@ -8,7 +8,6 @@ var personSchema = new mongoose.Schema(
         name: String,
         age: Number,
         email: String
-
         // firstname:{type:String, require:true},
         // surname:{type:String, require:true},
         //
