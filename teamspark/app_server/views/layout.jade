@@ -4,5 +4,23 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src="/javascripts/ui.js")
-  body
+  body(onload='makeFooter()')
+    #navbar
+      ul
+        li
+          img(src='/images/logo.png', alt='Buffer Overflow')
+        li
+          a(href='/') 
+            b Teamspark
+        li
+          a(href='/contact') Contact
+        li
+          a(href='/references') Reference
+      form(action='/login')
+        button.loginButton SIGN IN
+      form(action='/signup')
+        button.signupButton SIGN UP
+    
     block content
+    
+    #footer

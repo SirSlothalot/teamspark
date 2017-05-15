@@ -1,23 +1,6 @@
 extends layout
 
 block content
-  #navbar
-    ul
-      li
-        img(src='/images/logo.png', alt='Teamspark')
-      li
-        a(href='/') 
-          b Teamspark
-      li
-        a(href='/contact') Contact
-      li
-        a(href='/reference') Reference
-    form(action='/login')
-      button.loginButton SIGN IN
-    form(action='/signup')
-      button.signupButton SIGN UP
-  #header
-    h1 Teamspark
   #main
     #formContainer
       form.entries(action='javascript:successContact()')
@@ -41,4 +24,3 @@ block content
         button.genericButton(onclick='return validateSubmit()') SUBMIT
         br
       script(type='text/javascript', src='/javascripts/contact_events.js')
-  #footer

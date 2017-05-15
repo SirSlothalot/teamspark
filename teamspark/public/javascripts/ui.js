@@ -175,7 +175,7 @@ function resetDOB()
 function validateFullName()
 {
 	var fname = document.getElementById("fullname");
-	
+
 	if(fname.value == "")
 	{
 		document.getElementById("nameError").innerHTML = "Please enter your full name.";
@@ -229,7 +229,7 @@ function validateLanguage()
 			//form.insertBefore(brk, button);
 		}
 	}
-		
+
 	else
 	{
 		if(document.contains(document.getElementById("altlang")))
@@ -238,8 +238,8 @@ function validateLanguage()
 			document.getElementById("altlanginfo").remove();
 		}
 	}
-		
-	
+
+
 }
 
 
@@ -281,7 +281,7 @@ function expandTerms()
 		document.getElementById("terms").innerHTML = "Show";
 		document.getElementById("scrollableText").remove();
 	}
-	
+
 }
 
 
@@ -327,8 +327,7 @@ function makeFooter()
    var time = lmDate.getHours()+":"+lmDate.getMinutes()+":"+lmDate.getSeconds();
    var datetime = date+" "+time;
 
-
-   var a = "<p><a href=\"http://jigsaw.w3.org/css-validator/check/referer\"><img style=\"border:0;width:88px;height:31px\" src=\"http://jigsaw.w3.org/css-validator/images/vcss\" alt=\"Valid CSS!\" /></a></p>";
+   var a = "";
    a = a+"<p>Last Modified: "+datetime+"</p>";
    document.getElementById('footer').innerHTML = a;
 }
