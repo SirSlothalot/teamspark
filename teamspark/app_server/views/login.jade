@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  #navbar
+    ul
+      li
+        img(src='./images/logo.png', alt='Buffer Overflow')
+      li
+        a(href='./index.html')
+          | Buffer 
+          b Overflow
+      li
+        a(href='./contact.html') Contact
+      li
+        a(href='./reference.html') Reference
+    form(action='./login.html')
+      button.loginButton SIGN IN
+    form(action='./signup.html')
+      button.signupButton SIGN UP
+  #header
+    h1 Buffer Overflow
+  #main
+    form.entries(action='javascript:success()')
+      img#avatarImg.avatar(src='./images/female_avatar.png', alt='Avatar')
+      br
+      p Welcome Back!
+      label Username
+      br
+      p#usernameError
+      input#username(type='text', name='username', placeholder='username')
+      br
+      label Password
+      br
+      p#passwdError
+      input#passwd(type='Password', name='password')
+      br
+      button.genericButton(onclick='return validateSignIn()') SIGN IN
+      br
+  script(type='text/javascript', src='./js/sign_in_event.js')
+  #footer
