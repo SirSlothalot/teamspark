@@ -5,6 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
 var index = require('./app_server/routes/index');
 var person = require('./app_server/routes/person');
 var db = require('./app_server/models/db');
@@ -16,13 +19,22 @@ app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', '/images/teamsparkfavicon.png')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
+//for passport
+app.use(require('express-session')({
+    secret: 'CITS3403',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+//end for passport
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
@@ -47,3 +59,8 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+var Person = require('./app_server/models/person_model');
+passport.use(new LocalStrategy(Person.authenticate()));
+passport.serializeUser(Person.serializeUser());
+passport.deserializeUser(Person.deserializeUser());

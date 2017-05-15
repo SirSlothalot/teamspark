@@ -1,13 +1,16 @@
 var mongoose = require('mongoose');
 //var bcrypt = require(bcrypt);
 var SALT_WORK_FACTOR = 10;
-
+var passportLocalMongoose = require('passport-local-mongoose');
 
 var personSchema = new mongoose.Schema(
     {
         name: String,
         age: Number,
-        email: String
+        email: String,
+
+        username: String,
+        password: String
 
         // firstname:{type:String, require:true},
         // surname:{type:String, require:true},
@@ -25,6 +28,10 @@ var personSchema = new mongoose.Schema(
         // programming-language:{type: String, require:true}
     }
 );
+
+personSchema.plugin(passportLocalMongoose);
+
+
 //
 //
 //
@@ -62,4 +69,5 @@ var personSchema = new mongoose.Schema(
 //
 //
 //
-mongoose.model('Person', personSchema);
+// mongoose.model('Person', personSchema);
+module.exports = mongoose.model('Person', personSchema);
