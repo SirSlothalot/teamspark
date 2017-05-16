@@ -5,6 +5,10 @@ var ctrlContact = require('../controllers/contact');
 var ctrlReference = require('../controllers/reference');
 var ctrlRegister = require('../controllers/register');
 var ctrlLogin = require('../controllers/login');
+var ctrlLogout = require('../controllers/logout');
+
+var passport = require('passport');
+var Person = require('../models/person_model');
 
 /* GET home page. */
 router.get('/', ctrlMain.index);
@@ -24,17 +28,10 @@ router.get('/register', ctrlRegister.load);
 
 router.post('/register', ctrlRegister.registerUser);
 
-router.get('/login', function(req,res) {
-    res.render('login', {});
-});
+router.get('/login', ctrlLogin.load);
 
-router.post('/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login'}), function(req, res) {
-        res.redirect('/');
-});
+router.post('/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login'}), ctrlLogin.loginUser);
 
-router.get('/logout', function(req,res) {
-    req.logout();
-    res.redirect('/');
-});
+router.get('/logout', ctrlLogout.logoutUser);
 
 module.exports = router;
