@@ -4,7 +4,7 @@ var Person = mongoose.model('Person');
 
 //Return person
 module.exports.profile = function getProfile(req,res){
-    Person.find({"username": req.params.username}).exec(
+    Person.findOne({"username": req.params.username}).exec(
         function(err, result) {
             if(err) {
                 res.render('error', {
@@ -13,10 +13,10 @@ module.exports.profile = function getProfile(req,res){
                 });
             } else {
                 console.log('find complete');
-                res.render('profile', {person:result});
+                res.render('profile', {'person':result});
             }
         })
 };
 
-
+// #{person.username}
 //{"username": req.user.username}

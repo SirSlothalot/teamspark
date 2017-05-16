@@ -38,6 +38,6 @@ router.get('/logout', ctrlLogout.logoutUser);
 
 router.get('/profile/:username', ctrlProfile.profile);
 
-router.get('/profile/:username/edit', ctrlProfile.edit);
+//router.get('/profile/:username/edit', ctrlProfile.edit);
 
 module.exports = router;
