@@ -1,24 +1,26 @@
 extends layout
 
 block content
-  #header
-    h1 Teamspark
   #main
-    form.entries(action='/people/login', method='post')
-      img#avatarImg.avatar(src='/images/female_avatar.png', alt='Avatar')
-      br
-      p Welcome Back!
-      label Username
-      br
-      p#usernameError
-      input#username(type='text', name='username', placeholder='username')
-      br
-      label Password
-      br
-      p#passwdError
-      input#passwd(type='Password', name='password')
-      br
-      //input(type='submit', value='Submit');
-      button.genericButton(onclick='return validateSignIn()') SIGN IN
-      br
+    if (!user)
+      form.entries(action='/login', method='post')
+        img#avatarImg.avatar(src='/images/female_avatar.png', alt='Avatar')
+        br
+        p Welcome Back!
+        label Username
+        br
+        p#usernameError
+        input#username(type='text', name='username', placeholder='username')
+        br
+        label Password
+        br
+        p#passwdError
+        input#passwd(type='Password', name='password')
+        br
+        //input(type='submit', value='Submit');
+        button.genericButton(onclick='return validateSignIn()') SIGN IN
+        br
+    if (user)
+      #header
+        h1 You are already logged in
   script(type='text/javascript', src='/javascript/sign_in_event.js')

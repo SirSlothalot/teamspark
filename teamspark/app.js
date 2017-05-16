@@ -19,7 +19,7 @@ app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public', '/images/teamsparkfavicon.png')));
+app.use(favicon(path.join(__dirname, 'public/images/', 'teamsparkfavicon.png')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -56,6 +56,11 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+app.use(function(req, res, next) {
+  res.locals.logged = req.user;
+  next();
 });
 
 module.exports = app;
