@@ -6,9 +6,6 @@ var ctrlReference = require('../controllers/reference');
 var ctrlRegister = require('../controllers/register');
 var ctrlLogin = require('../controllers/login');
 
-var passport = require('passport');
-var Person = require('../models/person_model');
-
 /* GET home page. */
 router.get('/', ctrlMain.index);
 
@@ -23,32 +20,9 @@ router.get('/references', ctrlReference.reference);
 // router.get('/login', ctrlLogin.login);
 
 //Register user
-router.get('/register', function(req, res) {
-    res.render('register', {});
-});
+router.get('/register', ctrlRegister.load);
 
-router.post('/register', function(req,res) {
-    Person.register(
-        new Person(
-            {
-                fullname: req.body.fullname,
-                username: req.body.email,
-                //password: req.body.password,
-                dob: req.body.dob,
-                programmingLanguage: req.body.programmingLanguage
-            }),
-            req.body.password,
-        function(err, person) {
-            if(err) {
-                console.log(err);
-                return res.render('register', {person:person});
-            }
-            console.log(person, ' saved');
-            res.redirect('/');
-            passport.authenticate('local', {successRedirect: '/', failureRedirect: '/register'});
-        }
-    );
-});
+router.post('/register', ctrlRegister.registerUser);
 
 router.get('/login', function(req,res) {
     res.render('login', {});
