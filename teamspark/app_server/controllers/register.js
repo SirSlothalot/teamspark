@@ -1,3 +1,3 @@
 module.exports.register = function(req, res, next) {
-      res.render('signup', { title: 'Register' });
+      res.render('signup', { title: 'Register', user: req.user});
 };

@@ -6,7 +6,7 @@ html
     script(src="/javascripts/ui.js")
   body(onload='makeFooter()')
     #navbar
-      if (!logged)
+      if (!user)
         ul
           li
             img(src='/images/logo.png', alt='Buffer Overflow')
@@ -21,7 +21,7 @@ html
           button.loginButton SIGN IN
         form(action='/register')
           button.signupButton SIGN UP
-      if (logged)
+      if (user)
         ul
           li
             img(src='/images/logo.png', alt='Buffer Overflow')

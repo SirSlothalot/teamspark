@@ -58,11 +58,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.use(function(req, res, next) {
-  res.locals.logged = req.user;
-  next();
-});
-
 module.exports = app;
 
 var Person = require('./app_server/models/person_model');
