@@ -2,7 +2,7 @@ extends layout
 
 block content
   form.entries(name='/register', method="post", onload='makeFooter()')
-    img#avatarImg.avatar(src='/images/logo.png', alpostt='Avatar')
+    img#avatarImg.avatar(src='/images/logo.png', alt='Avatar')
     br
     p
       | Create a new 
@@ -13,7 +13,7 @@ block content
     p#nameError
     input#fullname(type='text', name='fullname', placeholder='Full Name')
     br
-    label Email Address *
+    label Email Address 
     br
     p#emailError
     input#email(type='text', name='email', placeholder='name@example.com')
@@ -64,9 +64,10 @@ block content
     br
     br
     //<input type="submit" value="Submit">
-    //input(type='submit', value='Submit')
-    button#signupbutton.genericButton(onclick='return validateSignUp()') SIGN UP
+    input(type='submit', value='Submit')
+    //button#signupbutton.genericButton(onclick='return validateSignUp()') SIGN UP
     br
-  script(type='text/javascript', src='/javascripts/sign_up_event.js')
+   script(type='text/javascript', src='/javascripts/sign_up_event.js')
+
   //#footer
   //p#date

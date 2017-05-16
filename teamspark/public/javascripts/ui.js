@@ -22,7 +22,7 @@ function validateSignUp()
 
 function validateSignIn()
 {
-	return (validateUName() && validatePasswd());
+	return (validateEMail() && validatePasswd());
 }
 
 
@@ -62,29 +62,29 @@ function resetEMail()
 }
 
 
-function validateUName()
-{
-	var username = document.getElementById("username");
+// function validateUName()
+// {
+// 	var username = document.getElementById("username");
 
-	if(username.value == "")
-	{
-		document.getElementById("usernameError").innerHTML = "Enter your username.";
-		return false;
-	}
-	else if((username.value).search(" ") !== -1)
-	{
-		document.getElementById("usernameError").innerHTML = "Invalid Username! Contains (SPACE) character.";
-		return false;
-	}
+// 	if(username.value == "")
+// 	{
+// 		document.getElementById("usernameError").innerHTML = "Enter your username.";
+// 		return false;
+// 	}
+// 	else if((username.value).search(" ") !== -1)
+// 	{
+// 		document.getElementById("usernameError").innerHTML = "Invalid Username! Contains (SPACE) character.";
+// 		return false;
+// 	}
 
-	document.getElementById("usernameError").innerHTML = "";
-	return true;
-}
+// 	document.getElementById("usernameError").innerHTML = "";
+// 	return true;
+// }
 
-function resetUName()
-{
-	document.getElementById("usernameError").innerHTML = "";
-}
+// function resetUName()
+// {
+// 	document.getElementById("usernameError").innerHTML = "";
+// }
 
 
 function validatePasswd(str)
@@ -220,7 +220,7 @@ function validateLanguage()
 			var brk = document.createElement("br");
 			brk.id = "langbrk";
 
-			var form = document.forms.signup;
+			var form = document.forms['/register'];
 			var button = document.getElementById("preterm");
 			form.appendChild(info);
 			form.appendChild(lang);
@@ -305,9 +305,9 @@ function validateFeedback()
 {
 	var feedback = document.getElementById("feedback");
 
-	if((feedback.value).length < 200)
+	if((feedback.value).length < 100)
 	{
-		document.getElementById("genericError").innerHTML = "Responce needs to be 200 characters or longer. You typed: "+(feedback.value).length+" characters.";
+		document.getElementById("genericError").innerHTML = "Responce needs to be 100 characters or longer. You typed: "+(feedback.value).length+" characters.";
 		return false;
 	}
 

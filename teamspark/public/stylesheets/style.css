@@ -223,6 +223,12 @@ button.signupButton:hover
     height:300px;
 }
 
+
+img{
+    width:70px;
+    height: 70px;
+}
+
 #avatarImg
 {
     width:100px;
@@ -235,6 +241,13 @@ button.signupButton:hover
     width:45px;
     height:45px;
 }
+
+
+.active 
+{
+    background-color: #4CAF50;
+}
+
 
 div.coverflow
 {
