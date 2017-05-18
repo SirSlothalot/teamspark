@@ -96,6 +96,7 @@ function validatePasswd(str)
 		document.getElementById("passwdError").innerHTML = "Enter your password.";
 		return false;
 	}
+	
 	return true;
 }
 
@@ -154,6 +155,39 @@ function validateDOB()
 
 	var monthIndex = date[1]-1;
 
+	var today = new Date();
+
+	// if((parseInt(today.getFullYear()) - parseInt(date[2])) < 15)
+	// {
+	// 	document.getElementById("dobError").innerHTML = "You must be above 15 years of age to use TeamSpark.";
+	// 	return false;
+	// }
+
+	try{
+		
+		var bday = new Date(parseInt(date[2]), parseInt(date[1])+1, parseInt(date[0]));
+		//document.getElementById("dobError").innerHTML = bday;
+		var ageDif = Date.now()- bday.getTime(); //Milliseconds
+		var yearAge = parseInt(ageDif)/(365*24*60*60*1000); 
+
+		if(ageDif < 0)
+		{
+			document.getElementById("dobError").innerHTML = "Gotta get back, back to the past Samurai Jack...";
+			return false;
+		}
+
+		if(parseInt(yearAge)<15)
+		{
+			document.getElementById("dobError").innerHTML = "You must be above 15 years of age to use TeamSpark.";
+			return false;
+		}
+
+
+	}catch(e){
+		document.getElementById("dobError").innerHTML = number(date[1])+1;
+		return false;
+	}
+
 	if(date[0] <= daysInMonth[monthIndex])
 	{
 		document.getElementById("dobError").innerHTML = "";
@@ -162,6 +196,7 @@ function validateDOB()
 
 	document.getElementById("dobError").innerHTML = "Invalid date.";
 	return false;
+
 
 }
 
