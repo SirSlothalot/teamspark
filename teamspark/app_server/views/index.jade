@@ -1,27 +1,27 @@
 extends layout
 
 block content
-  #main
-    #coverflow01.coverflow
-      h1.covertext
-        | #include "intro.h"
-        br
-        | Introducing the newest way to collaborate
-    .content
+  #coverflow01.coverflow
+    .jumbotron
+      .container
+        h1.display-3 #include "teamspark.h"
+        p.lead Introducing the newest way to collaborate
+  .content
+    .container
       p Having difficulty finding the perfect team member for your project?
       p
         | Want to collaborate on a cool project?
         br
-        img(src='/images/git_logo.png', alt='idea')
       p Get more done by collaborating on interesting projects, making new friends
       p
         | And sharing ideas!
         br
-        img(src='/images/idea.png', alt='idea')
-    #coverflow02.coverflow
+  #coverflow02.coverflow
+    .container
       p Stay Motivated
       p Teamspark finds you team members based on your skillset.
       p Matching the right project for you.
-    .content
+  .content
+    .container
       p Find like minded people to work with
       p See your matches
