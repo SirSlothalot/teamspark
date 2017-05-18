@@ -1,0 +1,55 @@
+extends layout
+
+block content
+  form.entries(name='/register', method="post", onload='makeFooter()')
+    img#avatarImg.avatar(src='/images/logo.png', alpostt='Avatar')
+    br
+    p
+      | Create a new 
+      b Project
+    label Project Title *
+    br
+    p#nameError
+    input#Title(type='text', name='title', placeholder='Project Title')
+    br
+    label Description *
+    br
+    p#emailError
+    input#Description(type='textarea', name='description', placeholder='Pitch your project...')
+    br
+    label Required skill level *
+    br
+    select#SkillLevel(name='skillLevel')
+      option(value='beginnger') Beginner
+      option(value='intermediate') Intermediate
+      option(value='advanced') Advanced
+    br
+    label Programming languages
+    br
+    select#language(name='programmingLanguage')
+      option(value='c') C
+      option(value='cpp') C++
+      option(value='cs') C#
+      option(value='haskell') Haskell
+      option(value='java') Java
+      option(value='js') JavaScript
+      option(value='objectivec') Objective-C
+      option(value='perl') Perl
+      option(value='php') PHP
+      option(value='python') Python
+      option(value='ruby') Ruby
+      option(value='scala') Scala
+      option(value='other') Other...
+    br
+    label Willing to work online, without meeting face-to-face? *
+    br
+    select#online(name='online')
+      option(value='y') Yes
+      option(value='n') No
+    br
+    br
+    //<input type="submit" value="Submit">
+    //input(type='submit', value='Submit')
+    button#signupbutton.genericButton(onclick='return validateSignUp()') SIGN UP
+    br
+  script(type='text/javascript', src='/javascripts/sign_up_event.js')
