@@ -1,203 +1,175 @@
-body
-{
-	padding-top: 25px;
-    margin: 0;
-    background: url("../images/roof-plate.jpg");
-    font-family: 'Open Sans', sans-serif;
-    background-size: cover;
+body {
+  /*padding-top: 25px;*/
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-size: cover;
 }
 
-a
-{
-    color: inherit;
-    text-decoration: inherit;
+a {
+  color: inherit;
+  text-decoration: inherit;
 }
 
-form.entries
-{
-    width: 50%;
-    padding: 40px;
-    margin: 40px auto;
-    font-size: 120%;
-    background-color: gray;
-    color: black;
-    opacity: 0.8;
-    text-align: center;
+form.entries {
+  width: 50%;
+  padding: 40px;
+  margin: 40px auto;
+  font-size: 120%;
+  background-color: gray;
+  color: black;
+  opacity: 0.8;
+  text-align: center;
 }
 
-div.referenceDiv
-{
-    width: 90%;
-    padding: 40px;
-    margin: 40px auto;
-    background-color: gray;
-    color: black;
-    opacity: 0.9;
-    text-align: center;
+div.referenceDiv {
+  width: 90%;
+  padding: 40px;
+  margin: 40px auto;
+  background-color: gray;
+  color: black;
+  opacity: 0.9;
+  text-align: center;
 }
 
-
-div.errorDiv
-{
-    padding: 40px;
-    margin: 40px auto;
-    background-color: white;
-    color: red;
-    opacity: 0.9;
-    text-align: center;
-    /*font-size: 150%;*/
+div.errorDiv {
+  padding: 40px;
+  margin: 40px auto;
+  background-color: white;
+  color: red;
+  opacity: 0.9;
+  text-align: center;
+  /*font-size: 150%;*/
 }
 
-a.reference
-{
-    color : blue;
-    background-color: plum;
+a.reference {
+  color: blue;
+  background-color: plum;
 }
 
-ul
-{list-style-type: none;}
-
-
-#feedback
-{
-    /*margin: 40px;*/
-    padding: 50px;
-    text-align: left;
-    height: 50px;
-    width: 100%;
+ul {
+  list-style-type: none;
 }
 
-input[type=text], select, [type=email], [type=Password]
-{
-    width:75%;
-    padding: 8px 16px;
-    display: inline-block;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 20px;
-    border-bottom: 5.0px;
-    margin: 8px 0;
-
+#feedback {
+  /*margin: 40px;*/
+  padding: 50px;
+  text-align: left;
+  height: 50px;
+  width: 100%;
 }
 
-p
-{
-    font-size: 30px;
+input[type=text], select, [type=email], [type=Password] {
+  width: 75%;
+  padding: 8px 16px;
+  display: inline-block;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 20px;
+  border-bottom: 5.0px;
+  margin: 8px 0;
 }
 
-#header
-{
-    font-size: 150%;
-    font-family: 'Droid Sans Mono';
+p {
+  font-size: 30px;
 }
 
-#navbar
-{
-    margin: 0.0;
-    border: 0.0;
-    padding: 0.0;
-	overflow: hidden;
-    background: lightgray;
-    position: fixed;
-    left : 0;
-    top : 0;
-    width: 100%;
-    font-family: 'Droid Sans Mono';
-    z-index: 1;
-    margin-bottom: 0px !important;
-    display: block;
+#header {
+  font-size: 150%;
+  font-family: 'Droid Sans Mono';
 }
 
-#footer
-{
-    background-color: black;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 10px;
+#navbar {
+  margin: 0.0;
+  border: 0.0;
+  padding: 0.0;
+  overflow: hidden;
+  background: lightgray;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  font-family: 'Droid Sans Mono';
+  z-index: 1;
+  margin-bottom: 0px !important;
+  display: block;
 }
 
-button
-{
-    margin-top: 5px;
-    margin-right: 10px;
-	float:right;
-    text-align: center;
-    border-radius: 50px;
-    padding: 7px 10px;
-    border-radius: 50px;
-    transition-duration: 1s;
-    margin-bottom: 0 !important;
+#footer {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 10px;
 }
 
-button.genericButton
-{
-    color: red;
-    float:left;
-    background: white;
-    /*margin: -20px -50px; */
-    float: none;
-    text-align: center;
-    /*top:50%; */
-    padding: 5px 20px;
+button {
+  margin-top: 5px;
+  margin-right: 10px;
+  float: right;
+  text-align: center;
+  border-radius: 50px;
+  padding: 7px 10px;
+  border-radius: 50px;
+  transition-duration: 1s;
+  margin-bottom: 0 !important;
 }
 
-button.genericButton:hover
-{
-    background: red;
-    color: salmon;
-
+button.genericButton {
+  color: red;
+  float: left;
+  background: white;
+  float: none;
+  text-align: center;
+  padding: 5px 20px;
 }
 
-button.loginButton
-{
-    color : green;
-    background: white;
-}
-button.loginButton:hover
-{
-    color : lightgreen;
-    background: green;
+button.genericButton:hover {
+  background: red;
+  color: salmon;
 }
 
-button.signupButton
-{
-    color : blue;
-    background: white;
-}
-button.signupButton:hover
-{
-    color : cyan;
-    background: blue;
+button.loginButton {
+  color: green;
+  background: white;
 }
 
-#navbar ul
-{
-    /*padding: 1.50mm;*/
-    padding: 0;
-    margin: 0 !important;
-    list-style-type: none;
+button.loginButton:hover {
+  color: lightgreen;
+  background: green;
 }
 
-#navbar li
-{
-    float: left;
+button.signupButton {
+  color: blue;
+  background: white;
 }
 
-#navbar li a
-{
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 15px 15px;
-    text-decoration: none;
+button.signupButton:hover {
+  color: cyan;
+  background: blue;
 }
 
+#navbar ul {
+  /*padding: 1.50mm;*/
+  padding: 0;
+  margin: 0 !important;
+  list-style-type: none;
+}
 
-#navbar li a:hover
-{
-    background-color: purple;
-    color: white;
+#navbar li {
+  float: left;
+}
+
+#navbar li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 15px 15px;
+  text-decoration: none;
+}
+
+#navbar li a:hover {
+  background-color: purple;
+  color: white;
 }
 
 /*#navbar img a:hover
@@ -208,123 +180,113 @@ button.signupButton:hover
     transform: scale(0.5);
 }*/
 
-.covertext
-{
-    background-color: black;
-    opacity: 0.7;
-    font-family: 'Droid Sans Mono';
-    color : green;
+.covertext {
+  background-color: black;
+  opacity: 0.7;
+  font-family: 'Droid Sans Mono';
+  color: white;
 }
 
-.errorDiv img
-{
-    border:0;
-    width:400px;
-    height:300px;
+.errorDiv img {
+  border: 0;
+  width: 400px;
+  height: 300px;
 }
 
-
-img{
-    width:70px;
-    height: 70px;
+img {
+  width: 70px;
+  height: 70px;
 }
 
-#avatarImg
-{
-    width:100px;
-    height: 100px;
+#avatarImg {
+  width: 100px;
+  height: 100px;
 }
 
-#navbar img
-{
-    border:0;
-    width:45px;
-    height:45px;
+#navbar img {
+  border: 0;
+  width: 45px;
+  height: 45px;
 }
 
-
-.active 
-{
-    background-color: #4CAF50;
+.active {
+  background-color: #4CAF50;
 }
 
-
-div.coverflow
-{
-    margin-top: 0.0 !important;
-    margin-bottom: 0.0 !important;
-    border : 0.0;
-    text-align: center;
-    display: block;
-    z-index: -1;
+div.coverflow {
+  margin-top: 0.0 !important;
+  margin-bottom: 0.0 !important;
+  border: 0.0;
+  text-align: center;
+  display: block;
+  z-index: -1;
 }
 
-div.content
-{
-    border: 0.0;
-    margin-top: 0.0 !important;
-    text-align: center;
-    background: orange;
-    color : white;
-    z-index: 1;
-    display: block;
-    opacity: 0.8;
-    padding: 60px;
+div.content {
+  border: 0.0;
+  margin-top: 0.0 !important;
+  text-align: center;
+  background: #239800;
+  color: white;
+  z-index: 1;
+  display: block;
+  opacity: 0.8;
+  padding: 60px;
 }
 
-#coverflow01
-{
-    background: url("../images/typewritter.jpg");
-    padding: 150px;
+.jumbotron {
+	background-color: transparent !important;
 }
 
-#coverflow02
-{
-    background: url("../images/fairyland-canyon.jpg");
-    background-size: cover;
-    padding: 100px;
-    color: white;
+#coverflow01 {
+  background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/typewritter.jpg");
+  background-color: black;
+  padding: 150px;
 }
+
+#coverflow02 {
+  background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/space-1.jpg");
+  padding: 100px;
+  color: white;
+}
+
 
 /*sets the "depth feel" of the page while scrolling*/
-#coverflow01, #coverflow02
-{
-    background-size:  cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center;
+
+#coverflow01, #coverflow02 {
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+	color: #fff;
 }
 
-#nameError, #passwdError, #usernameError, #emailError, #rePasswdError, #dobError, #agreementErr, #genericError
-{
-    width:25%;
-    display: inline-block;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 11px;
-    color: red;
-    font-weight: bold;
-    background-color: pink;
-    text-align: center;
-    margin-left: 25px;
-    border-left: 10px;
+#nameError, #passwdError, #usernameError, #emailError, #rePasswdError, #dobError, #agreementErr, #genericError {
+  width: 25%;
+  display: inline-block;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 11px;
+  color: red;
+  font-weight: bold;
+  background-color: pink;
+  text-align: center;
+  margin-left: 25px;
+  border-left: 10px;
 }
 
-#terms
-{
-    text-decoration: underline;
-    color: indigo;
+#terms {
+  text-decoration: underline;
+  color: indigo;
 }
 
-#terms:hover
-{
-    color: purple;
+#terms:hover {
+  color: purple;
 }
 
-#scrollableText
-{
-    height: 50px;
-    width: 100%;
-    background-color: peachpuff;
-    overflow-y: scroll;
+#scrollableText {
+  height: 50px;
+  width: 100%;
+  background-color: peachpuff;
+  overflow-y: scroll;
 }
