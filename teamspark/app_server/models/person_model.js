@@ -10,13 +10,19 @@ var personSchema = new mongoose.Schema(
         password:{type:String, require:true},
 
         dob:{type:String, require:true},
-        // spoken-language:{type:String}, require:true},
+        mainSpokenLanguage:{type:String, require:true},
+        otherSpokenLanguages:{type:[String], require:false},
 
-        // country:{type:String, require:true},
-        // state:{type:String, require:true},
-        // suburb:{type:String, require:true},
+        online{type:Boolean, require:true},
 
-        programmingLanguage:{type: String, require:true}
+        country:{type:String, require:true},
+        state:{type:String, require:true},
+        suburb:{type:String, require:true},
+
+        timePerWeek:{type:String, require:false},
+
+        skillLevel:{type:String, require,true},
+        programmingLanguages:{type: [String], require:true}
     }
 );
 
