@@ -4,7 +4,7 @@ block content
   #coverflow01.coverflow
     .container-fluid
       .col-md-6.col-md-offset-3
-        form
+        form(name='/login', method="post")
           h2 Welcome Back
           label.sr-only(for='inputEmail') Email address
           input.form-control(type='email', placeholder='Email address', required, autofocus)
