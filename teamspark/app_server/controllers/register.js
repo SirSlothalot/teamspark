@@ -22,7 +22,7 @@ module.exports.submitRegister = function(req,res) {
                 state: req.body.state,
                 suburb: req.body.suburb,
 
-                timePerWeek: req.body.timePerWeek,
+                availability: req.body.timePerWeek,
                 skillLevel: req.body.skillLevel,
                 programmingLanguages: req.body.programmingLanguages
             }),

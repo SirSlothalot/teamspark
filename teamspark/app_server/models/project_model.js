@@ -16,6 +16,7 @@ var projectSchema = new mongoose.Schema(
         state:{type:String, require:true},
         suburb:{type:String, require:false},
 
+        owner:{type:String, require,true},
         ageOfOwner:{type:String, require:true},
         mainSpokenLanguage:{type:String, require:true},
         otherSpokenLanguages:{type:[String], require:false},

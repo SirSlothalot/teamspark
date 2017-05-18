@@ -19,7 +19,7 @@ var personSchema = new mongoose.Schema(
         state:{type:String, require:true},
         suburb:{type:String, require:true},
 
-        timePerWeek:{type:String, require:false},
+        availability:{type:String, require:false},
 
         skillLevel:{type:String, require:true},
         programmingLanguages:{type: [String], require:true},

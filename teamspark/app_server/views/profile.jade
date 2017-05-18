@@ -1,9 +1,48 @@
 extends layout
 
 block content
-  #header
-    h1 Teamspark
-  #main
-    h2 fullname:
-    br
-    h3 Email/username: #{person.username}
+  #coverflow01.coverflow
+    .jumbotron
+      .container
+        h1 #{user.fullname}
+        p #{user.username}
+        img#avatarImg.avatar(src='/images/female_avatar.png', alt='Avatar')
+  .content
+    .container
+        .row
+            .col-sm-2
+            .col-sm-5
+                .text-left
+                    h2 Country: #{user.country}
+                    h2 Language: #{user.mainSpokenLanguage}
+                    h2 Age: #{user.dob}
+            .col-sm-5
+                .text-left
+                    h2 Skill level: #{user.skillLevel}
+                    h2 Availability: #{user.availability}
+                    h2 Works online: #{user.online}
+        .row
+            .col-sm-2
+            .col-sm-5
+                .text-left
+                    h2 Programming languages:
+            .col-sm-5
+                    h2 #{user.programmingLanguages}
+                
+
+
+
+
+
+
+
+
+//- extends layout
+//- 
+//- block content
+//-   #header
+//-     h1 Teamspark
+//-   #main
+//-     h2 fullname:
+//-     br
+//-     h3 Email/username: #{person.username}
