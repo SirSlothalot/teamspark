@@ -216,6 +216,8 @@ img {
 div.coverflow {
   margin-top: 0.0 !important;
   margin-bottom: 0.0 !important;
+	padding-top: 100px;
+	padding-bottom: 100px;
   border: 0.0;
   text-align: center;
   display: block;
@@ -240,14 +242,10 @@ div.content {
 
 #coverflow01 {
   background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/typewritter.jpg");
-  background-color: black;
-  padding: 150px;
 }
 
 #coverflow02 {
   background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/space-1.jpg");
-  padding: 100px;
-  color: white;
 }
 
 
