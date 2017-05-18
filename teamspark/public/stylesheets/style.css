@@ -1,6 +1,6 @@
 body {
-  /*padding-top: 25px;*/
-  margin: 0;
+  padding-top: 40px;
+	padding-bottom: 40px;
   font-family: 'Open Sans', sans-serif;
   background-size: cover;
 }
@@ -58,7 +58,7 @@ ul {
   width: 100%;
 }
 
-input[type=text], select, [type=email], [type=Password] {
+/*input[type=text], select, [type=email], [type=Password] {
   width: 75%;
   padding: 8px 16px;
   display: inline-block;
@@ -67,7 +67,7 @@ input[type=text], select, [type=email], [type=Password] {
   font-size: 20px;
   border-bottom: 5.0px;
   margin: 8px 0;
-}
+}*/
 
 p {
   font-size: 30px;
@@ -102,8 +102,8 @@ p {
   font-size: 10px;
 }
 
-button {
-  margin-top: 5px;
+/*button {*/
+  /*margin-top: 5px;
   margin-right: 10px;
   float: right;
   text-align: center;
@@ -146,7 +146,7 @@ button.signupButton {
 button.signupButton:hover {
   color: cyan;
   background: blue;
-}
+}*/
 
 #navbar ul {
   /*padding: 1.50mm;*/
@@ -222,6 +222,8 @@ div.coverflow {
   text-align: center;
   display: block;
   z-index: -1;
+	color: #fff;
+
 }
 
 div.content {
@@ -237,26 +239,31 @@ div.content {
 }
 
 .jumbotron {
-	background-color: transparent !important;
+	background-color: rgba(0,0,0,0.7) !important;
 }
 
 #coverflow01 {
   background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/typewritter.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 #coverflow02 {
   background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/space-1.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
-
-/*sets the "depth feel" of the page while scrolling*/
-
-#coverflow01, #coverflow02 {
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
-	color: #fff;
+#coverflowSignin {
+	background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/space-1.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 #nameError, #passwdError, #usernameError, #emailError, #rePasswdError, #dobError, #agreementErr, #genericError {
