@@ -3,20 +3,74 @@ var mongoose = require('mongoose');
 var Person = mongoose.model('Person');
 
 //Return person
-module.exports.profile = function getProfile(req,res){
-    Person.findOne({"username": req.params.username}).exec(
-        function(err, result) {
-            if(err) {
-                res.render('error', {
-                    message:err.messagr,
-                    error: err
-                });
-            } else {
-                console.log('find complete');
-                res.render('profile', {'person':result});
-            }
-        })
+module.exports.getProfile = function (req,res){
+    if(req.user) {
+        Person.findOne({"username": req.params.username}).exec(
+            function(err, result) {
+                if(err) {
+                    res.render('error', {
+                        message:err.messagr,
+                        error: err
+                    });
+                } else {
+                    console.log('find complete');
+                    res.render('profile', {'person':result});
+                }
+            })
+    } else {
+        res.redirect('/');
+    }
 };
+
+module.exports.getEditProfile = function (req,res){
+    if(req.user.username == req.params.username) {
+        Person.findOne({"username": req.params.username}).exec(
+            function(err, result) {
+                if(err) {
+                    res.render('error', {
+                        message:err.messagr,
+                        error: err
+                    });
+                } else {
+                    console.log('find complete');
+                    res.render('profile-edit', {'person':result});
+                }
+            })
+    } else {
+        res.redirect('/');
+    }
+}
+
+module.exports.editProfile = function (req,res){
+    if(req.user.username == req.params.username) {
+        var updates = {
+            fullname: req.body.fullname,
+            username: req.body.username,
+
+            dob: req.body.dob,
+            mainSpokenLanguage: req.body.mainSpokenLanguage,
+            otherSpokenLanguages: req.body.otherSpokenLanguages,
+
+            online: req.body.online,
+
+            country: req.body.country,
+            state: req.body.state,
+            suburb: req.body.suburb,
+
+            timePerWeek: req.body.timePerWeek,
+            skillLevel: req.body.skillLevel,
+            programmingLanguages: req.body.programmingLanguages
+        }
+
+        Person.findOneAndUpdate({username:req.user.username}, updates, {runValidators:true}, function (err, doc) {
+              if (err) console.log(err);
+        });
+
+    } else {
+        res.redirect('/');
+        console.log('Cannot edit profile. You are not logged in.')
+    }
+}
 
 // #{person.username}
 //{"username": req.user.username}

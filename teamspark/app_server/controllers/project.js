@@ -13,29 +13,34 @@ module.exports.load = function(req, res, next) {
 
 module.exports.submit = function(req, res, next) {
 
-    var p = Person.findOne({"username":req.params.user});
+    if(req.user) {
+        var p = Person.findOne({"username":req.user.username});
 
-    var newProject = new Project({
-        title: req.body.title,
-        description: req.body.description,
+        var newProject = new Project({
+            title: req.body.title,
+            description: req.body.description,
 
-        skillLevel: req.body.skillLevel,
-        programmingLanguages: req.body.programmingLanguages,
+            skillLevel: req.body.skillLevel,
+            programmingLanguages: req.body.programmingLanguages,
 
-        timePerWeek: req.body.timePerWeek,
-        online: req.body.online,
+            timePerWeek: req.body.timePerWeek,
+            online: req.body.online,
 
-        country: p.country,
-        state: p.state,
-        suburb: p.suburb,
+            country: p.country,
+            state: p.state,
+            suburb: p.suburb,
 
-        ageOfOwner: p.dob,
-        submissionDate: new Date(),
+            ageOfOwner: p.dob,
+            submissionDate: new Date(),
 
-        mainSpokenLanguage: p.mainSpokenLanguage
-    });
+            mainSpokenLanguage: p.mainSpokenLanguage
+        });
 
-    newProject.save();
+        newProject.save();
+
+    } else {
+        console.log("Cannot create project. You are not logged in.")
+    }
     res.redirect('/');
 
 

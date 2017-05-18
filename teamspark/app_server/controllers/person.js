@@ -15,7 +15,7 @@ function getPersons(req,res){
                 });
             } else {
                 console.log('find complete');
-                res.render('person', {'people':simpleData});
+                res.render('person', {'people':simpleData}, {user: req.user});
             }
         })
 };

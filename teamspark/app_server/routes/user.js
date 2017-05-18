@@ -14,7 +14,11 @@ router.post('/', ctrlPerson.newPerson);
 //Delete a person
 router.get('/delete/:username', ctrlPerson.deletePerson);
 
-router.get('/:username', ctrlProfile.profile);
+router.get('/:username', ctrlProfile.getProfile);
+
+router.get('/:username/edit', ctrlProfile.getEditProfile);
+
+router.post('/:username/edit', ctrlProfile.editProfile);
 
 router.get('/logout', ctrlLogout.logoutUser);
 

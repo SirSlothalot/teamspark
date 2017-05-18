@@ -10,10 +10,21 @@ module.exports.registerUser = function(req,res) {
         new Person(
             {
                 fullname: req.body.fullname,
-                username: req.body.email,
-                //password: req.body.password,
+                username: req.body.username,
+
                 dob: req.body.dob,
-                programmingLanguage: req.body.programmingLanguage
+                mainSpokenLanguage: req.body.mainSpokenLanguage,
+                otherSpokenLanguages: req.body.otherSpokenLanguages,
+
+                online: req.body.online,
+
+                country: req.body.country,
+                state: req.body.state,
+                suburb: req.body.suburb,
+
+                timePerWeek: req.body.timePerWeek,
+                skillLevel: req.body.skillLevel,
+                programmingLanguages: req.body.programmingLanguages
             }),
             req.body.password,
         function(err, person) {
