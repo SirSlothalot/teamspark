@@ -5,6 +5,8 @@ var ctrlContact = require('../controllers/contact');
 var ctrlReference = require('../controllers/reference');
 var ctrlRegister = require('../controllers/register');
 var ctrlLogin = require('../controllers/login');
+var ctrlLogout = require('../controllers/logout');
+
 
 var passport = require('passport');
 var Person = require('../models/person_model');
@@ -32,5 +34,7 @@ router.get('/login', ctrlLogin.renderLogin);
 router.post('/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login'}), ctrlLogin.submitLogin);
 
 //router.get('/profile/:username/edit', ctrlProfile.edit);
+
+router.get('/logout', ctrlLogout.logoutUser);
 
 module.exports = router;

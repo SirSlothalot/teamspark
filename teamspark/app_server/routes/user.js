@@ -3,7 +3,6 @@ var express = require('express');
 var router = express.Router();
 var ctrlPerson = require('../controllers/person');
 var ctrlProfile = require('../controllers/profile');
-var ctrlLogout = require('../controllers/logout');
 
 //GET a person
 router.get('/', ctrlPerson.personList);
@@ -19,7 +18,5 @@ router.get('/:username', ctrlProfile.renderProfile);
 router.get('/:username/edit', ctrlProfile.renderEditProfile);
 
 router.post('/:username/edit', ctrlProfile.submitEditProfile);
-
-router.get('/logout', ctrlLogout.logoutUser);
 
 module.exports = router;

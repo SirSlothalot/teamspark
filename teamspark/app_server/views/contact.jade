@@ -1,26 +1,17 @@
 extends layout
 
 block content
-  #main
-    #formContainer
-      form.entries(action='javascript:successContact()')
-        img#avatarImg.avatar(src='/images/logo.png', alt='Avatar')
-        br
-        p Your two cents matter!
-        label Text Field
-        br
-        p#genericError
-        input#feedback(type='text', name='message', placeholder='Please type your feedback here...')
-        br
-        label Email Address
-        br
-        p#emailError
-        input#email(type='text', name='Email', placeholder='user@example.com')
-        br
-        input#agreebox(type='checkbox', name='agreement')
-        label Forward me a copy.
-        br
-        br
-        button.genericButton(onclick='return validateSubmit()') SUBMIT
-        br
-      script(type='text/javascript', src='/javascripts/contact_events.js')
+  #coverflow01.coverflow
+    .container-fluid
+      .col-md-6.col-md-offset-3
+        form.entries.form-group.form-group-lg(action='javascript:successContact()')
+          img#avatarImg.avatar(src='/images/logo.png', alt='Avatar')
+          p Your two cents matter!
+          .form-group
+            label(for='Message') Message
+            textarea.form-control(id='Message', name='message', placeholder='Please type your feedback here...')
+          .form-group
+            label(for='Email') Email Address
+            input.form-control(id='Email',type='email', name='Email', placeholder='user@example.com')
+          button.btn.btn-lg.btn-default.btn-block(onclick='return validateSubmit()') Submit
+  script(type='text/javascript', src='/javascripts/contact_events.js')
