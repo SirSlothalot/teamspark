@@ -385,3 +385,21 @@ textarea {
     resize: none;
     background-color: #e8eeef;
 }
+
+
+
+form.entries {
+
+    clear: both;
+    border-radius: 8px;
+    border: none;
+
+    /*width: 50%;*/
+    padding: 30px;
+    margin: 20px auto;
+    font-size: 120%;
+    background-color: gray;
+    color: black;
+    opacity: 0.8;
+    text-align: center;
+}
