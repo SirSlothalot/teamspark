@@ -4,7 +4,6 @@ var router = express.Router();
 var ctrlPerson = require('../controllers/person');
 var ctrlProfile = require('../controllers/profile');
 var ctrlLogout = require('../controllers/logout');
-var ctrlProject = require('../controllers/project');
 
 //GET a person
 router.get('/', ctrlPerson.personList);

@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var projectSchema = new mongoose.Schema(
     {
-        title:{type:String, require:true},
+        title:{type:String, unique:true, require:true},
         description:{type:String, require:true},
 
         skillLevel:{type:String, require:true},
@@ -16,11 +16,12 @@ var projectSchema = new mongoose.Schema(
         state:{type:String, require:true},
         suburb:{type:String, require:false},
 
-        dob:{type:String, require:true},
+        ageOfOwner:{type:String, require:true},
         mainSpokenLanguage:{type:String, require:true},
         otherSpokenLanguages:{type:[String], require:false},
 
+        submissionDate:{type:Date, require:true}
     }
 );
 
-mongoose.model('Project', projectSchema);
+module.exports = mongoose.model('Project', projectSchema);

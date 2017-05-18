@@ -39,3 +39,4 @@ process.on('SIGTERM', function() {
 });
 
 require('./person_model.js');
+require('./project_model.js');
