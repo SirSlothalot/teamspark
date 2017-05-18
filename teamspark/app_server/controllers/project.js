@@ -24,7 +24,7 @@ module.exports.submitNewProject = function(req, res, next) {
             programmingLanguages: req.body.programmingLanguages,
 
             timePerWeek: req.body.timePerWeek,
-            online: req.body.online,
+            virtualTeam: req.body.virtualTeam,
 
             country: p.country,
             state: p.state,
@@ -100,7 +100,7 @@ module.exports.submitEditProject = function(req, res, next) {
             programmingLanguages: req.body.programmingLanguages,
 
             timePerWeek: req.body.timePerWeek,
-            online: req.body.online,
+            virtualTeam: req.body.virtualTeam,
         }
 
         var newP = Project.findOneAndUpdate({title:req.body.title}, updates, {runValidators:true, new:true}, function (err, doc) {

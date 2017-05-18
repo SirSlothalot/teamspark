@@ -1,0 +1,51 @@
+extends layout
+
+block content
+    #coverflow01.coverflow
+        .row
+            .container-fluid
+                .col-md-6.col-md-offset-3
+                    form.entries(name='/project/new', method="post", onload='makeFooter()')
+                        img#avatarImg.avatar(src='/images/logo.png', alpostt='Avatar')
+                        br
+                        p
+                          | Create a new 
+                          b Project
+                        .form-group
+                            label Project Title *
+                            input#Title(type='text', name='title', value='#{project.title}')
+                        .form-group
+                            label Description *
+                            textarea#Description(type='textarea', name='description', value='#{project.description}')
+                        .form-group
+                            label Required skill level 
+                            select#SkillLevel(name='skillLevel')
+                              option(value='#{project.skillLevel}') #{project.skillLevel}
+                              option(value='beginnger') Beginner
+                              option(value='intermediate') Intermediate
+                              option(value='advanced') 
+                        .form-group
+                            label Programming languages
+                            select#language(name='programmingLanguages')
+                              option(value='#{project.programmingLanguages}') #{project.programmingLanguages}
+                              option(value='c') C
+                              option(value='cpp') C++
+                              option(value='cs') C#
+                              option(value='haskell') Haskell
+                              option(value='java') Java
+                              option(value='js') JavaScript
+                              option(value='objectivec') Objective-C
+                              option(value='perl') Perl
+                              option(value='php') PHP
+                              option(value='python') Python
+                              option(value='ruby') Ruby
+                              option(value='scala') Scala
+                              option(value='other') Other...
+                        .form-group
+                            label Willing to work in a virtual team? *
+                            select#online(name='virtualTeam')
+                              option(value='#{project.virtualTeam}') #{project.virtualTeam}
+                              option(value='yes') Yes
+                              option(value='no') No
+                        .form-group
+                            button.btn.btn-lg.btn-default.btn-block(onclick='return validateSubmit()') Update

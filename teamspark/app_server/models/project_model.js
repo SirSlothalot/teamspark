@@ -10,7 +10,7 @@ var projectSchema = new mongoose.Schema(
 
         timePerWeek:{type:String, require:false},
 
-        online:{type:Boolean, require:true},
+        virtualTeam:{type:Boolean, require:true},
 
         country:{type:String, require:true},
         state:{type:String, require:true},

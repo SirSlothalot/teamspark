@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    .form-page
+    #coverflow01.coverflow
         .row
             .container-fluid
                 .col-md-6.col-md-offset-3
@@ -25,7 +25,7 @@ block content
                               option(value='advanced') 
                         .form-group
                             label Programming languages
-                            select#language(name='programmingLanguage')
+                            select#language(name='programmingLanguages')
                               option(value='c') C
                               option(value='cpp') C++
                               option(value='cs') C#
@@ -40,11 +40,9 @@ block content
                               option(value='scala') Scala
                               option(value='other') Other...
                         .form-group
-                            label Willing to work online, without meeting face-to-face? *
-                            select#online(name='online')
+                            label Willing to work in a virtual team? *
+                            select#online(name='virtualTeam')
                               option(value='yes') Yes
                               option(value='no') No
                         .form-group
-                            input(type='submit', value='Submit')
-                        //button#signupbutton.genericButton(onclick='return validateSignUp()') SIGN UP
-                        //script(type='text/javascript', src='/javascripts/sign_up_event.js')
+                            button.btn.btn-lg.btn-default.btn-block(onclick='return validateSubmit()') Submit
