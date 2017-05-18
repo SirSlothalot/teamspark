@@ -7,9 +7,15 @@ var ctrlProject = require('../controllers/project');
 
 // router.get('/:projectName', ctrlProject.getProject);
 
-router.get('/new', ctrlProject.load);
+router.get('/new', ctrlProject.renderNewProject);
 
-router.post('/new', ctrlProject.submit);
+router.post('/new', ctrlProject.submitNewProject);
+
+router.get('/:projectTitle', ctrlProject.renderProject);
+
+router.get('/:projectTitle/edit', ctrlProject.renderEditProject);
+
+router.post('/:projectTitle/edit', ctrlProject.submitEditProject);
 
 
 

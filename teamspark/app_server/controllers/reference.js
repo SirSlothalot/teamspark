@@ -1,4 +1,4 @@
 /* GET reference page. */
-module.exports.reference = function(req, res, next) {
+module.exports.renderReference = function(req, res, next) {
   res.render('references', { title: 'References', user: req.user});
 };

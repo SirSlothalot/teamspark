@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Person = mongoose.model('Person');
 
 //Return person
-module.exports.getProfile = function (req,res){
+module.exports.renderProfile = function (req,res){
     if(req.user) {
         Person.findOne({"username": req.params.username}).exec(
             function(err, result) {
@@ -19,10 +19,11 @@ module.exports.getProfile = function (req,res){
             })
     } else {
         res.redirect('/');
+        Console.log('Cannot view profile. You are not logged in.');
     }
 };
 
-module.exports.getEditProfile = function (req,res){
+module.exports.renderEditProfile = function (req,res){
     if(req.user.username == req.params.username) {
         Person.findOne({"username": req.params.username}).exec(
             function(err, result) {
@@ -33,15 +34,16 @@ module.exports.getEditProfile = function (req,res){
                     });
                 } else {
                     console.log('find complete');
-                    res.render('profile-edit', {'person':result});
+                    res.render('profile-edit', {'person':result, user: req.user});
                 }
             })
     } else {
         res.redirect('/');
+        console.log('Cannot edit this profile. You do not have permission.')
     }
 }
 
-module.exports.editProfile = function (req,res){
+module.exports.submitEditProfile = function (req,res){
     if(req.user.username == req.params.username) {
         var updates = {
             fullname: req.body.fullname,
@@ -62,9 +64,11 @@ module.exports.editProfile = function (req,res){
             programmingLanguages: req.body.programmingLanguages
         }
 
-        Person.findOneAndUpdate({username:req.user.username}, updates, {runValidators:true}, function (err, doc) {
+        var newP = Person.findOneAndUpdate({username:req.user.username}, updates, {runValidators:true, new:true}, function (err, doc) {
               if (err) console.log(err);
         });
+
+        res.redirect(string.concat('/user/', newP.username));
 
     } else {
         res.redirect('/');

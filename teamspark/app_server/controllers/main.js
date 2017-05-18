@@ -1,4 +1,4 @@
 /* GET home page. */
-module.exports.index = function(req, res, next) {
+module.exports.renderIndex = function(req, res, next) {
   res.render('index', { title: 'Teamspark', user: req.user});
 };

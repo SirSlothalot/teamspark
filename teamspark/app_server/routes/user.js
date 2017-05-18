@@ -14,11 +14,11 @@ router.post('/', ctrlPerson.newPerson);
 //Delete a person
 router.get('/delete/:username', ctrlPerson.deletePerson);
 
-router.get('/:username', ctrlProfile.getProfile);
+router.get('/:username', ctrlProfile.renderProfile);
 
-router.get('/:username/edit', ctrlProfile.getEditProfile);
+router.get('/:username/edit', ctrlProfile.renderEditProfile);
 
-router.post('/:username/edit', ctrlProfile.editProfile);
+router.post('/:username/edit', ctrlProfile.submitEditProfile);
 
 router.get('/logout', ctrlLogout.logoutUser);
 

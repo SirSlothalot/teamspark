@@ -10,26 +10,26 @@ var passport = require('passport');
 var Person = require('../models/person_model');
 
 /* GET home page. */
-router.get('/', ctrlMain.index);
+router.get('/', ctrlMain.renderIndex);
 
 /*GET Contact pages*/
-router.get('/contact', ctrlContact.contact);
+router.get('/contact', ctrlContact.renderContact);
 
 /*GET Reference page*/
-router.get('/references', ctrlReference.reference);
+router.get('/references', ctrlReference.renderReference);
 //
 // router.get('/register', ctrlRegister.register);
 
 // router.get('/login', ctrlLogin.login);
 
 //Register user
-router.get('/register', ctrlRegister.load);
+router.get('/register', ctrlRegister.renderRegister);
 
-router.post('/register', ctrlRegister.registerUser);
+router.post('/register', ctrlRegister.submitRegister);
 
-router.get('/login', ctrlLogin.load);
+router.get('/login', ctrlLogin.renderLogin);
 
-router.post('/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login'}), ctrlLogin.loginUser);
+router.post('/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login'}), ctrlLogin.submitLogin);
 
 //router.get('/profile/:username/edit', ctrlProfile.edit);
 

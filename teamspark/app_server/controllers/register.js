@@ -1,11 +1,11 @@
 var passport = require('passport');
 var Person = require('../models/person_model');
 
-module.exports.load = function(req, res, next) {
+module.exports.renderRegister = function(req, res, next) {
       res.render('register', { title: 'Register', user: req.user});
 };
 
-module.exports.registerUser = function(req,res) {
+module.exports.submitRegister = function(req,res) {
     Person.register(
         new Person(
             {
@@ -33,7 +33,7 @@ module.exports.registerUser = function(req,res) {
                 return res.render('register', {person:person});
             }
             console.log(person, ' saved');
-            res.redirect('/');
+            res.redirect(string.concat('/user/', req.body.username));
             passport.authenticate('local', {successRedirect: '/', failureRedirect: '/register'});
         }
     );
