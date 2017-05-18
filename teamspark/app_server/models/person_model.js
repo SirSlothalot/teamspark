@@ -13,7 +13,7 @@ var personSchema = new mongoose.Schema(
         mainSpokenLanguage:{type:String, require:true},
         otherSpokenLanguages:{type:[String], require:false},
 
-        online{type:Boolean, require:true},
+        online:{type:Boolean, require:true},
 
         country:{type:String, require:true},
         state:{type:String, require:true},
@@ -21,7 +21,7 @@ var personSchema = new mongoose.Schema(
 
         timePerWeek:{type:String, require:false},
 
-        skillLevel:{type:String, require,true},
+        skillLevel:{type:String, require:true},
         programmingLanguages:{type: [String], require:true}
     }
 );
