@@ -13,9 +13,10 @@ function resetButtonAnimation(el)
 }
 
 
+
 function validateSignUp()
 {
-	return(validateFullName()  && validateEMail() && validatePasswd() && validateRPasswd() && validateDOB() && checkAgreement());
+	return(validateFullName()  && validateEMail() && validateUName() && validatePasswd() && validateRPasswd() && validateDOB() && checkAgreement());
 }
 
 
@@ -42,7 +43,7 @@ function validateEMail()
 		return false;
 	}
 
-	var isValid =  /^[a-z 0-9 _\.\-]+@[a-z 0-9 _\.\-]+\.[a-z][a-z]+/.test(emailAddress.value);
+	var isValid =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(emailAddress.value);
 
 	if(!isValid)
 	{
@@ -62,29 +63,29 @@ function resetEMail()
 }
 
 
-// function validateUName()
-// {
-// 	var username = document.getElementById("username");
+function validateUName()
+{
+	var username = document.getElementById("username");
 
-// 	if(username.value == "")
-// 	{
-// 		document.getElementById("usernameError").innerHTML = "Enter your username.";
-// 		return false;
-// 	}
-// 	else if((username.value).search(" ") !== -1)
-// 	{
-// 		document.getElementById("usernameError").innerHTML = "Invalid Username! Contains (SPACE) character.";
-// 		return false;
-// 	}
+	if(username.value == "")
+	{
+		document.getElementById("usernameError").innerHTML = "Enter your username.";
+		return false;
+	}
+	else if((username.value).search(" ") !== -1)
+	{
+		document.getElementById("usernameError").innerHTML = "Invalid Username! Contains (SPACE) character.";
+		return false;
+	}
 
-// 	document.getElementById("usernameError").innerHTML = "";
-// 	return true;
-// }
+	document.getElementById("usernameError").innerHTML = "";
+	return true;
+}
 
-// function resetUName()
-// {
-// 	document.getElementById("usernameError").innerHTML = "";
-// }
+function resetUName()
+{
+	document.getElementById("usernameError").innerHTML = "";
+}
 
 
 function validatePasswd(str)
@@ -236,6 +237,59 @@ function resetFullName()
 	document.getElementById("nameError").innerHTML = "";
 }
 
+var progLangCount = 0;
+
+function addLangOpt()
+{
+	var progLangExtra = document.createElement("input");
+	progLangExtra.id = "progLangExtra"+(progLangCount+1);
+	progLangExtra.name = "progLangExtra";
+	progLangExtra.type = "text";
+	progLangExtra.placeholder = "C++";
+	var form = document.forms['/register'];
+	var addButton = document.getElementById("plusExtraProgLang");
+	form.appendChild(progLangExtra);
+	progLangCount++;
+	form.insertBefore(progLangExtra, addButton);
+}
+
+
+function minusLangOpt()
+{
+	if(progLangCount>0)
+	{
+		document.getElementById("progLangExtra"+progLangCount).remove();
+		progLangCount--;
+	}
+}
+
+
+
+var spokenLangCount = 0;
+
+function addSpeakOpt()
+{
+	var speakLangExtra = document.createElement("input");
+	speakLangExtra.id = "otherSpokenLanguages"+(spokenLangCount+1);
+	speakLangExtra.name = "progLangExtra";
+	speakLangExtra.type = "text";
+	speakLangExtra.placeholder = "French";
+	var form = document.forms['/register'];
+	var addButton = document.getElementById("plusExtraSpLang");
+	form.appendChild(speakLangExtra);
+	spokenLangCount++;
+	form.insertBefore(speakLangExtra, addButton);
+}
+
+
+function minusSpeakOpt()
+{
+	if(spokenLangCount>0)
+	{
+		document.getElementById("otherSpokenLanguages"+spokenLangCount).remove();
+		spokenLangCount--;
+	}
+}
 
 function validateLanguage()
 {

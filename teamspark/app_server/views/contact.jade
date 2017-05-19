@@ -4,14 +4,16 @@ block content
   #coverflow01.coverflow
     .container-fluid
       .col-md-6.col-md-offset-3
-        form.entries.form-group.form-group-lg(action='javascript:successContact()')
+        form.entries(action='javascript:successContact()')
           img#avatarImg.avatar(src='/images/logo.png', alt='Avatar')
           p Your two cents matter!
           .form-group
-            label(for='Message') Message
-            textarea.form-control(id='Message', name='message', placeholder='Please type your feedback here...')
+            label(for='feedback') Message
+            textarea.form-control(id='feedback', name='feedback', placeholder='Please type your feedback here...')
+          p#genericError
           .form-group
-            label(for='Email') Email Address
-            input.form-control(id='Email',type='email', name='Email', placeholder='user@example.com')
+            label(for='email') Email Address
+            input.form-control(id='email',type='text', name='email', placeholder='user@example.com')
+          p#emailError
           button.btn.btn-lg.btn-default.btn-block(onclick='return validateSubmit()') Submit
   script(type='text/javascript', src='/javascripts/contact_events.js')
