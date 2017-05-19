@@ -17,4 +17,4 @@ document.getElementById("fullname").onfocus = resetFullName;
 document.getElementById("agreebox").onclick = checkAgreement;
 
 document.getElementById("language").onclick= validateLanguage;
-document.getElementById("terms").onclick= expandTerms;
+//document.getElementById("terms").onclick= expandTerms;

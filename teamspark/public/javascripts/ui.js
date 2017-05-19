@@ -16,7 +16,8 @@ function resetButtonAnimation(el)
 
 function validateSignUp()
 {
-	return(validateFullName()  && validateEMail() && validateUName() && validatePasswd() && validateRPasswd() && validateDOB() && checkAgreement());
+	//return(validateFullName()  && validateEMail() && validateUName() && validatePasswd() && validateRPasswd() && validateDOB() && checkAgreement());
+	return(validateFullName()  && validateEMail() && validateUName() && validatePasswd() && validateRPasswd() && validateDOB());
 }
 
 
