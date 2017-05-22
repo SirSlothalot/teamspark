@@ -242,15 +242,24 @@ var progLangCount = 0;
 
 function addLangOpt()
 {
-	var progLangExtra = document.createElement("input");
-	progLangExtra.id = "progLangExtra"+(progLangCount+1);
-	progLangExtra.name = "programmingLanguages";
-	progLangExtra.type = "text";
-	progLangExtra.value = "C++";
-	var form = document.forms['/register'];
+	var options = document.getElementById("language");
+	var clone = options.cloneNode(true);
+
+	clone.id = "progLangExtra"+(progLangCount+1);
 	var formGroup = document.getElementById("progLanguages");
-	formGroup.appendChild(progLangExtra);
+	formGroup.appendChild(clone);
 	progLangCount++;
+
+
+	// var progLangExtra = document.createElement("input");
+	// progLangExtra.id = "progLangExtra"+(progLangCount+1);
+	// progLangExtra.name = "programmingLanguages";
+	// progLangExtra.type = "text";
+	// progLangExtra.value = "C++";
+	// var form = document.forms['/register'];
+	// var formGroup = document.getElementById("progLanguages");
+	// formGroup.appendChild(progLangExtra);
+	// progLangCount++;
 	// formGroup.insertBefore(progLangExtra, addButton);
 }
 

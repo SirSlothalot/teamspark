@@ -24,27 +24,24 @@ block content
                             label Date of Birth *
                             p#dobError
                             input#dob(type='text', name='dob', value='#{person.dob}', required)
-                        .form-group
+                        .form-group#progLanguages
                             label Favourite Programming Language *
-                            select#language(name='programmingLanguages')
-                              option(value='#{person.programmingLanguages[0]}') #{person.programmingLanguages[0]}
-                              option(value='c') C
-                              option(value='cpp') C++
-                              option(value='cs') C#
-                              option(value='haskell') Haskell
-                              option(value='java') Java
-                              option(value='js') JavaScript
-                              option(value='objectivec') Objective-C
-                              option(value='perl') Perl
-                              option(value='php') PHP
-                              option(value='python') Python
-                              option(value='ruby') Ruby
-                              option(value='scala') Scala
-                              option(value='other') Other...
-                         .form-group#progLanguages
-                             label Familiar Programming Languages
-                             - for (var i = 1; i < person.programmingLanguages.length; i++)
-                                input#extraProgLang(type='text', name='programmingLanguages', value='#{person.programmingLanguages[i]}')
+                            - for (var i = 0; i < person.programmingLanguages.length; i++)
+                                select#language(name='programmingLanguages')
+                                  option(value='#{person.programmingLanguages[i]}') #{person.programmingLanguages[i]}
+                                  option(value='c') C
+                                  option(value='cpp') C++
+                                  option(value='cs') C#
+                                  option(value='haskell') Haskell
+                                  option(value='java') Java
+                                  option(value='js') JavaScript
+                                  option(value='objectivec') Objective-C
+                                  option(value='perl') Perl
+                                  option(value='php') PHP
+                                  option(value='python') Python
+                                  option(value='ruby') Ruby
+                                  option(value='scala') Scala
+                                  option(value='other') Other...
                          .form-group
                              button#plusExtraProgLang(name = 'posproglang', type='button', onclick='return addLangOpt()') +
                              button#minusExtraProgLang(name = 'negproglang', type = 'button', onclick='return minusLangOpt()') -
