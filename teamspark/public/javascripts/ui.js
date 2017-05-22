@@ -98,7 +98,7 @@ function validatePasswd(str)
 		document.getElementById("passwdError").innerHTML = "Enter your password.";
 		return false;
 	}
-	
+
 	return true;
 }
 
@@ -166,11 +166,11 @@ function validateDOB()
 	// }
 
 	try{
-		
+
 		var bday = new Date(parseInt(date[2]), parseInt(date[1])+1, parseInt(date[0]));
 		//document.getElementById("dobError").innerHTML = bday;
 		var ageDif = Date.now()- bday.getTime(); //Milliseconds
-		var yearAge = parseInt(ageDif)/(365*24*60*60*1000); 
+		var yearAge = parseInt(ageDif)/(365*24*60*60*1000);
 
 		if(ageDif < 0)
 		{
@@ -244,9 +244,9 @@ function addLangOpt()
 {
 	var progLangExtra = document.createElement("input");
 	progLangExtra.id = "progLangExtra"+(progLangCount+1);
-	progLangExtra.name = "progLangExtra";
+	progLangExtra.name = "programmingLanguages";
 	progLangExtra.type = "text";
-	progLangExtra.placeholder = "C++";
+	progLangExtra.value = "C++";
 	var form = document.forms['/register'];
 	var addButton = document.getElementById("plusExtraProgLang");
 	form.appendChild(progLangExtra);
@@ -271,10 +271,10 @@ var spokenLangCount = 0;
 function addSpeakOpt()
 {
 	var speakLangExtra = document.createElement("input");
-	speakLangExtra.id = "otherSpokenLanguages"+(spokenLangCount+1);
+	speakLangExtra.id = "spokenLanguages"+(spokenLangCount+1);
 	speakLangExtra.name = "progLangExtra";
 	speakLangExtra.type = "text";
-	speakLangExtra.placeholder = "French";
+	speakLangExtra.value = "French";
 	var form = document.forms['/register'];
 	var addButton = document.getElementById("plusExtraSpLang");
 	form.appendChild(speakLangExtra);

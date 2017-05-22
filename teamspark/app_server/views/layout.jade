@@ -2,6 +2,8 @@ doctype html
 html
   head
     title= title
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin="anonymous")
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     meta(name='viewport', content='width=device-width, initial-scale=1')
@@ -62,7 +64,22 @@ html
                 |  Logout
           
     block content
-      
-  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
-  script(src='javascripts/bootstrap.min.js')
+    
+    footer
+      .footer-upper
+        .social-icons
+            li
+              a.social-icon(href='')
+                i.transition-colour.fa.fa-facebook
+            li
+              a.social-icon(href='')
+                i.transition-colour.fa.fa-twitter
+            li
+              a.social-icon(href='')
+                i.transition-colour.fa.fa-google-plus
+            li
+              a.social-icon(href='')
+                i.transition-colour.fa.fa-youtube
+    
+  
   script(src="/javascripts/ui.js")

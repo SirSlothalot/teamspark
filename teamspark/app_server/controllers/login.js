@@ -5,6 +5,6 @@ module.exports.renderLogin = function(req, res, next) {
       res.render('login', { title: 'Login', user: req.user});
 };
 
-module.exports.submitLogin = function(req, res) {
-        res.redirect('/');
-};
+// module.exports.submitLogin = function(req, res) {
+//         res.redirect('/');
+// };

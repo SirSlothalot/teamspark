@@ -34,11 +34,11 @@ module.exports.submitNewProject = function(req, res, next) {
             ageOfOwner: p.dob,
             submissionDate: new Date(),
 
-            mainSpokenLanguage: p.mainSpokenLanguage
+            spokenLanguage: p.spokenLanguages
         });
 
         newProject.save();
-        res.redirect(string.concat('/project/', req.body.title));
+        res.redirect('/project/' + req.body.title);
 
     } else {
         console.log("Cannot create project. You are not logged in.");
@@ -58,7 +58,7 @@ module.exports.renderProject = function(req, res, next) {
                     });
                 } else {
                     console.log('find complete');
-                    res.render('project', {'person':result, title: 'Project', user: req.user});
+                    res.render('project', {'project':result, title: 'Project', user: req.user});
                 }
             })
     } else {
@@ -100,7 +100,7 @@ module.exports.submitEditProject = function(req, res, next) {
             programmingLanguages: req.body.programmingLanguages,
 
             timePerWeek: req.body.timePerWeek,
-            virtualTeam: req.body.virtualTeam,
+            // virtualTeam: req.body.virtualTeam,
         }
 
         var newP = Project.findOneAndUpdate({title:req.body.title}, updates, {runValidators:true, new:true}, function (err, doc) {

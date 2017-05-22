@@ -18,8 +18,7 @@ var projectSchema = new mongoose.Schema(
 
         owner:{type:String, require:true},
         ageOfOwner:{type:String, require:true},
-        mainSpokenLanguage:{type:String, require:true},
-        otherSpokenLanguages:{type:[String], require:false},
+        spokenLanguages:{type:[String], require:false},
 
         submissionDate:{type:Date, require:true}
     }

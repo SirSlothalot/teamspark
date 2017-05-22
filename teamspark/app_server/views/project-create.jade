@@ -40,9 +40,17 @@ block content
                               option(value='scala') Scala
                               option(value='other') Other...
                         .form-group
-                            label Willing to work in a virtual team? *
-                            select#online(name='virtualTeam')
-                              option(value='yes') Yes
-                              option(value='no') No
+                            label Weekly workload in hours
+                            select#availability(name='timePerWeek')
+                              option(value='5 hours') 5 hours or less.
+                              option(value='10 hours') 10 hours per week.
+                              option(value='15 hours') 15 hours per week.
+                              option(value='20 hours') 20 hours per week.
+                              options(value='20+ hours') More than 20 hours per week.
+                        //- .form-group
+                        //-     label Willing to work in a virtual team? *
+                        //-     select#online(name='virtualTeam')
+                        //-       option(value='yes') Yes
+                        //-       option(value='no') No
                         .form-group
                             button.btn.btn-lg.btn-default.btn-block(onclick='return validateSubmit()') Submit

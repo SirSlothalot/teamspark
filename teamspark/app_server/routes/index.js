@@ -31,7 +31,7 @@ router.post('/register', ctrlRegister.submitRegister);
 
 router.get('/login', ctrlLogin.renderLogin);
 
-router.post('/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login'}), ctrlLogin.submitLogin);
+router.post('/login', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/login'}));
 
 //router.get('/profile/:username/edit', ctrlProfile.edit);
 
