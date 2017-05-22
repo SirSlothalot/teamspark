@@ -111,11 +111,12 @@ block content
                         .form-group
                             label Bio
                             input#bio(type='text', name ='bio', placeholder='Tell potential team members more about yourself...', required)
-                        .form-group
+                        .form-group#accountsGroup
                             label Accounts
                             input#gitHubAcc(type='text', name ='accounts', placeholder='github.com/')
-                            input#bitBucketAcc(type='text', name ='accounts', placeholder='bitbucket.com/')
-                            input#stackOverflowAcc(type='text', name='accounts', placeholder='stackoverflow.com/users/')
+                        .form-group
+                            button#plusExtraAccount(name = 'posaccounts', type='button', onclick='return addAccountOpt()') +
+                            button#minusExtraAccount(name = 'negaccounts', type = 'button', onclick='return minusAccountOpt()') -
                         .form-group
                             button.btn.btn-lg.btn-default.btn-block(onclick='return validateSignUp()') Create
                     script(type='text/javascript', src='/javascripts/sign_up_event.js')

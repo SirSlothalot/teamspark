@@ -106,11 +106,13 @@ block content
                         .form-group
                             label Bio
                             input#bio(type='text', name ='bio', value='#{person.bio}', required)
-                        .form-group
+                        .form-group#accountsGroup
                             label Accounts
-                            input#gitHubAcc(type='text', name ='accounts', value='#{person.accounts[0]}')
-                            input#bitBucketAcc(type='text', name ='accounts', value='#{person.accounts[1]}')
-                            input#stackOverflowAcc(type='text', name='accounts', value='#{person.accounts[2]}')
+                            - for (var i = 0; i < person.accounts.length; i++)
+                                input#gitHubAcc(type='text', name ='accounts', value='#{person.accounts[i]}')
+                        .form-group
+                            button#plusExtraAccount(name = 'posaccounts', type='button', onclick='return addAccountOpt()') +
+                            button#minusExtraAccount(name = 'negaccounts', type = 'button', onclick='return minusAccountOpt()') -
                         .form-group
                             button.btn.btn-lg.btn-default.btn-block(onclick='return validateSignUp()') Update
                     script(type='text/javascript', src='/javascripts/sign_up_event.js')

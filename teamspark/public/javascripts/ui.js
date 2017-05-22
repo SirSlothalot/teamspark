@@ -292,6 +292,31 @@ function minusSpeakOpt()
 	}
 }
 
+var accountCount = 0;
+
+function addAccountOpt()
+{
+	var accountExtra = document.createElement("input");
+	accountExtra.id = "account"+(accountCount+1);
+	accountExtra.name = "accounts";
+	accountExtra.type = "text";
+	accountExtra.placeholder = "StackOverflow, LinkedIn, ...";
+	var form = document.forms['/register'];
+	var formGroup = document.getElementById("accountsGroup");
+	formGroup.appendChild(accountExtra);
+	accountCount++;
+}
+
+
+function minusAccountOpt()
+{
+	if(accountCount>0)
+	{
+		document.getElementById("account"+accountCount).remove();
+		accountCount--;
+	}
+}
+
 function validateLanguage()
 {
 	if(document.getElementById("language").value === "other")
