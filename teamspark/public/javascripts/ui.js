@@ -242,7 +242,7 @@ var progLangCount = 0;
 
 function addLangOpt()
 {
-	var options = document.getElementById("language");
+	var options = document.getElementById("selectProgLanguage");
 	var clone = options.cloneNode(true);
 
 	clone.id = "progLangExtra"+(progLangCount+1);
@@ -279,15 +279,23 @@ var spokenLangCount = 0;
 
 function addSpeakOpt()
 {
-	var speakLangExtra = document.createElement("input");
-	speakLangExtra.id = "spokenLanguages"+(spokenLangCount+1);
-	speakLangExtra.name = "spokenLanguages";
-	speakLangExtra.type = "text";
-	speakLangExtra.value = "French";
-	var form = document.forms['/register'];
+	var options = document.getElementById("selectSpokenLanguage");
+	var clone = options.cloneNode(true);
+
+	clone.id = "spokenLanguages"+(spokenLangCount+1);
 	var formGroup = document.getElementById("spokenLanguages");
-	formGroup.appendChild(speakLangExtra);
+	formGroup.appendChild(clone);
 	spokenLangCount++;
+
+	// var speakLangExtra = document.createElement("input");
+	// speakLangExtra.id = "spokenLanguages"+(spokenLangCount+1);
+	// speakLangExtra.name = "spokenLanguages";
+	// speakLangExtra.type = "text";
+	// speakLangExtra.value = "French";
+	// var form = document.forms['/register'];
+	// var formGroup = document.getElementById("spokenLanguages");
+	// formGroup.appendChild(speakLangExtra);
+	// spokenLangCount++;
 	// formGroup.insertBefore(speakLangExtra, addButton);
 }
 
