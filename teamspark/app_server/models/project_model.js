@@ -8,7 +8,7 @@ var projectSchema = new mongoose.Schema(
         skillLevel:{type:String, require:true},
         programmingLanguages:{type:[String], require:true},
 
-        timePerWeek:{type:String, require:false},
+        workload:{type:String, require:false},
 
         virtualTeam:{type:Boolean, require:true},
 

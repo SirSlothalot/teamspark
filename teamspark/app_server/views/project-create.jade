@@ -23,34 +23,37 @@ block content
                               option(value='beginnger') Beginner
                               option(value='intermediate') Intermediate
                               option(value='advanced') Advanced
-                        .form-group
-                            label Programming languages
-                            select#language(name='programmingLanguages')
-                              option(value='c') C
-                              option(value='cpp') C++
-                              option(value='cs') C#
-                              option(value='haskell') Haskell
-                              option(value='java') Java
-                              option(value='js') JavaScript
-                              option(value='objectivec') Objective-C
-                              option(value='perl') Perl
-                              option(value='php') PHP
-                              option(value='python') Python
-                              option(value='ruby') Ruby
-                              option(value='scala') Scala
-                              option(value='other') Other...
+                        .form-group#progLanguages
+                              label Favourite Programming Language *
+                              select#selectProgLanguage(name='programmingLanguages')
+                                option(value='c') C
+                                option(value='cpp') C++
+                                option(value='cs') C#
+                                option(value='haskell') Haskell
+                                option(value='java') Java
+                                option(value='js') JavaScript
+                                option(value='objectivec') Objective-C
+                                option(value='perl') Perl
+                                option(value='php') PHP
+                                option(value='python') Python
+                                option(value='ruby') Ruby
+                                option(value='scala') Scala
+                                option(value='other') Other...
+                         .form-group
+                               button#plusExtraProgLang(name = 'posproglang', type='button', onclick='return addLangOpt()') +
+                               button#minusExtraProgLang(name = 'negproglang', type = 'button', onclick='return minusLangOpt()') -
                         .form-group
                             label Weekly workload in hours
-                            select#availability(name='timePerWeek')
+                            select#workload(name='workload')
                               option(value='5 hours') 5 hours or less.
                               option(value='10 hours') 10 hours per week.
                               option(value='15 hours') 15 hours per week.
                               option(value='20 hours') 20 hours per week.
                               options(value='20+ hours') More than 20 hours per week.
-                        //- .form-group
-                        //-     label Willing to work in a virtual team? *
-                        //-     select#online(name='virtualTeam')
-                        //-       option(value='yes') Yes
-                        //-       option(value='no') No
+                        .form-group
+                            label Willing to work in a virtual team? *
+                            select#online(name='virtualTeam')
+                              option(value='yes') Yes
+                              option(value='no') No
                         .form-group
                             button.btn.btn-lg.btn-default.btn-block(onclick='return validateSubmit()') Submit

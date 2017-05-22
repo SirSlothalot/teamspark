@@ -9,38 +9,40 @@ block content
                         img#avatarImg.avatar(src='/images/logo.png', alpostt='Avatar')
                         br
                         p
-                          | Create a new 
-                          b Project
-                        .form-group
-                            label Project Title *
-                            input#Title(type='text', name='title', value='#{project.title}')
+                          | Edit project 
+                          b #{project.title}
                         .form-group
                             label Description *
-                            textarea#Description(type='textarea', name='description', value='#{project.description}')
+                            textarea#Description(type='textarea', name='description', required) #{project.description}
                         .form-group
                             label Required skill level 
                             select#SkillLevel(name='skillLevel')
                               option(value='#{project.skillLevel}') #{project.skillLevel}
                               option(value='beginnger') Beginner
                               option(value='intermediate') Intermediate
-                              option(value='advanced') 
-                        .form-group
+                              option(value='advanced') Advanced
+                        .form-group#progLanguages
                             label Programming languages
-                            select#language(name='programmingLanguages')
-                              option(value='#{project.programmingLanguages}') #{project.programmingLanguages}
-                              option(value='c') C
-                              option(value='cpp') C++
-                              option(value='cs') C#
-                              option(value='haskell') Haskell
-                              option(value='java') Java
-                              option(value='js') JavaScript
-                              option(value='objectivec') Objective-C
-                              option(value='perl') Perl
-                              option(value='php') PHP
-                              option(value='python') Python
-                              option(value='ruby') Ruby
-                              option(value='scala') Scala
-                              option(value='other') Other...
+                            - for (var i = 0; i < project.programmingLanguages.length; i++)
+                                select#selectProgLanguage(name='programmingLanguages')
+                                  option(value='#{project.programmingLanguages[i]}') #{project.programmingLanguages[i]}
+                                  option(value='c') C
+                                  option(value='cpp') C++
+                                  option(value='cs') C#
+                                  option(value='haskell') Haskell
+                                  option(value='java') Java
+                                  option(value='js') JavaScript
+                                  option(value='objectivec') Objective-C
+                                  option(value='perl') Perl
+                                  option(value='php') PHP
+                                  option(value='python') Python
+                                  option(value='ruby') Ruby
+                                  option(value='scala') Scala
+                                  option(value='other') Other...
+                         .form-group
+                             button#plusExtraProgLang(name = 'posproglang', type='button', onclick='return addLangOpt()') +
+                             button#minusExtraProgLang(name = 'negproglang', type = 'button', onclick='return minusLangOpt()') -
+                        
                         .form-group
                             label Willing to work in a virtual team? *
                             select#online(name='virtualTeam')

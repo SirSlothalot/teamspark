@@ -10,20 +10,20 @@ block content
   .content
     .container
         .row
-            .col-sm-2
-            .col-sm-5
+            .col-sm-8.col-md-offset-2
+                .text-left
+                    h2 Description: #{project.description}
+        .row
+            .col-sm-5.col-md-offset-2
                 .text-left
                     h2 Country: #{project.country}
-                    h2 Language: #{project.mainSpokenLanguage}
+                    h2 Language: #{project.spokenLanguages}
             .col-sm-5
                 .text-left
                     h2 Difficulty: #{project.skillLevel}
-                    h2 Required availability: #{project.availability}
-                    h2 Virtual meetings: #{project.online}
+                    h2 Workload: #{project.workload}
+                    h2 Virtual meetings: #{project.virtualTeam}
         .row
-            .col-sm-2
-            .col-sm-5
+            .col-sm-5.col-md-offset-2
                 .text-left
-                    h2 Required programming languages:
-            .col-sm-5
-                    h2 #{project.programmingLanguages}
+                    h2 Programming languages: #{project.programmingLanguages}

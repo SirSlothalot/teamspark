@@ -174,7 +174,7 @@ block content
                             input#suburb(type='text', name ='suburb', value='#{person.suburb}')
                         .form-group
                             label Bio
-                            input#bio(type='text', name ='bio', value='#{person.bio}', required)
+                            textarea#bio(type='textarea', name='bio', required) #{person.bio}
                         .form-group#accountsGroup
                             label Accounts
                             - for (var i = 0; i < person.accounts.length; i++)
