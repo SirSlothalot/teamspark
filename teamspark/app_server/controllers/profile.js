@@ -24,7 +24,7 @@ module.exports.renderProfile = function (req,res){
 };
 
 module.exports.renderEditProfile = function (req,res){
-    if(req.user.username == req.params.username) {
+    if(req.user && req.user.username == req.params.username) {
         Person.findOne({"username": req.params.username}).exec(
             function(err, result) {
                 if(err) {
@@ -47,28 +47,31 @@ module.exports.submitEditProfile = function (req,res){
     if(req.user.username == req.params.username) {
         var updates = {
             fullname: req.body.fullname,
-            username: req.body.username,
+            email: req.body.email,
 
             dob: req.body.dob,
-            mainSpokenLanguage: req.body.mainSpokenLanguage,
-            otherSpokenLanguages: req.body.otherSpokenLanguages,
+            spokenLanguages: req.body.spokenLanguages,
 
-            online: req.body.online,
+            // online: req.body.online,
 
             country: req.body.country,
             state: req.body.state,
             suburb: req.body.suburb,
 
-            availability: req.body.timePerWeek,
+            availability: req.body.availability,
             skillLevel: req.body.skillLevel,
-            programmingLanguages: req.body.programmingLanguages
+            programmingLanguages: req.body.programmingLanguages,
+
+            userInterest: req.body.userInterest,
+            bio: req.body.bio,
+            accounts: req.body.accounts
         }
 
         var newP = Person.findOneAndUpdate({username:req.user.username}, updates, {runValidators:true, new:true}, function (err, doc) {
               if (err) console.log(err);
         });
 
-        res.redirect(string.concat('/user/', newP.username));
+        res.redirect('/user/' + req.user.username);
 
     } else {
         res.redirect('/');

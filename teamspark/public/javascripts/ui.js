@@ -272,7 +272,7 @@ function addSpeakOpt()
 {
 	var speakLangExtra = document.createElement("input");
 	speakLangExtra.id = "spokenLanguages"+(spokenLangCount+1);
-	speakLangExtra.name = "progLangExtra";
+	speakLangExtra.name = "spokenLanguages";
 	speakLangExtra.type = "text";
 	speakLangExtra.value = "French";
 	var form = document.forms['/register'];
