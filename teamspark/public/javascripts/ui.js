@@ -248,10 +248,10 @@ function addLangOpt()
 	progLangExtra.type = "text";
 	progLangExtra.value = "C++";
 	var form = document.forms['/register'];
-	var addButton = document.getElementById("plusExtraProgLang");
-	form.appendChild(progLangExtra);
+	var formGroup = document.getElementById("progLanguages");
+	formGroup.appendChild(progLangExtra);
 	progLangCount++;
-	form.insertBefore(progLangExtra, addButton);
+	// formGroup.insertBefore(progLangExtra, addButton);
 }
 
 
@@ -276,10 +276,10 @@ function addSpeakOpt()
 	speakLangExtra.type = "text";
 	speakLangExtra.value = "French";
 	var form = document.forms['/register'];
-	var addButton = document.getElementById("plusExtraSpLang");
-	form.appendChild(speakLangExtra);
+	var formGroup = document.getElementById("spokenLanguages");
+	formGroup.appendChild(speakLangExtra);
 	spokenLangCount++;
-	form.insertBefore(speakLangExtra, addButton);
+	// formGroup.insertBefore(speakLangExtra, addButton);
 }
 
 
@@ -287,7 +287,7 @@ function minusSpeakOpt()
 {
 	if(spokenLangCount>0)
 	{
-		document.getElementById("otherSpokenLanguages"+spokenLangCount).remove();
+		document.getElementById("spokenLanguages"+spokenLangCount).remove();
 		spokenLangCount--;
 	}
 }

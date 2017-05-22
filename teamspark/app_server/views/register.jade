@@ -52,16 +52,16 @@ block content
                               option(value='ruby') Ruby
                               option(value='scala') Scala
                               option(value='other') Other...
-                         .form-group
+                         .form-group#progLanguages
                              label Familiar Programming Languages
                              input#extraProgLang(type='text', name='programmingLanguages', value='C')
-                             br
+                         .form-group
                              button#plusExtraProgLang(name = 'posproglang', type='button', onclick='return addLangOpt()') +
                              button#minusExtraProgLang(name = 'negproglang', type = 'button', onclick='return minusLangOpt()') -
-                         .form-group
+                         .form-group#spokenLanguages
                              label Spoken Language(s) *
                              input#mainSpokenLanguage(type='text', name='spokenLanguages', value='English', required)
-                             br
+                         .form-group
                              button#plusExtraSpLang(name = 'posspeaklang', type='button', onclick='return addSpeakOpt()') +
                              button#minusExtraSpLang(name = 'negspeaklang', type = 'button', onclick='return minusSpeakOpt()') - 
                         .form-group

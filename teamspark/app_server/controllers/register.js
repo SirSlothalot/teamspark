@@ -14,7 +14,7 @@ module.exports.submitRegister = function(req,res) {
                 username: req.body.username,
 
                 dob: req.body.dob,
-                spokenLanguages: req.body.spokenLanguage,
+                spokenLanguages: req.body.spokenLanguages,
 
                 // online: req.body.online,
 
