@@ -1,9 +1,9 @@
 extends layout
 
 block content
-    #coverflow01.coverflow
-        .row
-            .container-fluid
+    #coverflowRegister.coverflow
+        .container-fluid
+            .row
                 .col-md-6.col-md-offset-3
                     form.entries(name='/register', method="post", onload='makeFooter()')
                         img#avatarImg.avatar(src='/images/logo.png', alpostt='Avatar')
@@ -28,7 +28,6 @@ block content
                             label Password *
                             p#passwdError
                             input#passwd(type='Password', name='password', required)
-                        .form-group
                             label Confirm Password *   
                             p#rePasswdError
                             input#rPasswd(type='Password', name='rePassword', required)
@@ -130,7 +129,7 @@ block content
                                  option(value='Vietnamese') Vietnamese
                                  option(value='Welsh') Welsh
                                  option(value='Xhosa') Xhosa
-                         .form-group
+                        .form-group
                              button#plusExtraSpLang(name = 'posspeaklang', type='button', onclick='return addSpeakOpt()') +
                              button#minusExtraSpLang(name = 'negspeaklang', type = 'button', onclick='return minusSpeakOpt()') - 
                         .form-group
@@ -162,21 +161,20 @@ block content
                               option(value='15 hours') 15 hours per week.
                               option(value='20 hours') 20 hours per week.
                               options(value='20+ hours') More than 20 hours per week.
+                        //- .form-group
+                        //-     label Location (Use Google Location Service)
+                        //-     br
+                        //-     br
+                        //-     img.avatar(src='/images/location.png', alpostt='gmaps')
                         .form-group
-                            label Location (Use Google Location Service)
-                            br
-                            img.avatar(src='/images/location.png', alpostt='gmaps')
-                        .form-group
-                            label Location (Enter Manually)*
-                        .form-group
-                            label Country
-                            input#country(type='text', name='country', value='Australia')
-                        .form-group
-                            label State/ Province
-                            input#state(type='text', name ='state', value='Western Australia')
-                        .form-group
-                            label Suburb
-                            input#suburb(type='text', name ='suburb', placeholder='Crawley')
+                            label Location *
+                            .form-group
+                                label Country
+                                input#country(type='text', name='country', placeholder='Australia')
+                                label State/ Province
+                                input#state(type='text', name ='state', placeholder='Western Australia')
+                                label Suburb
+                                input#suburb(type='text', name ='suburb', placeholder='Crawley')
                         .form-group
                             label Bio
                             textarea#bio(type='textarea', name='bio', placeholder='Tell potential team members more about yourself...', required)

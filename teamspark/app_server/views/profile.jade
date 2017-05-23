@@ -11,10 +11,11 @@ block content
   .content
     .container
         .row
-            .col-sm-8.col-md-offset-2
+            .col-sm-8.col-sm-offset-2
                 .text-left
                     h2 Bio: #{user.bio}
-            .col-sm-4.col-md-offset-2
+        .row
+            .col-sm-4.col-sm-offset-2
                 .text-left
                     h2 Country: #{user.country}
                     h2 Languages: #{user.spokenLanguages}
@@ -26,10 +27,14 @@ block content
                     //- h2 Works online: #{user.online}
                     h2 Interest: #{user.userInterest}
         .row
-            .col-sm-4.col-md-offset-2
+            .col-sm-8.col-sm-offset-2
                 .text-left
-                    h2 Programming languages: #{user.programmingLanguages}
+                  - var langString ="Programming languages: ";
+                  - each lang in user.programmingLanguages
+                    - langString = langString + lang + ", ";
+                  - var langString = langString.substr(0, langString.length-2);
+                  h2 #{langString}
         .row
-            .col-sm-8.col-md-offset-2
+            .col-sm-8.col-sm-offset-2
                 .text-left
                     h2 Accounts: #{user.accounts}
