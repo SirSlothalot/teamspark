@@ -133,7 +133,13 @@ div.coverflow {
   display: block;
   z-index: -1;
 	color: #fff;
+}
 
+.coverflow {
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 
 div.content {
@@ -153,26 +159,30 @@ div.content {
 
 #coverflow01 {
   background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/typewritter.jpg");
-	background-size: cover;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-position: center;
 }
 
 #coverflow02 {
   background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/space-1.jpg");
-	background-size: cover;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-position: center;
 }
 
 #coverflowSignin {
-	background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/typewriter.jpg");
-	background-size: cover;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-position: center;
+	background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/sign-in.jpg");
+}
+
+#coverflowProject {
+	background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/project.jpeg");
+}
+
+#coverflowProjectCreate {
+	background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/project-create.jpg");
+}
+
+#coverflowContact {
+	background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/contact.jpg");
+}
+
+#coverflowRegister {
+	background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/register.jpeg");
 }
 
 #nameError, #passwdError, #usernameError, #emailError, #rePasswdError, #dobError, #agreementErr, #genericError {
