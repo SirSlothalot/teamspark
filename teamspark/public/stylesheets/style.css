@@ -342,6 +342,15 @@ form.entries {
 .fa-facebook:hover {
     background-color: #3d5b99;
 }
+
+.fa-github {
+    padding:10px 14px;
+    background-color: #322f30;
+}
+.fa-github:hover {
+    background-color: #a1f442;
+}
+
 .fa-twitter {
     padding:10px 14px;
     background-color: #322f30;

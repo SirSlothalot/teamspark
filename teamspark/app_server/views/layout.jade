@@ -8,7 +8,7 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
-  body
+  body(onload='location_display()')
     if (!user)
       nav.navbar.navbar-fixed-top.navbar-inverse.bg-faded( role="navigation" )
         .container-fluid
@@ -20,7 +20,7 @@ html
               span.icon-bar
             a.navbar-brand(href='/')
               | Teamspark
-         
+            
           #navbar-inverse.collapse.navbar-collapse
             ul.nav.navbar-nav
               li: a( href="/contact" ) Contact
@@ -48,6 +48,32 @@ html
             ul.nav.navbar-nav
               li: a( href="/contact" ) Contact
               li: a( href="/references") References
+              li.dropdown
+                a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Project 
+                  span.caret
+                ul.dropdown-menu( role="menu" )
+                  if (project)
+                    li: a( href="/project/#{project.projectTitle}" )
+                      span.glyphicon.glyphicon-user
+                      |  My Project
+                    li: a( href="/user/#{project.projectTitle}/edit" )
+                      span.glyphicon.glyphicon-edit
+                      |  Edit Project
+                  if (!project)
+                    li: a( href="/project/new" )
+                      span.glyphicon.glyphicon-user
+                      |  Create Project
+              li.dropdown
+                a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Explore 
+                  span.caret
+                ul.dropdown-menu( role="menu" )
+                  li: a( href="/user/view" )
+                    span.glyphicon.glyphicon-user
+                    |  People
+                  li: a( href="/project/view" )
+                    span.glyphicon.glyphicon-user
+                    |  Projects
+
             ul.nav.navbar-nav.navbar-right
               li.dropdown
                 a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Profile 
@@ -66,19 +92,25 @@ html
     block content
     
     footer
+      br
+      p#location(style="color:gray; font-size:15px; text-align:center")
+      br
       .footer-upper
         .social-icons
             li
-              a.social-icon(href='')
+              a.social-icon(href='https://www.facebook.com')
                 i.transition-colour.fa.fa-facebook
             li
-              a.social-icon(href='')
+              a.social-icon(href='https://www.twitter.com')
                 i.transition-colour.fa.fa-twitter
             li
-              a.social-icon(href='')
+              a.social-icon(href='https://www.plus.google.com')
                 i.transition-colour.fa.fa-google-plus
             li
-              a.social-icon(href='')
+              a.social-icon(href='https://www.github.com')
+                i.transition-colour.fa.fa-github
+            li
+              a.social-icon(href='https://www.youtube.com')
                 i.transition-colour.fa.fa-youtube
     
   
