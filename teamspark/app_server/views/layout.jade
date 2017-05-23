@@ -20,7 +20,7 @@ html
               span.icon-bar
             a.navbar-brand(href='/')
               | Teamspark
-         
+            
           #navbar-inverse.collapse.navbar-collapse
             ul.nav.navbar-nav
               li: a( href="/contact" ) Contact
@@ -48,6 +48,32 @@ html
             ul.nav.navbar-nav
               li: a( href="/contact" ) Contact
               li: a( href="/references") References
+              li.dropdown
+                a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Project 
+                  span.caret
+                ul.dropdown-menu( role="menu" )
+                  if (project)
+                    li: a( href="/project/#{project.projectTitle}" )
+                      span.glyphicon.glyphicon-user
+                      |  My Project
+                    li: a( href="/user/#{project.projectTitle}/edit" )
+                      span.glyphicon.glyphicon-edit
+                      |  Edit Project
+                  if (!project)
+                    li: a( href="/project/new" )
+                      span.glyphicon.glyphicon-user
+                      |  Create Project
+              li.dropdown
+                a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Explore 
+                  span.caret
+                ul.dropdown-menu( role="menu" )
+                  li: a( href="/user/view" )
+                    span.glyphicon.glyphicon-user
+                    |  People
+                  li: a( href="/project/view" )
+                    span.glyphicon.glyphicon-user
+                    |  Projects
+
             ul.nav.navbar-nav.navbar-right
               li.dropdown
                 a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Profile 

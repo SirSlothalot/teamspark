@@ -1,27 +1,32 @@
 extends layout
 
 block content
-  #coverflow01.coverflow
-    .jumbotron
-      .container
-        h1.display-3 #include "teamspark.h"
-        p.lead Introducing the newest way to collaborate
-  .content
-    .container
-      p Having difficulty finding the perfect team member for your project?
-      p
-        | Want to collaborate on a cool project?
-        br
-      p Get more done by collaborating on interesting projects, making new friends
-      p
-        | And sharing ideas!
-        br
-  #coverflow02.coverflow
-    .container
-      p Stay Motivated
-      p Teamspark finds you team members based on your skillset.
-      p Matching the right project for you.
-  .content
-    .container
-      p Find like minded people to work with
-      p See your matches
+  .container-fluid
+    .row
+      #coverflow01.coverflow
+        .col
+          .jumbotron
+            img(src="images/teamsparkicon.png", style="width:150px; height:auto")
+            h1.display-3 #include "teamspark.h"
+            p.lead Introducing the newest way to collaborate
+    .row
+      .content
+        .col
+          p Having difficulty finding the perfect team member for your project?
+          p
+            | Want to collaborate on a cool project?
+            br
+          p Get more done by collaborating on interesting projects, making new friends
+          p
+            | And sharing ideas!
+            br
+    .row
+      #coverflow02.coverflow
+        p Stay Motivated
+        p Teamspark finds you team members based on your skillset.
+        p Matching the right project for you.
+    .row
+      .content
+        .col
+          p Find like minded people to work with
+          p See your matches
