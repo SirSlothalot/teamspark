@@ -1,29 +1,41 @@
 extends layout
 
 block content
-  #coverflowProject.coverflow
-    .jumbotron
-      .container
-        h1 #{project.title}
-        p #{project.owner}
-        img#avatarImg.avatar(src='/images/female_avatar.png', alt='Avatar')
-  .content
-    .container
+  .container-fluid
+    .row
+      #coverflowProject.coverflow
+        .jumbotron
+          img#avatarImg.avatar(src='/images/female_avatar.png', alt='Avatar')
+          h1 #{project.title}
+          h2 #{project.owner}
+    .row
+      #content02.content
         .row
-            .col-sm-8.col-md-offset-2
-                .text-left
-                    h2 Description: #{project.description}
+          .col-sm-8.col-md-offset-2
+            .text-left
+              h3 Description: 
+              h4 #{project.description}
         .row
-            .col-sm-5.col-md-offset-2
-                .text-left
-                    h2 Country: #{project.country}
-                    h2 Language: #{project.spokenLanguages}
-            .col-sm-5
-                .text-left
-                    h2 Difficulty: #{project.skillLevel}
-                    h2 Workload: #{project.workload}
-                    h2 Virtual meetings: #{project.virtualTeam}
+          .col-md-4.col-md-offset-2.col-sm-6
+            .text-left
+              h3 Country: 
+              h4 #{project.country}
+              h3 Language: 
+              h4 #{project.spokenLanguages}
+          .col-md-4.col-sm-6
+            .text-left
+              h3 Difficulty: 
+              h4 #{project.skillLevel}
+              h3 Workload: 
+              h4 #{project.workload}
+              h3 Virtual meetings: 
+              h4 #{project.virtualTeam}
         .row
-            .col-sm-5.col-md-offset-2
-                .text-left
-                    h2 Programming languages: #{project.programmingLanguages}
+          .col-md-6.col-md-offset-2
+            .text-left
+              - var langString = "";
+              - each lang in project.programmingLanguages
+                - langString = langString + lang + ", ";
+              - var langString = langString.substr(0, langString.length-2);
+              h3 Required Programming languages: 
+              h4 #{langString}

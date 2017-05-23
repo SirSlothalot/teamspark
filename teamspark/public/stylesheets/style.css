@@ -86,10 +86,6 @@ ul {
   margin: 8px 0;
 }*/
 
-p {
-  font-size: 30px;
-}
-
 .covertext {
   background-color: black;
   opacity: 0.7;
@@ -123,38 +119,34 @@ img {
   background-color: #4CAF50;
 }
 
-div.coverflow {
-  margin-top: 0.0 !important;
-  margin-bottom: 0.0 !important;
-	padding-top: 100px;
-	padding-bottom: 100px;
-  border: 0.0;
+.content {
+  padding: 50px;
   text-align: center;
-  display: block;
-  z-index: -1;
-	color: #fff;
-}
-
-.coverflow {
-  background-size: cover !important;
-  background-attachment: fixed !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-}
-
-div.content {
-  border: 0.0;
-  margin-top: 0.0 !important;
-  text-align: center;
-  background: #239800;
+  background: linear-gradient( #db67ff, #9c00cc);
   color: white;
-  z-index: 1;
-  display: block;
-  padding: 60px;
+}
+
+#content01 {
+  background: linear-gradient( #db67ff, #9c00cc) !important;
+}
+
+#content02 {
+  background: linear-gradient( #66d9ff, #00ace6) !important;
 }
 
 .jumbotron {
 	background-color: rgba(0,0,0,0.7) !important;
+}
+
+.coverflow {
+	padding-top: 80px;
+	padding-bottom: 80px;
+  text-align: center;
+	color: #fff;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 
 #coverflow01 {
@@ -297,7 +289,7 @@ form.entries {
     padding: 30px;
     margin: 20px auto;
     font-size: 120%;
-    background-color: gray;
+    background: linear-gradient(#66d9ff, #db67ff);
     color: black;
     text-align: center;
 }

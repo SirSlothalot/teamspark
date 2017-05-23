@@ -1,20 +1,21 @@
 extends layout
 
 block content
-  #coverflowContact.coverflow
-    .container-fluid
-      .row
-        .col-md-6.col-md-offset-3
-          form.entries(action='javascript:successContact()')
-            img#avatarImg.avatar(src='/images/logo.png', alt='Avatar')
-            p Your two cents matter!
-            .form-group
-              label(for='feedback') Message
-              textarea.form-control(id='feedback', name='feedback', placeholder='Please type your feedback here...')
-            p#genericError
-            .form-group
-              label(for='email') Email Address
-              input.form-control(id='email',type='text', name='email', placeholder='user@example.com')
-            p#emailError
-            button.btn.btn-lg.btn-default.btn-block(onclick='return validateSubmit()') Submit
+  .container-fluid
+    .row
+      #coverflowContact.coverflow
+        .row
+          .col-md-offset-3.col-md-6
+            form.entries(action='javascript:successContact()')
+              img#avatarImg.avatar(src='/images/logo.png', alt='Avatar')
+              h2 Your two cents matter!
+              .form-group
+                label(for='feedback') Message
+                textarea.form-control(id='feedback', name='feedback', placeholder='Please type your feedback here...')
+              p#genericError
+              .form-group
+                label(for='email') Email Address
+                input.form-control(id='email',type='text', name='email', placeholder='user@example.com')
+              p#emailError
+              button.btn.btn-lg.btn-default.btn-block(onclick='return validateSubmit()') Submit
   script(type='text/javascript', src='/javascripts/contact_events.js')
