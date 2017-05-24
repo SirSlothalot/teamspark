@@ -28,7 +28,7 @@ module.exports.renderAllProjects = function (req,res){
 
                     }
                     console.log('find complete');
-                    res.render('potential-projects', {'user':result}, {'projects':projects} );
+                    res.render('potential-projects', [{'user':result}, {'projects':projects}] );
                 }
             })
     } else {
@@ -62,7 +62,7 @@ module.exports.renderAllPeople = function(req, res, next) {
                         });
                     }
                     console.log('find complete');
-                    res.render('potential-users', {'users':users}, {'project':result}, {user: req.user});
+                    res.render('potential-users', {'users':users}, [{'project':result}, {user: req.user}]);
                 }
             });
     } else {
