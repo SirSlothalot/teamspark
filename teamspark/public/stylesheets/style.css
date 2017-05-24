@@ -134,7 +134,11 @@ img {
   background: linear-gradient( #66d9ff, #00ace6) !important;
 }
 
-.jumbotron {
+#content03 {
+  background: linear-gradient( #66d9ff, #db67ff) !important;
+}
+
+#main.jumbotron {
 	background-color: rgba(0,0,0,0.7) !important;
 }
 
@@ -375,4 +379,14 @@ form.entries {
     background-color: #333;
     display: flex;
     justify-content: center;
+}
+
+.tile {
+  background: linear-gradient( #f2f2f2, #cccccc);
+  color: black;
+  /*height: 400px;*/
+}
+
+.breakWord {
+  overflow-wrap: break-word;
 }

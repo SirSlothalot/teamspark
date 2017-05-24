@@ -4,7 +4,7 @@ block content
   .container-fluid
     .row
       #coverflowProject.coverflow
-        .jumbotron
+        #main.jumbotron
           img#avatarImg.avatar(src='/images/female_avatar.png', alt='Avatar')
           h1 #{project.title}
           h2 #{project.owner}
@@ -33,9 +33,10 @@ block content
         .row
           .col-md-6.col-md-offset-2
             .text-left
-              - var langString = "";
-              - each lang in project.programmingLanguages
-                - langString = langString + lang + ", ";
-              - var langString = langString.substr(0, langString.length-2);
               h3 Required Programming languages: 
-              h4 #{langString}
+              h4
+                - for (var i=0; i<project.programmingLanguages.length; i++)
+                  - if (i != project.programmingLanguages.length - 1)
+                    span= project.programmingLanguages[i]+", "
+                  - else
+                    span= project.programmingLanguages[i]
