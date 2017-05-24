@@ -28,7 +28,7 @@ module.exports.renderAllProjects = function (req,res){
 
                     }
                     console.log('find complete');
-                    res.render('potential-projects', [{'user':result}, {'projects':projects}] );
+                    res.render('potential-projects', {'user':result, 'projects':projects} );
                 }
             })
     } else {

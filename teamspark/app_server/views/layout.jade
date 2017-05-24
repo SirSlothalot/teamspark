@@ -55,7 +55,7 @@ html
                 a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Explore 
                   span.caret
                 ul.dropdown-menu( role="menu" )
-                  li: a( href="/user/view" )
+                  li: a( href="/user/#{user.username}/view" )
                     span.glyphicon.glyphicon-user
                     |  People
                   li: a( href="/project/view" )
