@@ -62,7 +62,7 @@ module.exports.renderAllPeople = function(req, res, next) {
                         });
                     }
                     console.log('find complete');
-                    res.render('potential-users', {'users':users, 'project':res.app.locals.project, user: req.user});
+                    res.render('potential-users', {'people':users, 'project':res.app.locals.project, user: req.user});
                 }
             });
     } else {

@@ -106,7 +106,7 @@ module.exports.submitEditProject = function(req, res, next) {
     Project.findOne({"title":req.params.projectTitle}, function(err, result) {
         if(err) {
             res.render('error', {
-                message:err.messagr,
+                message:err.message,
                 error: err
             });
         }
