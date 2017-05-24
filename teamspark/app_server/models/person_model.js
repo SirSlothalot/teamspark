@@ -2,6 +2,11 @@ var mongoose = require('mongoose');
 
 var passportLocalMongoose = require('passport-local-mongoose');
 
+
+// var  = new Schema({
+//     img: { data: Buffer, contentType: String }
+// });
+
 var personSchema = new mongoose.Schema(
     {
         fullname:{type:String, require:true},
@@ -27,7 +32,12 @@ var personSchema = new mongoose.Schema(
         userInterest:{type:String, require:true},
 
         bio:{type:String, require:true},
-        accounts:{type:[String], require:false}
+        accounts:{type:[String], require:false},
+
+        //profilepic:{type:Buffer, require:true}
+        data:{type:Buffer, require:true},
+        contentType:{type:String, require:true}
+        //profilepic: { data: Buffer, contentType: String }
     }
 );
 
