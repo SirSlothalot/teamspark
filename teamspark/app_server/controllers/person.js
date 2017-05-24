@@ -3,9 +3,7 @@ var mongoose = require('mongoose');
 var Person = mongoose.model('Person');
 
 //Return all persons
-module.exports.personList = getPersons;
-
-function getPersons(req,res){
+module.exports.personList = function(req,res){
     Person.find().exec(
         function(err, simpleData) {
             if(err) {
@@ -15,7 +13,7 @@ function getPersons(req,res){
                 });
             } else {
                 console.log('find complete');
-                res.render('person', {'people':simpleData}, {user: req.user});
+                res.render('person', {'people':simpleData, user: req.user});
             }
         })
 };

@@ -4,7 +4,7 @@ block content
   .container-fluid
     .row
       #coverflow01.coverflow
-        .jumbotron
+        #main.jumbotron
           img#avatarImg.avatar(src='/images/female_avatar.png', alt='Avatar')
           h1 #{user.fullname}
           h2
@@ -35,20 +35,22 @@ block content
                     h3 Interest: 
                     h4 #{user.userInterest}
         .row
-            .col-sm-8.col-sm-offset-2
-                .text-left
-                  - var langString = "";
-                  - each lang in user.programmingLanguages
-                    - langString = langString + lang + ", ";
-                  - var langString = langString.substr(0, langString.length-2);
-                  h3 Programming languages: 
-                  h4 #{langString}
+          .col-sm-8.col-sm-offset-2
+            .text-left
+              h3 Programming languages: 
+                h4
+                  - for (var i=0; i<user.programmingLanguages.length; i++)
+                    - if (i != user.programmingLanguages.length - 1)
+                      span= user.programmingLanguages[i]+", "
+                    - else
+                      span= user.programmingLanguages[i]
         .row
-            .col-sm-8.col-sm-offset-2
-                .text-left
-                  - var accString = "";
-                  - each acc in user.accounts
-                    - accString = accString + acc + ", ";
-                  - var accString = accString.substr(0, accString.length-2);
-                    h3 Accounts: 
-                    h4 #{accString}
+          .col-sm-8.col-sm-offset-2
+            .text-left
+              h3 Accounts: 
+              h4
+                - for (var i=0; i<user.accounts.length; i++)
+                  - if (i != user.accounts.length - 1)
+                    span= user.accounts[i]+", "
+                  - else
+                    span= user.accounts[i]

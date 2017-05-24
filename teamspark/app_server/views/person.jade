@@ -1,41 +1,45 @@
 extends layout
 
 block content
-    h1 Simple
+  .container-fluid
+    .row
+      #coverflow01.coverflow
+        #main.jumbotron
+          h1 Choose your team!
+          h3 These are all the people that could be in your project
+    .row
+      #content03.content
+        .row
+          .col-lg-offset-1.col-lg-10
+            .row
+              each p in people
+                .col-md-4.col-sm-6
+                  .tile.well
+                    .row
+                      .col-lg-6
+                        .thumbnail
+                          img#avatarImg.avatar(src='/images/female_avatar.png', alt='Avatar')
+                      .col-lg-6
+                        .text-left
+                          h3 #{p.fullname}
+                          h4.breakWord #{p.username}
+                    .row
+                      .col-xs-offest-1.col-xs-10
+                        .text-left
+                          h4 Bio: 
+                          h5.breakWord.truncate #{p.bio}
+                          h4 Languages: 
+                          h5.truncate
+                            - for (var i=0; i<p.programmingLanguages.length; i++)
+                              - if (i != p.programmingLanguages.length - 1)
+                                span= p.programmingLanguages[i]+", "
+                              - else
+                                span= p.programmingLanguages[i]
+                        
     
-    //- if(!user)
-    //-     a(href="/login") Login
-    //-     br
-    //-     a(href="/register") Register
-    //- if(user)
-    //-     p You are currently logged in as #{user.username}
-    //-     a(href="/logout") Logout
-        
-
-    mixin email(addr)
-        a(href='mailto://' + addr) = addr
-
-    table
-        tr
-            th Name
-            th Age
-            th Email
-            th Delete?
-        each p in people
-            tr
-                td #{p.fullname}
-                td #{p.dob}
-                td
-                    - var e = p.email;
-                    +email(e)
-                td
-                    a(href='/person/delete/'+p._id) Delete
-                    
-    form(action='/person/', method='post')
-        label(for='name') Name 
-        input(id ='name', type='text', name='name')
-        label(for='age') Age
-        input(id='age', type='number', name='age')
-        label(for='email') Email
-        input(id='email', type='email', name='email')
-        input(type='submit', value='Submit')
+  script.
+    $(function(){
+      $('.truncate').succinct({
+        size: 100
+      });
+    });
