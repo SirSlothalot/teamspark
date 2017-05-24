@@ -36,8 +36,11 @@ var personSchema = new mongoose.Schema(
 
         //profilepic:{type:Buffer, require:true}
         data:{type:Buffer, require:true},
-        contentType:{type:String, require:true}
+        contentType:{type:String, require:true},
         //profilepic: { data: Buffer, contentType: String }
+
+        projectPotentials:{type:[String]},
+        projectMatches:{type:[String]}
     }
 );
 

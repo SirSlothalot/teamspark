@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var ctrlProject = require('../controllers/project');
+var ctrlMatch = require('../controllers/match');
 
 // router.get('/', ctrlProject.getProjectList);
 
@@ -16,6 +17,8 @@ router.get('/:projectTitle', ctrlProject.renderProject);
 router.get('/:projectTitle/edit', ctrlProject.renderEditProject);
 
 router.post('/:projectTitle/edit', ctrlProject.submitEditProject);
+
+router.get('/:projectTitle/view', ctrlMatch.renderAllPeople);
 
 
 

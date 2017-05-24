@@ -20,7 +20,10 @@ var projectSchema = new mongoose.Schema(
         ageOfOwner:{type:String, require:true},
         spokenLanguages:{type:[String], require:false},
 
-        submissionDate:{type:Date, require:true}
+        submissionDate:{type:Date, require:true},
+
+        userPotentials:{type:[String]},
+        userMatches:{type:[String]}
     }
 );
 
