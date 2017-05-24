@@ -384,7 +384,7 @@ form.entries {
 .tile {
   background: linear-gradient( #f2f2f2, #cccccc);
   color: black;
-  /*height: 400px;*/
+  /*min-height: 400px;*/
 }
 
 .breakWord {
