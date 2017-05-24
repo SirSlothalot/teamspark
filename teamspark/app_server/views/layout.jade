@@ -41,10 +41,10 @@ html
                   span.caret
                 ul.dropdown-menu( role="menu" )
                   if (user.hasProject)
-                    li: a( href="/project/#{project.projectTitle}" )
+                    li: a( href="/project/#{user.myProject}" )
                       span.glyphicon.glyphicon-list
                       |  My Project
-                    li: a( href="/user/#{project.projectTitle}/edit" )
+                    li: a( href="/project/#{user.myProject}/edit" )
                       span.glyphicon.glyphicon-edit
                       |  Edit Project
                   if (!user.hasProject)
@@ -59,7 +59,7 @@ html
                     span.glyphicon.glyphicon-user
                     |  People
                   if(user.hasProject)
-                    li: a( href="/project/#{project.title}/view" )
+                    li: a( href="/project/#{user.myProject}/view" )
                       span.glyphicon.glyphicon-th-list
                       |  Projects
 
