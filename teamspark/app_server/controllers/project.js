@@ -44,8 +44,15 @@ module.exports.submitNewProject = function(req, res, next) {
                 });
 
                 newProject.save();
-                result.hasProject = true;
-                result.myProject = req.body.title;
+
+                var updates = {
+                    hasProject: true,
+                    myProject: req.body.title
+                }
+                Person.findOneAndUpdate({username:result.username}, updates, {runValidators:true, new:true}, function (err, obj) {
+                      if (err) console.log(err);
+                });
+
                 req.app.locals.project = newProject;
                 res.redirect('/project/' + req.body.title);
             });
