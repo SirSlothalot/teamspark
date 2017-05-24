@@ -27,6 +27,14 @@
 // });
 
 
-$('#i_file').change( function(event) {
+$('#data').change( function(event) {
     $("#profileImg").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
 });
+
+
+
+// $('#uploadPic').click(function(e){
+// 	$("#profileImg").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+//     // e.preventDefault();
+//     // $(this).before("<input name='file[]' type='file'/>");
+// });

@@ -27,12 +27,10 @@ block content
                         .form-group
                             label Profile Picture
                             br
+                            input#imagePath(type="text", value="./public/images/user_image.png", name="imagePath")
                             br
-                            img#profileImg.avatar(src='/images/user_image.png', alt='Avatar', style="width:150px;height:150px;")
-                            file#i_file(name="i_file")
-                            br
-                            p#fileLoc(name='fileLoc') "./public/images/user_images.png"
-                            button#uploadPic(name = 'ulpic', type='button') Upload
+                            //p#data(name='fileLoc', required) "./public/images/user_images.png"
+                            //button#uploadPic(name = 'ulpic', type='button') Upload
                         .form-group
                             label Password *
                             p#passwdError

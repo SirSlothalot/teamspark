@@ -6,6 +6,8 @@ module.exports.renderRegister = function(req, res, next) {
 };
 
 var fs    = require("fs");
+//var filepath = ;
+
 module.exports.submitRegister = function(req,res) {
     Person.register(
         new Person(
@@ -31,10 +33,16 @@ module.exports.submitRegister = function(req,res) {
                 bio: req.body.bio,
                 accounts: req.body.accounts,
 
-                //data: fs.readFileSync("/home/abrar/Desktop/agile-web-development/teamspark/matt-project/resources/images/teamspark-icon.png").toString('base64'),
-                data: fs.readFileSync("./public/images/user_image.png").toString('base64'),
+                
+                
+                    //data: fs.readFileSync("/home/abrar/Desktop/agile-web-development/teamspark/matt-project/resources/images/teamspark-icon.png").toString('base64'),
+                data: fs.readFileSync(req.body.imagePath).toString('base64'),
+                //console.log("Image file not found, set to default.");
+                //data: fs.readFileSync("./public/images/user_image.png").toString('base64');
+                    //data: fs.readFileSync(req.body.data).toString('base64'),
+                
                 contentType: "image/png"
-                //profilepic: req.body.profilepic
+                //data: req.body.data
             }),
         req.body.password,
         function(err, person) {
