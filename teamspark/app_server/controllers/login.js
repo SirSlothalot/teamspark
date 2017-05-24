@@ -17,12 +17,9 @@ module.exports.submitLogin = function(req, res) {
                 if(err) {
                     console.log("Couldn't find user: " + req.user.username);
                 } else {
-                    console.log('User has a project? ' + result.hasProject);
-                    console.log('Title of user project: ' + result.myProject);
                     if(result.hasProject) {
                         Project.findOne({"title": result.myProject},
                             function(err, obj) {
-                                console.log(obj);
                                 if(err) {
                                     console.log("Couldn't find project: " + result.myProject);
                                 } else {
