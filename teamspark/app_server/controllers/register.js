@@ -5,6 +5,7 @@ module.exports.renderRegister = function(req, res, next) {
       res.render('register', { title: 'Register', user: req.user});
 };
 
+var fs    = require("fs");
 module.exports.submitRegister = function(req,res) {
     Person.register(
         new Person(
@@ -28,7 +29,12 @@ module.exports.submitRegister = function(req,res) {
 
                 userInterest: req.body.userInterest,
                 bio: req.body.bio,
-                accounts: req.body.accounts
+                accounts: req.body.accounts,
+
+                //data: fs.readFileSync("/home/abrar/Desktop/agile-web-development/teamspark/matt-project/resources/images/teamspark-icon.png").toString('base64'),
+                data: fs.readFileSync("./public/images/user_image.png").toString('base64'),
+                contentType: "image/png"
+                //profilepic: req.body.profilepic
             }),
         req.body.password,
         function(err, person) {
