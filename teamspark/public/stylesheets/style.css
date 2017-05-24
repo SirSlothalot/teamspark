@@ -3,6 +3,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   background-size: cover;
+  padding-top: 50px;
 }
 
 a {
@@ -158,7 +159,7 @@ img {
 }
 
 #coverflow02 {
-  background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/space-1.jpg");
+  background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/lightbulbs.jpeg");
 }
 
 #coverflowSignin {
