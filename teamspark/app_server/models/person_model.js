@@ -39,6 +39,9 @@ var personSchema = new mongoose.Schema(
         contentType:{type:String, require:true},
         //profilepic: { data: Buffer, contentType: String }
 
+        hasProject:{type:Boolean},
+        myProject:{type:String},
+
         projectPotentials:{type:[String]},
         projectMatches:{type:[String]}
     }

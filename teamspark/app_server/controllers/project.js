@@ -3,9 +3,12 @@ var mongoose = require('mongoose');
 var Project = mongoose.model('Project');
 var Person = mongoose.model('Person');
 
+var express = require('express');
+var app = express();
+
 module.exports.renderNewProject = function(req, res, next) {
     if(req.user) {
-        res.render('project-create', { title: 'New Project', user: req.user});
+        res.render('project-create', { title: 'New Project', user: req.user, 'project':req.app.locals.project});
     } else {
         res.redirect('/');
     }
@@ -41,6 +44,9 @@ module.exports.submitNewProject = function(req, res, next) {
                 });
 
                 newProject.save();
+                result.hasProject = true;
+                result.myProject = req.body.title;
+                req.app.locals.project = newProject;
                 res.redirect('/project/' + req.body.title);
             });
     } else {
@@ -61,7 +67,7 @@ module.exports.renderProject = function(req, res, next) {
                     });
                 } else {
                     console.log('find complete');
-                    res.render('project', {'project':result, title: req.params.projectTitle, user: req.user});
+                    res.render('project', {'project':req.app.locals.project, title: req.params.projectTitle, user: req.user});
                 }
             });
     } else {
@@ -81,7 +87,7 @@ module.exports.renderEditProject = function(req, res, next) {
             }
             if(req.user && req.user.username == result.owner) {
                 console.log('find complete');
-                res.render('project-edit', {'project':result, user: req.user});
+                res.render('project-edit', {user: req.user, 'project':req.app.locals.project});
             } else {
                 res.redirect('/');
                 console.log('Cannot edit this project. You do not have permission.')
@@ -109,10 +115,10 @@ module.exports.submitEditProject = function(req, res, next) {
                 virtualTeam: req.body.virtualTeam,
             }
 
-            var newP = Project.findOneAndUpdate({title:req.params.projectTitle}, updates, {runValidators:true, new:true}, function (err, doc) {
+            var newP = Project.findOneAndUpdate({title:req.params.projectTitle}, updates, {runValidators:true, new:true}, function (err, updatedProject) {
                   if (err) console.log(err);
+                  req.app.locals.project = updatedProject;
             });
-
             res.redirect('/project/' + req.params.projectTitle);
         } else {
             res.redirect('/');
