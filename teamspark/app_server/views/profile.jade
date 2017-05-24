@@ -1,40 +1,54 @@
 extends layout
 
 block content
-  #coverflow01.coverflow
-    .jumbotron
-      .container
-        h1 #{user.fullname}
-        p #{user.email}
-        p #{user.username}
-        img#avatarImg.avatar(src='/images/female_avatar.png', alt='Avatar')
-  .content
-    .container
+  .container-fluid
+    .row
+      #coverflow01.coverflow
+        .jumbotron
+          img#avatarImg.avatar(src='/images/female_avatar.png', alt='Avatar')
+          h1 #{user.fullname}
+          h2
+            i #{user.username}
+    .row
+      .content
         .row
             .col-sm-8.col-sm-offset-2
                 .text-left
-                    h2 Bio: #{user.bio}
+                    h3 Bio: 
+                    h4 #{user.bio}
         .row
             .col-sm-4.col-sm-offset-2
                 .text-left
-                    h2 Country: #{user.country}
-                    h2 Languages: #{user.spokenLanguages}
-                    h2 Date of birth: #{user.dob}
+                    h3 Country: 
+                    h4 #{user.country}
+                    h3 Languages: 
+                    h4 #{user.spokenLanguages}
+                    h3 Date of birth: 
+                    h4 #{user.dob}
             .col-sm-4
                 .text-left
-                    h2 Skill level: #{user.skillLevel}
-                    h2 Availability per week: #{user.availability}
+                    h3 Skill level: 
+                    h4 #{user.skillLevel}
+                    h3 Availability per week: 
+                    h4 #{user.availability}
                     //- h2 Works online: #{user.online}
-                    h2 Interest: #{user.userInterest}
+                    h3 Interest: 
+                    h4 #{user.userInterest}
         .row
             .col-sm-8.col-sm-offset-2
                 .text-left
-                  - var langString ="Programming languages: ";
+                  - var langString = "";
                   - each lang in user.programmingLanguages
                     - langString = langString + lang + ", ";
                   - var langString = langString.substr(0, langString.length-2);
-                  h2 #{langString}
+                  h3 Programming languages: 
+                  h4 #{langString}
         .row
             .col-sm-8.col-sm-offset-2
                 .text-left
-                    h2 Accounts: #{user.accounts}
+                  - var accString = "";
+                  - each acc in user.accounts
+                    - accString = accString + acc + ", ";
+                  - var accString = accString.substr(0, accString.length-2);
+                    h3 Accounts: 
+                    h4 #{accString}

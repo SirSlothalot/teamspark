@@ -480,9 +480,9 @@ function location_display()
 
 
 function showPosition(position) {
-	var geoLocAPIkey = "AIzaSyCNGUqMSaQZeIH9R9nzczVkTEdz6dxtFDo";
 	var loc = position.coords.latitude + "," + position.coords.longitude;
 	var x = document.getElementById("location");
-    x.innerHTML =     x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
+    //x.innerHTML =     x.innerHTML = "Latitude: " + position.coords.latitude + 
+    //"<br>Longitude: " + position.coords.longitude;
+    x.innerHTML = position.coords.latitude +","+position.coords.longitude;
 }
