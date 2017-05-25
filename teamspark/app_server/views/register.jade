@@ -6,7 +6,7 @@ block content
             .row
                 .col-md-6.col-md-offset-3
                     form.entries(name='/register', method="post", onload='makeFooter()')
-                        img.img-responsive(src='/images/teamsparkicon.png', alpostt='Avatar')
+                        img#avatarImg.avatar(src='/images/logo.png', alt='Avatar')
                         h2
                           |  Create a new 
                           b  Teamspark
@@ -34,7 +34,7 @@ block content
                             label Password *
                             p#passwdError
                             input#passwd(type='Password', name='password', required)
-                            label Confirm Password *   
+                            label Confirm Password *
                             p#rePasswdError
                             input#rPasswd(type='Password', name='rePassword', required)
                         .form-group
