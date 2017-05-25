@@ -10,27 +10,15 @@ module.exports.renderLogin = function(req, res, next) {
 };
 
 module.exports.submitLogin = function(req, res) {
-    console.log(req.user.username);
     if(req.user) {
         Person.findOne({"username": req.user.username},
             function(err, result) {
                 if(err) {
                     console.log("Couldn't find user: " + req.user.username);
                 } else {
-                    if(result.hasProject) {
-                        Project.findOne({"title": result.myProject},
-                            function(err, obj) {
-                                if(err) {
-                                    console.log("Couldn't find project: " + result.myProject);
-                                } else {
-                                    console.log("Project title: " + obj.title);
-                                    req.app.locals.project = obj;
-                                }
-                        });
-                    }
+                    res.redirect('/user/' + req.user.username);
                 }
-        });
-        res.redirect('/');
+            });
     } else {
         res.redirect('/login');
     }

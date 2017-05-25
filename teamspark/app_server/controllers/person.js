@@ -13,7 +13,7 @@ module.exports.personList = function(req,res){
                 });
             } else {
                 console.log('find complete');
-                res.render('person', {'people':simpleData, user: req.user, 'project':res.app.locals.project});
+                res.render('person', {'people':simpleData, user: req.user});
             }
         })
 };

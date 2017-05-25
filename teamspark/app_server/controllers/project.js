@@ -3,12 +3,9 @@ var mongoose = require('mongoose');
 var Project = mongoose.model('Project');
 var Person = mongoose.model('Person');
 
-var express = require('express');
-var app = express();
-
 module.exports.renderNewProject = function(req, res, next) {
     if(req.user) {
-        res.render('project-create', { title: 'New Project', user: req.user, 'project':req.app.locals.project});
+        res.render('project-create', { title: 'New Project', user: req.user});
     } else {
         res.redirect('/');
     }
@@ -53,7 +50,6 @@ module.exports.submitNewProject = function(req, res, next) {
                       if (err) console.log(err);
                 });
 
-                req.app.locals.project = newProject;
                 res.redirect('/project/' + req.body.title);
             });
     } else {
@@ -94,7 +90,7 @@ module.exports.renderEditProject = function(req, res, next) {
             }
             if(req.user && req.user.username == result.owner) {
                 console.log('find complete');
-                res.render('project-edit', {user: req.user, 'project':req.app.locals.project});
+                res.render('project-edit', {user: req.user, 'project': result});
             } else {
                 res.redirect('/');
                 console.log('Cannot edit this project. You do not have permission.')
@@ -124,7 +120,6 @@ module.exports.submitEditProject = function(req, res, next) {
 
             var newP = Project.findOneAndUpdate({title:req.params.projectTitle}, updates, {runValidators:true, context:'query', new:true}, function (err, updatedProject) {
                   if (err) console.log(err);
-                  req.app.locals.project = updatedProject;
             });
             res.redirect('/project/' + req.params.projectTitle);
         } else {
