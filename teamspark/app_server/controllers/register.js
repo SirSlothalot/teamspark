@@ -32,7 +32,7 @@ module.exports.submitRegister = function(req,res) {
                 bio: req.body.bio,
                 accounts: req.body.accounts,
 
-
+                virtualTeam: req.body.virtualTeam,
 
                     //data: fs.readFileSync("/home/abrar/Desktop/agile-web-development/teamspark/matt-project/resources/images/teamspark-icon.png").toString('base64'),
                 data: fs.readFileSync(req.body.imagePath).toString('base64'),

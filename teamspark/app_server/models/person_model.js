@@ -69,7 +69,7 @@ var personSchema = new mongoose.Schema(
             },
         },
 
-        // online:{type:Boolean, require:true},
+        virtualTeam:{type:String, require:true},
 
         country:{type:String, require:true},
         state:{type:String, require:true},
@@ -82,9 +82,10 @@ var personSchema = new mongoose.Schema(
         },
 
         skillLevel:{
-            type:String,
+            type:Number,
             require:true,
-            match:/[1-6]/
+            min: 1,
+            max: 6
         },
 
         programmingLanguages:{
