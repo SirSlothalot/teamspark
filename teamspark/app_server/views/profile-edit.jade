@@ -63,28 +63,24 @@ block content
                       label Area of Interest
                       select#interest(name='userInterest')
                         option(value='#{person.userInterest}') #{person.userInterest}
-                        option(value='Machine Learning.') Machine Learning.
-                        option(value='Web App Development.') Web App Development.
-                        option(value='Data Mining.') Data Mining.
-                        option(value='Graphics and Animation.') Graphics and Animation.
-                        option(value='Game Development.') Game Development.
-                        option(value='UX Design.') UX Design.
-                        option(value='Network and Security.') Network and Security.
-                        option(value='Systems Programming.') Systems Programming.
-                        option(value='Research.') Research.
+                        option(value='Machine Learning') Machine Learning.
+                        option(value='Web App Development') Web App Development.
+                        option(value='Data Mining') Data Mining.
+                        option(value='Graphics and Animation') Graphics and Animation.
+                        option(value='Game Development') Game Development.
+                        option(value='UX Design') UX Design.
+                        option(value='Network and Security') Network and Security.
+                        option(value='Systems Programming') Systems Programming.
+                        option(value='Research') Research.
                   .form-group
                       label Availability for collaboration (Weekly)
                       select#availability(name='availability')
                         option(value='#{person.availability}') #{person.availability}
-                        option(value='5 hours') 5 hours or less.
-                        option(value='10 hours') 10 hours per week.
-                        option(value='15 hours') 15 hours per week.
-                        option(value='20 hours') 20 hours per week.
-                        options(value='20+ hours') More than 20 hours per week.
-                  .form-group
-                      label Location (Use Google Location Service)
-                      br
-                      img.avatar(src='/images/location.png', alpostt='gmaps')
+                        option(value='5') 5 hours or less.
+                        option(value='10') 10 hours per week.
+                        option(value='15') 15 hours per week.
+                        option(value='20') 20 hours per week.
+                        options(value='21') More than 20 hours per week.
                   .form-group
                       label Location (Enter Manually)*
                   .form-group
