@@ -44,10 +44,15 @@ html
                     li: a( href="/project/#{user.myProject}" )
                       span.glyphicon.glyphicon-list
                       |  My Project
+                    li: a( href="/project/#{user.myProject}/chat" )
+                      span.glyphicon.glyphicon-comment
+                      |  Open Chat
                     if (user.isOwner)
+                      li.divider(role='separator')
                       li: a( href="/project/#{user.myProject}/edit" )
                         span.glyphicon.glyphicon-edit
                         |  Edit Project
+                    
                   if (!user.myProject)
                     li: a( href="/project/new" )
                       span.glyphicon.glyphicon-education
