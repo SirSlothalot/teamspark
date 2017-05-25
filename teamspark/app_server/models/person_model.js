@@ -16,7 +16,7 @@ var enumAreaofInterest = {
 }
 
 var enumAvailability = {
-    values: ['5', '10', '15', '20', '21'],
+    values: [5, 10, 15, 20, 21],
     message: '{VALUE} is not a valid availability'
 }
 
@@ -103,7 +103,7 @@ var personSchema = new mongoose.Schema(
         suburb:{type:String, require:true},
 
         availability:{
-            type:String,
+            type:Number,
             require:true,
             enum:enumAvailability
         },

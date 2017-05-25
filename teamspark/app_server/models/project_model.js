@@ -7,7 +7,7 @@ var enumProgLangs = {
 }
 
 var enumAvailability = {
-    values: ['5', '10', '15', '20', '21'],
+    values: [5, 10, 15, 20, 21],
     message: '{VALUE} is not a valid availability'
 }
 
@@ -41,8 +41,8 @@ var projectSchema = new mongoose.Schema(
         },
 
         workload:{
-            type:String,
-            require:false,
+            type:Number,
+            require:true,
             enum:enumAvailability
         },
 
