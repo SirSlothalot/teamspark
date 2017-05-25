@@ -33,19 +33,19 @@ block content
                       .col-lg-6
                         .text-left
                           h3 #{projects[j].title}
-                          h4.breakWord #{people[j].username}
+                          h4.breakWord #{projects[j].owner}
                     .row
                       .col-xs-offest-1.col-xs-10
                         .text-left
                           h4 Bio: 
-                          h5.breakWord.truncate #{people[j].bio}
-                          h4 Languages: 
+                          h5.breakWord.truncate #{projects[j].description}
+                          h4 Required Languages: 
                           h5
-                            - for (var i=0; i<people[j].programmingLanguages.length; i++)
-                              - if (i != people[j].programmingLanguages.length - 1)
-                                span= people[j].programmingLanguages[i]+", "
+                            - for (var i=0; i<projects[j].programmingLanguages.length; i++)
+                              - if (i != projects[j].programmingLanguages.length - 1)
+                                span= projects[j].programmingLanguages[i]+", "
                               - else
-                                span= people[j].programmingLanguages[i]
+                                span= projects[j].programmingLanguages[i]
                         
     
   script.

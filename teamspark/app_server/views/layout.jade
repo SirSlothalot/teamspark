@@ -56,11 +56,11 @@ html
                 a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Explore 
                   span.caret
                 ul.dropdown-menu( role="menu" )
-                  if(!user.myProject)
+                  if(user.myProject)
                     li: a( href="/user/#{user.username}/view" )
                       span.glyphicon.glyphicon-user
                       |  People
-                  if(user.myProject)
+                  if(!user.myProject)
                     li: a( href="/project/#{user.myProject}/view" )
                       span.glyphicon.glyphicon-th-list
                       |  Projects
