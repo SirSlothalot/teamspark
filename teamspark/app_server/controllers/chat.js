@@ -39,5 +39,25 @@ module.exports.message = function(msg, io) {
           console.log(data, 'message saved');
         }
       });
-      io.emit('message', msg);
+    io.emit('message', msg);
 }
+
+module.exports.renderChatroom = function(req, res) {
+  if(req.user) {
+      Person.findOne({"username": req.params.username}).exec(
+          function(err, result) {
+              if(err) {
+                  res.render('error', {
+                      message:err.messagr,
+                      error: err
+                  });
+              } else {
+                  console.log('find complete');
+                  res.render('chat', {'user':req.user});
+              }
+          })
+  } else {
+      res.redirect('/');
+      Console.log('Cannot view profile. You are not logged in.');
+  }
+};

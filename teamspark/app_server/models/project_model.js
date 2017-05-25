@@ -7,9 +7,9 @@ var enumProgLangs = {
     message: '{VALUE} is not a valid programming language'
 }
 
-var enumAvailability = {
-    values: [5, 10, 15, 20, 21],
-    message: '{VALUE} is not a valid availability'
+var enumYesNo = {
+  values: ['yes', 'no'],
+  message: '{VALUE} is neither "yes" or "no"'
 }
 
 var projectSchema = new mongoose.Schema(
@@ -44,10 +44,15 @@ var projectSchema = new mongoose.Schema(
         workload:{
             type:Number,
             require:true,
-            enum:enumAvailability
+            min: 5,
+            max: 21
         },
 
-        virtualTeam:{type:String, require:true},
+        virtualTeam:{
+          type:String,
+          require:true,
+          enum:enumYesNo
+        },
 
         country:{type:String, require:true},
         state:{type:String, require:true},

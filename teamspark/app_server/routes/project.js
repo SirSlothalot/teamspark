@@ -21,6 +21,6 @@ router.post('/:projectTitle/edit', ctrlProject.submitEditProject);
 
 router.get('/:projectTitle/view', ctrlMatch.renderAllPeople);
 
-// router.get('/:projectTitle/chat', ctrlChat.renderChatroom);
+router.get('/:projectTitle/chat', ctrlChat.renderChatroom);
 
 module.exports = router;

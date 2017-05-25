@@ -15,11 +15,6 @@ var enumAreaofInterest = {
     message: '{VALUE} is not a valid area of interest'
 }
 
-var enumAvailability = {
-    values: [5, 10, 15, 20, 21],
-    message: '{VALUE} is not a valid availability'
-}
-
 var enumCountries = {
     values: [
 		"Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados",
@@ -105,7 +100,8 @@ var personSchema = new mongoose.Schema(
         availability:{
             type:Number,
             require:true,
-            enum:enumAvailability
+            min: 5,
+            max: 21
         },
 
         skillLevel:{
