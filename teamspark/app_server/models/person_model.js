@@ -17,7 +17,6 @@ var personSchema = new mongoose.Schema(
         password:{type:String, require:true},
 
         dob:{type:String, require:true},
-        spokenLanguages:{type:[String], require:true},
 
         // online:{type:Boolean, require:true},
 

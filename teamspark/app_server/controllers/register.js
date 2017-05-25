@@ -17,7 +17,6 @@ module.exports.submitRegister = function(req,res) {
                 username: req.body.username,
 
                 dob: req.body.dob,
-                spokenLanguages: req.body.spokenLanguages,
 
                 // online: req.body.online,
 
@@ -33,14 +32,14 @@ module.exports.submitRegister = function(req,res) {
                 bio: req.body.bio,
                 accounts: req.body.accounts,
 
-                
-                
+
+
                     //data: fs.readFileSync("/home/abrar/Desktop/agile-web-development/teamspark/matt-project/resources/images/teamspark-icon.png").toString('base64'),
                 data: fs.readFileSync(req.body.imagePath).toString('base64'),
                 //console.log("Image file not found, set to default.");
                 //data: fs.readFileSync("./public/images/user_image.png").toString('base64');
                     //data: fs.readFileSync(req.body.data).toString('base64'),
-                
+
                 contentType: "image/png"
                 //data: req.body.data
             }),

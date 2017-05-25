@@ -22,8 +22,8 @@ block content
                 .text-left
                     h3 Country:
                     h4 #{user.country}
-                    h3 Languages:
-                    h4 #{user.spokenLanguages}
+                    h3 State: 
+                    h4 #{user.state}
                     h3 Date of birth:
                     h4 #{user.dob}
             .col-sm-4
@@ -38,18 +38,22 @@ block content
         .row
             .col-sm-8.col-sm-offset-2
                 .text-left
-                  - var langString = "";
-                  - each lang in user.programmingLanguages
-                    - langString = langString + lang + ", ";
-                  - var langString = langString.substr(0, langString.length-2);
-                  h3 Programming languages:
-                  h4 #{langString}
+                  h3 Programming languages: 
+                  h4 
+                    - for (var i=0; i<user.programmingLanguages.length; i++)
+                      - if (i != user.programmingLanguages.length - 1)
+                        span= user.programmingLanguages[i]+", "
+                      - else
+                        span= user.programmingLanguages[i]
+                  
+                  
         .row
             .col-sm-8.col-sm-offset-2
                 .text-left
-                  - var accString = "";
-                  - each acc in user.accounts
-                    - accString = accString + acc + ", ";
-                  - var accString = accString.substr(0, accString.length-2);
                     h3 Accounts:
-                    h4 #{accString}
+                    h4 
+                      - for (var i=0; i<user.accounts.length; i++)
+                        - if (i != user.accounts.length - 1)
+                          span= user.accounts[i]+", "
+                        - else
+                          span= user.accounts[i]

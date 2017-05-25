@@ -50,7 +50,6 @@ module.exports.submitEditProfile = function (req,res){
             email: req.body.email,
 
             dob: req.body.dob,
-            spokenLanguages: req.body.spokenLanguages,
 
             // online: req.body.online,
 
