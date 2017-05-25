@@ -46,7 +46,7 @@ module.exports.submitNewProject = function(req, res, next) {
                 newProject.save();
 
                 var updates = {
-                    hasProject: true,
+                    isOwner: true,
                     myProject: req.body.title
                 }
                 Person.findOneAndUpdate({username:result.username}, updates, {runValidators:true, new:true}, function (err, obj) {
@@ -122,7 +122,7 @@ module.exports.submitEditProject = function(req, res, next) {
                 virtualTeam: req.body.virtualTeam,
             }
 
-            var newP = Project.findOneAndUpdate({title:req.params.projectTitle}, updates, {runValidators:true, new:true}, function (err, updatedProject) {
+            var newP = Project.findOneAndUpdate({title:req.params.projectTitle}, updates, {runValidators:true, context:'query', new:true}, function (err, updatedProject) {
                   if (err) console.log(err);
                   req.app.locals.project = updatedProject;
             });
