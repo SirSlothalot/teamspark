@@ -8,7 +8,7 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
-  body(onload='location_display()')
+  body(onload="getProgLanguageOpt()")
     nav.navbar.navbar-fixed-top.navbar-inverse.bg-faded( role="navigation" )
       .container-fluid
         .navbar-header
@@ -28,7 +28,7 @@ html
               li: a( href="/register")
                 span.glyphicon.glyphicon-user
                 |  Register
-              li: a( href="/login") 
+              li: a( href="/login")
                 span.glyphicon.glyphicon-log-in
                 |  Login
         if (user)
@@ -37,37 +37,35 @@ html
               li: a( href="/contact" ) Contact
               li: a( href="/references") References
               li.dropdown
-                a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Project 
+                a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Project
                   span.caret
                 ul.dropdown-menu( role="menu" )
-                  if (user.myProject)
+                  if (user.hasProject)
                     li: a( href="/project/#{user.myProject}" )
                       span.glyphicon.glyphicon-list
                       |  My Project
-                    if(user.isOwner)
-                      li: a( href="/project/#{user.myProject}/edit" )
-                        span.glyphicon.glyphicon-edit
-                        |  Edit Project
-                  if (!user.myProject)
+                    li: a( href="/project/#{user.myProject}/edit" )
+                      span.glyphicon.glyphicon-edit
+                      |  Edit Project
+                  if (!user.hasProject)
                     li: a( href="/project/new" )
                       span.glyphicon.glyphicon-education
                       |  Create Project
               li.dropdown
-                a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Explore 
+                a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Explore
                   span.caret
                 ul.dropdown-menu( role="menu" )
-                  if(user.myProject)
-                    li: a( href="/user/#{user.username}/view" )
-                      span.glyphicon.glyphicon-user
-                      |  People
-                  if(!user.myProject)
+                  li: a( href="/user/#{user.username}/view" )
+                    span.glyphicon.glyphicon-user
+                    |  People
+                  if(user.hasProject)
                     li: a( href="/project/#{user.myProject}/view" )
                       span.glyphicon.glyphicon-th-list
                       |  Projects
 
             ul.nav.navbar-nav.navbar-right
               li.dropdown
-                a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Profile 
+                a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Profile
                   span.caret
                 ul.dropdown-menu( role="menu" )
                   li: a( href="/user/#{user.username}" )
@@ -79,9 +77,9 @@ html
               li: a( href="/logout")
                 span.glyphicon.glyphicon-log-out
                 |  Logout
-                
+
     block content
-    
+
     footer
       //br
       //p#location(style="color:gray; font-size:15px; text-align:center")
@@ -103,7 +101,7 @@ html
             li
               a.social-icon(href='https://www.youtube.com')
                 i.transition-colour.fa.fa-youtube
-    
-  
+
+
   script(src="/javascripts/ui.js")
   script(src="/javascripts/jQuery.succinct.min.js")
