@@ -35,7 +35,8 @@ module.exports.submitRegister = function(req,res) {
                 virtualTeam: req.body.virtualTeam,
 
                     //data: fs.readFileSync("/home/abrar/Desktop/agile-web-development/teamspark/matt-project/resources/images/teamspark-icon.png").toString('base64'),
-                data: fs.readFileSync(req.body.imagePath).toString('base64'),
+                //data: fs.readFileSync(req.body.imagePath).toString('base64'),
+                data: fs.readFileSync("./public/images/tux.png").toString('base64'),
                 //console.log("Image file not found, set to default.");
                 //data: fs.readFileSync("./public/images/user_image.png").toString('base64');
                     //data: fs.readFileSync(req.body.data).toString('base64'),
