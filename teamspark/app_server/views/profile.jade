@@ -6,7 +6,7 @@ block content
       #coverflow01.coverflow
         #main.jumbotron
           //img#avatarImg.avatar(src='/images/user_image.png', alt='Avatar')
-          img.img-responsive(src='data:image/png;base64,#{user.data}' style="width:100%;")
+          img(src='data:image/png;base64,#{user.data}' style="height=150px; width=150px;")
           h1 #{user.fullname}
           h2
             i #{user.username}

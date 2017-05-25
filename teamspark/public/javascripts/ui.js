@@ -16,8 +16,20 @@ function resetButtonAnimation(el)
 
 function validateSignUp()
 {
+	//console.log("Invalid file path specified, set to default value.");
+	//return false;
 	//return(validateFullName()  && validateEMail() && validateUName() && validatePasswd() && validateRPasswd() && validateDOB() && checkAgreement());
-	return(validateFullName()  && validateEMail() && validateUName() && validatePasswd() && validateRPasswd() && validateDOB());
+	//var fs = require('fs');
+	//var filepath = document.getElementById("imagePath").value;
+
+	//if (!fs.existsSync(filepath)) {
+    //	document.getElementById("imagePath").value = "./public/images/user_image.png";
+    //}
+	
+	return(validateImagePath() && validateFullName()  && validateEMail() && validateUName() && validatePasswd() 
+		&& validateRPasswd() && validateDOB());
+	//document.getElementById("imagePath").value = "./public/images/user_image.png";
+
 }
 
 
@@ -485,4 +497,18 @@ function showPosition(position) {
     //x.innerHTML =     x.innerHTML = "Latitude: " + position.coords.latitude + 
     //"<br>Longitude: " + position.coords.longitude;
     x.innerHTML = position.coords.latitude +","+position.coords.longitude;
+}
+
+
+
+
+function validateImagePath()
+{
+	//var fs = require('fs');
+	var filepath = document.getElementById("imagePath").value;
+
+    if(filepath === "")
+    	document.getElementById("imagePath").value = "./public/images/user_image.png";
+
+	return true;
 }
