@@ -182,7 +182,7 @@ img {
 	background: linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("/images/register.jpeg");
 }
 
-#nameError, #passwdError, #usernameError, #emailError, #rePasswdError, #dobError, #agreementErr, #genericError {
+#nameError, #passwdError, #usernameError, #emailError, #rePasswdError, #dobError, #agreementErr, #genericError, #countryError {
   width: 25%;
   display: inline-block;
   border-radius: 5px;

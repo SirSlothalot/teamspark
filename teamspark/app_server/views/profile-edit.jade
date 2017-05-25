@@ -30,19 +30,22 @@ block content
                       - for (var i = 0; i < person.programmingLanguages.length; i++)
                           select#selectProgLanguage(name='programmingLanguages')
                             option(value='#{person.programmingLanguages[i]}') #{person.programmingLanguages[i]}
-                            option(value='c') C
-                            option(value='cpp') C++
-                            option(value='cs') C#
-                            option(value='haskell') Haskell
-                            option(value='java') Java
-                            option(value='js') JavaScript
-                            option(value='objectivec') Objective-C
-                            option(value='perl') Perl
-                            option(value='php') PHP
-                            option(value='python') Python
-                            option(value='ruby') Ruby
-                            option(value='scala') Scala
-                            option(value='other') Other...
+                            option(value='Bash') Bash
+                            option(value='C') C
+                            option(value='C++') C++
+                            option(value='C#') C#
+                            option(value='Clojure') Clojure
+                            option(value='CoffeeScript') CoffeeScript
+                            option(value='Haskell') Haskell
+                            option(value='Java') Java
+                            option(value='JavaScript') JavaScript
+                            option(value='Objective-C') Objective-C
+                            option(value='Perl') Perl
+                            option(value='PHP') PHP
+                            option(value='Python') Python
+                            option(value='Ruby') Ruby
+                            option(value='Scala') Scala
+                            option(value='Swift') Swift
                    .form-group
                        button#plusExtraProgLang(name = 'posproglang', type='button', onclick='return addLangOpt()') +
                        button#minusExtraProgLang(name = 'negproglang', type = 'button', onclick='return minusLangOpt()') -
@@ -50,25 +53,25 @@ block content
                       label Skill Level *
                       select#skillLevel(name='skillLevel')
                         option(value='#{person.skillLevel}') #{person.skillLevel}
-                        option(value='beginner') No prior experience/ Noob.
-                        option(value='amaetaur') Know the basics of my favourite programming language.
-                        option(value='semi') Can solve complex problems efficiently using data structures and algorithms.
+                        option(value='1') No prior experience/ Noob.
+                        option(value='2') Know the basics of my favourite programming language.
+                        option(value='3') Can solve complex problems efficiently using data structures and algorithms.
                         option(value='4') Regularly take part in programming competitions with above average performance.
-                        option(value='pro') Have worked as a software dev/ engineer for over 2 years.
-                        option(value='worldclass') Have worked for a major tech company/ contributed to an open source project used by 1000+ users.
+                        option(value='5') Have worked as a software dev/ engineer for over 2 years.
+                        option(value='6') Have worked for a major tech company/ contributed to an open source project used by 1000+ users.
                   .form-group
                       label Area of Interest
                       select#interest(name='userInterest')
                         option(value='#{person.userInterest}') #{person.userInterest}
-                        option(value='ai') Machine Learning.
-                        option(value='webdev') Web App Development.
-                        option(value='datamining') Data Mining.
-                        option(value='graphics') Graphics and Animation.
-                        option(value='gamedev') Game Development.
-                        option(value='uxdesign') UX Design.
-                        option(value='network') Network and Security.
-                        option(value='system') Systems Programming.
-                        option(value='research') Research.
+                        option(value='Machine Learning.') Machine Learning.
+                        option(value='Web App Development.') Web App Development.
+                        option(value='Data Mining.') Data Mining.
+                        option(value='Graphics and Animation.') Graphics and Animation.
+                        option(value='Game Development.') Game Development.
+                        option(value='UX Design.') UX Design.
+                        option(value='Network and Security.') Network and Security.
+                        option(value='Systems Programming.') Systems Programming.
+                        option(value='Research.') Research.
                   .form-group
                       label Availability for collaboration (Weekly)
                       select#availability(name='availability')
