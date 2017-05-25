@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .container-fluid
+    .row
+      #coverflow01.coverflow
+        #main.jumbotron
+          //img#avatarImg.avatar(src='/images/user_image.png', alt='Avatar')
+          img(src='data:image/png;base64,#{user.data}' style="height=150px; width=150px;")
+          h1 #{user.fullname}
+          h2
+            i #{user.username}

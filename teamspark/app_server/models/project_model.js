@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 var uniqueValidator = require('mongoose-unique-validator');
 
 var enumProgLangs = {
-    values: ['C', 'C++', 'C#', 'Haskell', 'Java', 'JavaScript', 'Objective-C', 'Perl', 'PHP', 'Python', 'Ruby', 'Scala', 'Other...'],
+    values: ["Bash", "C", "C++", "C#", "Clojure", "CoffeeScript", "Haskell", "Java", "JavaScript",
+	   "Objective-C", "Perl", "PHP", "Python", "Scala","Swift"],
     message: '{VALUE} is not a valid programming language'
 }
 
@@ -19,9 +20,9 @@ var projectSchema = new mongoose.Schema(
             require:true,
             validate: {
               validator: function(v) {
-                return /^[a-zA-Z0-9_-]{3,16}$/.test(v);
+                return /^[\sa-zA-Z0-9_-]{3,40}$/.test(v);
               },
-              message: '{VALUE} is not a valid project title. Usernames are 3-16 characters long and contain letters, numbers, hyphens and underscores.'
+              message: '{VALUE} is not a valid project title. Titles are 3-40 characters long and contain letters, numbers, hyphens and underscores.'
             },
         },
 
