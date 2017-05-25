@@ -63,6 +63,7 @@ module.exports.submitEditProfile = function (req,res){
 
             userInterest: req.body.userInterest,
             bio: req.body.bio,
+            virtualTeam: req.body.virtualTeam,
             accounts: req.body.accounts
         }
 

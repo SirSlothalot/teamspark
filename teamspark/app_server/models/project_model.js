@@ -28,9 +28,10 @@ var projectSchema = new mongoose.Schema(
         description:{type:String, require:true},
 
         skillLevel:{
-            type:String,
+            type:Number,
             require:true,
-            match:/[1-6]/
+            min:1,
+            max:6
         },
 
         programmingLanguages:{
@@ -45,7 +46,7 @@ var projectSchema = new mongoose.Schema(
             enum:enumAvailability
         },
 
-        virtualTeam:{type:Boolean, require:true},
+        virtualTeam:{type:String, require:true},
 
         country:{type:String, require:true},
         state:{type:String, require:true},

@@ -30,7 +30,6 @@ block content
                             img#display(src="/images/user_image.png")
                             br
                             br
-                            br
                             //input#imagePath(type="text", placeholder="path/to/image", name="imagePath")
                             input#imageFile(type="file", name="imageFile")
                             br
@@ -94,9 +93,9 @@ block content
                             label Location *
                             .form-group
                                 label Country
-                                select#country(name='country')
+                                select#country(name='country', onclick="getState()")
                                 label State/ Province
-                                input#state(type='text', name ='state', placeholder='Western Australia')
+                                select#state(name ='state')
                                 label City/ Town/ Suburb
                                 input#suburb(type='text', name ='suburb', placeholder='Crawley')
                         .form-group
