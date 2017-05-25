@@ -74,7 +74,7 @@ module.exports.renderProject = function(req, res, next) {
                     });
                 } else {
                     console.log('find complete');
-                    res.render('project', {'project':req.app.locals.project, title: req.params.projectTitle, user: req.user});
+                    res.render('project', {'project':result, title: req.params.projectTitle, user: req.user});
                 }
             });
     } else {

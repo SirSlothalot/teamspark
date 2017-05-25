@@ -40,14 +40,15 @@ html
                 a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Project
                   span.caret
                 ul.dropdown-menu( role="menu" )
-                  if (user.hasProject)
+                  if (user.myProject)
                     li: a( href="/project/#{user.myProject}" )
                       span.glyphicon.glyphicon-list
                       |  My Project
-                    li: a( href="/project/#{user.myProject}/edit" )
-                      span.glyphicon.glyphicon-edit
-                      |  Edit Project
-                  if (!user.hasProject)
+                    if (user.isOwner)
+                      li: a( href="/project/#{user.myProject}/edit" )
+                        span.glyphicon.glyphicon-edit
+                        |  Edit Project
+                  if (!user.myProject)
                     li: a( href="/project/new" )
                       span.glyphicon.glyphicon-education
                       |  Create Project
@@ -55,11 +56,12 @@ html
                 a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Explore
                   span.caret
                 ul.dropdown-menu( role="menu" )
-                  li: a( href="/user/#{user.username}/view" )
-                    span.glyphicon.glyphicon-user
-                    |  People
-                  if(user.hasProject)
+                  if(user.myProject)
                     li: a( href="/project/#{user.myProject}/view" )
+                      span.glyphicon.glyphicon-user
+                      |  People
+                  if(!user.myProject)
+                    li: a( href="user/#{user.username}/view" )
                       span.glyphicon.glyphicon-th-list
                       |  Projects
 
