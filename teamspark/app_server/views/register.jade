@@ -26,7 +26,8 @@ block content
                         .form-group
                             label Profile Picture
                             br
-                            input#imagePath(type="text", placeholder="path/to/image", name="imagePath")
+                            //input#imagePath(type="text", placeholder="path/to/image", name="imagePath")
+
                             br
                             //p#data(name='fileLoc', required) "./public/images/user_images.png"
                             //button#uploadPic(name = 'ulpic', type='button') Upload
@@ -94,6 +95,11 @@ block content
                                 label City/ Town/ Suburb
                                 input#suburb(type='text', name ='suburb', placeholder='Crawley')
                         .form-group
+                            label Remote Location *
+                            select#online(name="virtualTeam")
+                              option(value="yes") Yes
+                              option(value="no") No
+                        .form-group
                             label Bio
                             textarea#bio(type='textarea', name='bio', placeholder='Tell potential team members more about yourself...', required)
                         .form-group#accountsGroup
@@ -105,6 +111,7 @@ block content
                               span.glyphicon.glyphicon-plus
                             button#minusExtraAccount.btn.btn-default(name = 'negaccounts', type = 'button', onclick='return minusAccountOpt()')
                               span.glyphicon.glyphicon-minus
+
                         .form-group
                             button.btn.btn-lg.btn-default.btn-block(onclick='return validateSignUp()') Create
                     script(type='text/javascript', src='/javascripts/sign_up_event.js')
