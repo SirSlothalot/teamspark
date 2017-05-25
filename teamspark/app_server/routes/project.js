@@ -3,6 +3,7 @@ var router = express.Router();
 
 var ctrlProject = require('../controllers/project');
 var ctrlMatch = require('../controllers/match');
+var ctrlChat = require('../controllers/chat');
 
 // router.get('/', ctrlProject.getProjectList);
 
@@ -20,6 +21,6 @@ router.post('/:projectTitle/edit', ctrlProject.submitEditProject);
 
 router.get('/:projectTitle/view', ctrlMatch.renderAllPeople);
 
-
+// router.get('/:projectTitle/chat', ctrlChat.renderChatroom);
 
 module.exports = router;
