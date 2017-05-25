@@ -35,7 +35,7 @@ block content
                           h3 #{people[j].fullname}
                           h4.breakWord #{people[j].username}
                     .row
-                      .col-xs-offest-1.col-xs-10
+                      .col-xs.offset-1.col-xs-10
                         .text-left
                           h4 Bio: 
                           h5.breakWord.truncate #{people[j].bio}
@@ -46,8 +46,15 @@ block content
                                 span= people[j].programmingLanguages[i]+", "
                               - else
                                 span= people[j].programmingLanguages[i]
-                          h4 Skill Level: 
-                          h5 #{people[j].skillLevel}
+                          .row
+                            .col-md-6
+                              h4 Skill Level: 
+                              h5 #{people[j].skillLevel}
+                            .col-md-6
+                              h4 Availability: 
+                              h5 #{people[j].availability}
+                                span
+                                |  hrs/week
                     .row
                       button.btn.btn-default.btn-block(onclick='location.href="/user/#{people[j].username}"') View Profile
                         

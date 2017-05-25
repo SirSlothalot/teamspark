@@ -47,8 +47,15 @@ function compareProject(project, user) {
   if(project.owner == user.username) {
     return null;
   }
+  if(project.members) {
+    for (var i = 0; i < project.members.length; i++) {
+      if (project.members[i].username == user.username) {
+        return null;
+      }
+    }
+  }
   var usernode = new Node(project, 0);
-  if (!project.virtualTeam) {
+  if (project.virtualTeam == 'no') {
 
   }
   for (var i = 0; i < project.programmingLanguages.length; i++) {
@@ -112,8 +119,15 @@ function comparePerson(project, user) {
   if(project.owner == user.username) {
     return null;
   }
+  if(project.members) {
+    for (var i = 0; i < project.members.length; i++) {
+      if (project.members[i].username == user.username) {
+        return null;
+      }
+    }
+  }
   var usernode = new Node(user, 0);
-  if (!project.virtualTeam) {
+  if (project.virtualTeam == 'no') {
 
   }
   for (var i = 0; i < project.programmingLanguages.length; i++) {

@@ -65,7 +65,9 @@ var projectSchema = new mongoose.Schema(
         submissionDate:{type:Date, require:true},
 
         userPotentials:{type:[String]},
-        userMatches:{type:[String]}
+        userMatches:{type:[String]},
+        
+        userMembers:{type:[String]}
     }
 );
 
