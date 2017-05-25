@@ -25,8 +25,8 @@ function validateSignUp()
 	//if (!fs.existsSync(filepath)) {
     //	document.getElementById("imagePath").value = "./public/images/user_image.png";
     //}
-	
-	return(validateImagePath() && validateFullName()  && validateEMail() && validateUName() && validatePasswd() 
+
+	return(validateImagePath() && validateFullName()  && validateEMail() && validateUName() && validatePasswd()
 		&& validateRPasswd() && validateDOB());
 	//document.getElementById("imagePath").value = "./public/images/user_image.png";
 
@@ -478,26 +478,26 @@ function makeFooter()
 
 
 
-function location_display()
-{
-	var x = document.getElementById("location");
-	//https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
-	if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } 
-    else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-
-function showPosition(position) {
-	var loc = position.coords.latitude + "," + position.coords.longitude;
-	var x = document.getElementById("location");
-    //x.innerHTML =     x.innerHTML = "Latitude: " + position.coords.latitude + 
-    //"<br>Longitude: " + position.coords.longitude;
-    x.innerHTML = position.coords.latitude +","+position.coords.longitude;
-}
+// function location_display()
+// {
+// 	var x = document.getElementById("location");
+// 	//https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
+// 	if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//     }
+//     else {
+//         x.innerHTML = "Geolocation is not supported by this browser.";
+//     }
+// }
+//
+//
+// function showPosition(position) {
+// 	var loc = position.coords.latitude + "," + position.coords.longitude;
+// 	var x = document.getElementById("location");
+//     //x.innerHTML =     x.innerHTML = "Latitude: " + position.coords.latitude +
+//     //"<br>Longitude: " + position.coords.longitude;
+//     x.innerHTML = position.coords.latitude +","+position.coords.longitude;
+// }
 
 
 
