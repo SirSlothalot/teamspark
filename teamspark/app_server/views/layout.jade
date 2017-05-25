@@ -8,7 +8,7 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     meta(name='viewport', content='width=device-width, initial-scale=1')
 
-  body(onload="getProgLanguageOpt()")
+  body(onload="selectionMatcher()")
     nav.navbar.navbar-fixed-top.navbar-inverse.bg-faded( role="navigation" )
       .container-fluid
         .navbar-header
@@ -40,15 +40,14 @@ html
                 a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Project
                   span.caret
                 ul.dropdown-menu( role="menu" )
-                  if (user.myProject)
+                  if (user.hasProject)
                     li: a( href="/project/#{user.myProject}" )
                       span.glyphicon.glyphicon-list
                       |  My Project
-                    if (user.isOwner)
-                      li: a( href="/project/#{user.myProject}/edit" )
-                        span.glyphicon.glyphicon-edit
-                        |  Edit Project
-                  if (!user.myProject)
+                    li: a( href="/project/#{user.myProject}/edit" )
+                      span.glyphicon.glyphicon-edit
+                      |  Edit Project
+                  if (!user.hasProject)
                     li: a( href="/project/new" )
                       span.glyphicon.glyphicon-education
                       |  Create Project
@@ -56,12 +55,11 @@ html
                 a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Explore
                   span.caret
                 ul.dropdown-menu( role="menu" )
-                  if(user.myProject)
+                  li: a( href="/user/#{user.username}/view" )
+                    span.glyphicon.glyphicon-user
+                    |  People
+                  if(user.hasProject)
                     li: a( href="/project/#{user.myProject}/view" )
-                      span.glyphicon.glyphicon-user
-                      |  People
-                  if(!user.myProject)
-                    li: a( href="user/#{user.username}/view" )
                       span.glyphicon.glyphicon-th-list
                       |  Projects
 
