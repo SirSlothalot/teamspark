@@ -50,15 +50,7 @@ module.exports.renderAllPeople = function(req, res, next) {
                     });
                 } else {
                     console.log('find complete1');
-                    var users = findPeople(result);
-                    console.log(users);
-                    var userArray = [];
-                    while(!users.isEmpty()) {
-                      userArray.add(users.poll().user);
-                    }
-                    console.log('find complete2');
-                    console.log(userArray);
-                    res.render('potential-users', {'people':userArray, 'project':res.app.locals.project, user: req.user});
+                    findPeople(result, req, res);
                 }
             });
     } else {
@@ -72,9 +64,9 @@ function userNode(user, score) {
   this.score = score;
 }
 
-function findPeople(project) {
-    var queue = new PQueue(function(a, b) { return a.score > b.score });
-    Person.find().exec(
+function findPeople(project, req, res) {
+    var users = new PQueue(function(a, b) { return a.score > b.score });
+    var query = Person.find().exec(
         function(err, simpleData) {
             if(err) {
                 res.render('error', {
@@ -82,21 +74,21 @@ function findPeople(project) {
                     error: err
                 });
             } else {
-                console.log('find complete');
+                console.log('find complete2');
                 //console.log(simpleData);
                 for (var k = 0; k < simpleData.length; k++) {
                     var node = comparePerson(project, simpleData[k]);
-                    queue.add(node);
+                    users.add(node);
                 }
-                //return simpleData;
+                var userArray = [];
+                while(!users.isEmpty()) {
+                  var foo = users.poll();
+                  userArray.push(foo.user);
+                }
+                console.log('find complete3');
+                res.render('potential-users', {'people':userArray, 'project':res.app.locals.project, user: req.user});
             }
         });
-    //console.log(poeple);
-    // for (var k = 0; k < people.length; k++) {
-    //     var node = comparePerson(project, people[k]);
-    //     queue.add(node);
-    // }
-    return queue;
 }
 
 function comparePerson(project, user) {
