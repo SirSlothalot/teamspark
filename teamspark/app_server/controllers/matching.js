@@ -25,7 +25,9 @@ exports.findProjects = function(user, req, res) {
         //console.log(simpleData);
         for (var k = 0; k < simpleData.length; k++) {
           var node = compareProject(simpleData[k], user);
-          projects.add(node);
+          if (node != null) {
+            projects.add(node);
+          }
         }
         var projectArray = [];
         while (!projects.isEmpty()) {
@@ -42,6 +44,9 @@ exports.findProjects = function(user, req, res) {
 }
 
 function compareProject(project, user) {
+  if(project.owner == user.username) {
+    return null;
+  }
   var usernode = new Node(project, 0);
   if (!project.virtualTeam) {
 
@@ -84,7 +89,9 @@ exports.findPeople = function(project, req, res) {
         //console.log(simpleData);
         for (var k = 0; k < simpleData.length; k++) {
           var node = comparePerson(project, simpleData[k]);
-          users.add(node);
+          if (node != null) {
+            users.add(node);
+          }
         }
         var userArray = [];
         while (!users.isEmpty()) {
@@ -102,6 +109,9 @@ exports.findPeople = function(project, req, res) {
 }
 
 function comparePerson(project, user) {
+  if(project.owner == user.username) {
+    return null;
+  }
   var usernode = new Node(user, 0);
   if (!project.virtualTeam) {
 

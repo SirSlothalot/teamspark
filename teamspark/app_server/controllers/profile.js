@@ -14,7 +14,7 @@ module.exports.renderProfile = function (req,res){
                     });
                 } else {
                     console.log('find complete');
-                    res.render('profile', {'user':result, 'project':res.app.locals.project});
+                    res.render('profile', {'person':result, 'user':req.user, 'project':res.app.locals.project});
                 }
             })
     } else {

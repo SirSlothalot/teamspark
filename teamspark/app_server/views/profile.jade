@@ -6,10 +6,10 @@ block content
       #coverflow01.coverflow
         #main.jumbotron
           //img#avatarImg.avatar(src='/images/user_image.png', alt='Avatar')
-          img(src='data:image/png;base64,#{user.data}' style="height=150px; width=150px;")
-          h1 #{user.fullname}
+          img(src='data:image/png;base64,#{person.data}' style="height=150px; width=150px;")
+          h1 #{person.fullname}
           h2
-            i #{user.username}
+            i #{person.username}
     .row
       .content
         .container
@@ -17,35 +17,35 @@ block content
               .col-sm-8.col-sm-offset-2
                   .text-left
                       h3 Bio:
-                      h4 #{user.bio}
+                      h4 #{person.bio}
           .row
               .col-sm-4.col-sm-offset-2
                   .text-left
                       h3 Country:
-                      h4 #{user.country}
+                      h4 #{person.country}
                       h3 State: 
-                      h4 #{user.state}
+                      h4 #{person.state}
                       h3 Date of birth:
-                      h4 #{user.dob}
+                      h4 #{person.dob}
               .col-sm-4
                   .text-left
                       h3 Skill level:
-                      h4 #{user.skillLevel}
+                      h4 #{person.skillLevel}
                       h3 Availability per week:
-                      h4 #{user.availability}
+                      h4 #{person.availability}
                       //- h2 Works online: #{user.online}
                       h3 Interest:
-                      h4 #{user.userInterest}
+                      h4 #{person.userInterest}
           .row
               .col-sm-8.col-sm-offset-2
                   .text-left
                     h3 Programming languages: 
                     h4 
-                      - for (var i=0; i<user.programmingLanguages.length; i++)
-                        - if (i != user.programmingLanguages.length - 1)
-                          span= user.programmingLanguages[i]+", "
+                      - for (var i=0; i<person.programmingLanguages.length; i++)
+                        - if (i != person.programmingLanguages.length - 1)
+                          span= person.programmingLanguages[i]+", "
                         - else
-                          span= user.programmingLanguages[i]
+                          span= person.programmingLanguages[i]
                     
                     
           .row
@@ -53,10 +53,10 @@ block content
                   .text-left
                       h3 Accounts:
                       h4 
-                        - for (var i=0; i<user.accounts.length; i++)
-                          - if (i != user.accounts.length - 1)
-                            span= user.accounts[i]+", "
+                        - for (var i=0; i<person.accounts.length; i++)
+                          - if (i != person.accounts.length - 1)
+                            span= person.accounts[i]+", "
                           - else
-                            span= user.accounts[i]
+                            span= person.accounts[i]
           .row
               button.btn.btn-default Delete Account
