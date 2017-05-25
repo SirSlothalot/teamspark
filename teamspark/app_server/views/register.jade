@@ -14,15 +14,15 @@ block content
                         .form-group
                             label Full Name *
                             p#nameError
-                            input#fullname(type='text', name='fullname', placeholder='Full Name', required)
+                            input#fullname(type='text', name='fullname', placeholder='Full Name', required, onblur = "validateFullName()", onfocus = "resetFullName()")
                         .form-group
                             label Email Address *
                             p#emailError
-                            input#email(type='text', name='email', placeholder='name@example.com', required)
+                            input#email(type='text', name='email', placeholder='name@example.com', required, onblur = "validateEMail()", onfocus = "resetEMail()")
                         .form-group
                             label Username *
                             p#usernameError
-                            input#username(type='text', name='username', placeholder='lord_gabeN', required)
+                            input#username(type='text', name='username', placeholder='lord_gabeN', onblur = "validateUName()", onfocus = "resetUName()",  required)
                         .form-group
                             label Profile Picture
                             br
@@ -33,14 +33,14 @@ block content
                         .form-group
                             label Password *
                             p#passwdError
-                            input#passwd(type='Password', name='password', required)
+                            input#passwd(type='Password', name='password', required, onblur = "validatePasswd()", onfocus = "resetPasswd()")
                             label Confirm Password *
                             p#rePasswdError
-                            input#rPasswd(type='Password', name='rePassword', required)
+                            input#rPasswd(type='Password', name='rePassword', required, onblur = "validateRPasswd()", onfocus = "resetRPasswd()")
                         .form-group
                             label Date of Birth *
                             p#dobError
-                            input#dob(type='text', name='dob', placeholder='dd/mm/yyyy', required)
+                            input#dob(type='text', name='dob', placeholder='dd/mm/yyyy', required, onblur = "validateDOB()", onfocus = "resetDOB()")
                         .form-group#progLanguages
                           label Favourite Programming Language *
                           select#selectProgLanguage(name='programmingLanguages')
@@ -88,10 +88,10 @@ block content
                             label Location *
                             .form-group
                                 label Country
-                                input#country(type='text', name='country', placeholder='Australia')
+                                select#country(name='country')
                                 label State/ Province
                                 input#state(type='text', name ='state', placeholder='Western Australia')
-                                label Suburb
+                                label City/ Town/ Suburb
                                 input#suburb(type='text', name ='suburb', placeholder='Crawley')
                         .form-group
                             label Bio
