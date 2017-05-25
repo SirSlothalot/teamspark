@@ -1,5 +1,6 @@
 require('../models/db');
 var mongoose = require('mongoose');
+var PQueue = require("fastpriorityqueue");
 var Project = mongoose.model('Project');
 var Person = mongoose.model('Person');
 
@@ -8,7 +9,7 @@ function Node(data, score) {
   this.score = score;
 }
 
-function findProjects(user, req, res) {
+exports.findProjects = function(user, req, res) {
   var projects = new PQueue(function(a, b) {
     return a.score > b.score
   });
@@ -27,8 +28,8 @@ function findProjects(user, req, res) {
           projects.add(node);
         }
         var projectArray = [];
-        while (!users.isEmpty()) {
-          var foo = users.poll();
+        while (!projects.isEmpty()) {
+          var foo = projects.poll();
           projectArray.push(foo.data);
         }
         console.log('find complete3');
@@ -67,7 +68,7 @@ function compareProject(project, user) {
   return usernode;
 }
 
-function findPeople(project, req, res) {
+exports.findPeople = function(project, req, res) {
   var users = new PQueue(function(a, b) {
     return a.score > b.score
   });
