@@ -99,9 +99,21 @@ function comparePerson(project, user) {
   for(var i = 0; i < project.programmingLanguages.length; i++) {
     for(var j = 0; j < user.programmingLanguages.length; j++) {
       if (project.programmingLanguages[i] == user.programmingLanguages[j]) {
-        usernode.score += 5;
+        usernode.score += 4;
       }
     }
+  }
+  if (project.skillLevel <= user.skillLevel) {
+    usernode.score += (1 + user.skillLevel - project.skillLevel) * 3;
+  }
+  if (user.availability >= project.workload) {
+    usernode.score += (1 + user.availability - project.workload) * 2;
+  }
+  var userDate = new Date(user.dob);
+  var projectDate = new Date(project.ageOfOwner);
+  var time = Math.floor((userDate - projectDate) / (1000*60*60*24*365))
+  if (time <= 10) {
+    usernode.score += 1 + 10 - time;
   }
   return usernode;
 }
