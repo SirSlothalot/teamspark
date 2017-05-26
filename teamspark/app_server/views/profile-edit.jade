@@ -30,22 +30,6 @@ block content
                       - for (var i = 0; i < person.programmingLanguages.length; i++)
                           select#selectProgLanguage(name='programmingLanguages')
                             option(value='#{person.programmingLanguages[i]}') #{person.programmingLanguages[i]}
-                            option(value='Bash') Bash
-                            option(value='C') C
-                            option(value='C++') C++
-                            option(value='C#') C#
-                            option(value='Clojure') Clojure
-                            option(value='CoffeeScript') CoffeeScript
-                            option(value='Haskell') Haskell
-                            option(value='Java') Java
-                            option(value='JavaScript') JavaScript
-                            option(value='Objective-C') Objective-C
-                            option(value='Perl') Perl
-                            option(value='PHP') PHP
-                            option(value='Python') Python
-                            option(value='Ruby') Ruby
-                            option(value='Scala') Scala
-                            option(value='Swift') Swift
                    .form-group
                        button#plusExtraProgLang(name = 'posproglang', type='button', onclick='return addLangOpt()') +
                        button#minusExtraProgLang(name = 'negproglang', type = 'button', onclick='return minusLangOpt()') -
@@ -75,23 +59,23 @@ block content
                   .form-group
                       label Availability for collaboration (Weekly)
                       select#availability(name='availability')
-                        option(value='#{person.availability}') #{person.availability}
+                        option(value='#{person.availability}') #{person.availability} hours per week
                         option(value='5') 5 hours or less.
                         option(value='10') 10 hours per week.
                         option(value='15') 15 hours per week.
                         option(value='20') 20 hours per week.
                         options(value='21') More than 20 hours per week.
                   .form-group
-                      label Location (Enter Manually)*
-                  .form-group
-                      label Country
-                      input#country(type='text', name='country', value='#{person.country}')
-                  .form-group
-                      label State/ Province
-                      input#state(type='text', name ='state', value='#{person.state}')
-                  .form-group
-                      label Suburb
-                      input#suburb(type='text', name ='suburb', value='#{person.suburb}')
+                      label Location *
+                      .form-group
+                          label Country
+                          select#country(name='country', onclick="getState()")
+                            option(value='#{person.country}') #{person.country}
+                          label State/ Province
+                          select#state(name ='state')
+                            option(value='#{person.state}') #{person.state}
+                          label City/ Town/ Suburb
+                          input#suburb(type='text', name ='suburb', placeholder='Crawley', value ='#{person.suburb}')
                   .form-group
                       label Bio
                       textarea#bio(type='textarea', name='bio', required) #{person.bio}

@@ -3,7 +3,7 @@ function getProgLanguageOpt()
   	var progLang = ["Bash", "C", "C++", "C#", "Clojure", "CoffeeScript", "Haskell", "Java", "JavaScript",
   	"Objective-C", "Perl", "PHP", "Python", "Scala","Swift"];
 
-  	if(!document.getElementById("selectProgLanguage").hasChildNodes())
+  	if(document.getElementById("selectProgLanguage"))
   	{
   		var selectMenu = document.getElementById("selectProgLanguage");
   		for(var i = 0; i<progLang.length; i++)
@@ -23,7 +23,7 @@ var countryList = new Array("Afghanistan", "Albania", "Algeria", "American Samoa
 function getCountryOpt()
 {
 
-   if(!document.getElementById("country").hasChildNodes())
+   if(document.getElementById("country"))
    {
   	 var countryMenu = document.getElementById("country");
   	 for(var i = 0; i<countryList.length; i++)
