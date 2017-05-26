@@ -97,3 +97,26 @@ module.exports.submitEditProfile = function (req,res){
 
 // #{person.username}
 //{"username": req.user.username}
+
+//Delete a person
+module.exports.deletePerson = function(req, res) {
+  if(req.user && req.user.username == req.params.username) {
+    Person.remove({
+      username: req.params.username
+    }, function(err) {
+      if (err) {
+        console.log(err);
+        res.status(500);
+        res.render('error', {
+          message: err.message,
+          error: err
+        });
+      } else {
+        console.log(req.param.id, ' removed');
+        res.redirect('/');
+      }
+    });
+  } else {
+    console.log("You can only delete your own profile.")
+  }
+}

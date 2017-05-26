@@ -42,6 +42,4 @@ block content
                     span= project.programmingLanguages[i]
         .row
           form(action="/project/#{project.title}/delete", method='post')
-            //- input(type='hidden', name='delete', value='delete')
             button.btn.btn-danger(name="delete", value="delete", type='submit') Delete Project
-            //- button(type='submit', formmethod='post', formaction='/project/#{project.title}/delete') Submit using POST

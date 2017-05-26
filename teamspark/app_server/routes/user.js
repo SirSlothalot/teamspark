@@ -12,8 +12,7 @@ router.get('/', ctrlPerson.personList);
 //Add a new person
 router.post('/', ctrlPerson.newPerson);
 
-
-router.post('/:username/delete', ctrlPerson.deletePerson);
+router.post('/:username/delete', ctrlProfile.deletePerson);
 
 router.get('/:username', ctrlProfile.renderProfile);
 

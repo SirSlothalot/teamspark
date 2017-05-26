@@ -46,8 +46,6 @@ block content
                           span= person.programmingLanguages[i]+", "
                         - else
                           span= person.programmingLanguages[i]
-                    
-                    
           .row
               .col-sm-8.col-sm-offset-2
                   .text-left
@@ -58,6 +56,11 @@ block content
                             span= person.accounts[i]+", "
                           - else
                             span= person.accounts[i]
-          .row
-            form(action="/user/#{user.username}/delete", method='post')
-              button.btn.btn-danger(type='submit') Delete Account
+          
+          if(person.username == user.username)
+            .row
+              form(action="/user/#{user.username}/delete", method='post')
+                button.btn.btn-danger(type='submit') Delete Account
+          if(person.username != user.username)
+            .row 
+              button.btn.btn-default(href="mailto:#{person.email}") Contact

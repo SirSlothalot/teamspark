@@ -1,33 +1,33 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
-2 info using npm@3.10.10
-3 info using node@v6.10.3
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'start' ]
+2 info using npm@3.5.2
+3 info using node@v4.2.6
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle teamspark@0.0.0~prestart: teamspark@0.0.0
 6 silly lifecycle teamspark@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle teamspark@0.0.0~start: teamspark@0.0.0
 8 verbose lifecycle teamspark@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle teamspark@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/fezbook/Documents/University/CITS3403/Project 2/teamspark/teamspark/node_modules/.bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
-10 verbose lifecycle teamspark@0.0.0~start: CWD: /Users/fezbook/Documents/University/CITS3403/Project 2/teamspark/teamspark
+9 verbose lifecycle teamspark@0.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/mnt/c/Users/matth_000/workspace/teamspark/teamspark/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/ProgramData/Oracle/Java/javapath:/mnt/c/Program Files/Java/jdk1.8.0_45/bin:/mnt/c/Windows/System32:/mnt/c/Windows:/mnt/c/Windows/System32/wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Program Files (x86)/Skype/Phone:/mnt/c/Program Files (x86)/MySQL/MySQL Fabric 1.5.4 & MySQL Utilities 1.5.4 1.5:/mnt/c/Program Files (x86)/MySQL/MySQL Fabric 1.5.4 & MySQL Utilities 1.5.4 1.5/Doctrine extensions for PHP:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/MATLAB/R2016a/bin:/mnt/c/Program Files/Microsoft DNX/Dnvm:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit:/mnt/c/Program Files (x86)/GtkSharp/2.12/bin:/mnt/c/Program Files/SourceGear/Common/DiffMerge:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/Apache/apache-ant-1.10.1/bin:/mnt/c/Scripts:/mnt/c/:/mnt/c/ProgramData/Oracle/Java/javapath:/mnt/c/Program Files (x86)/Intel/iCLS Client:/mnt/c/Program Files/Intel/iCLS Client:/mnt/c/Windows/System32:/mnt/c/Windows:/mnt/c/Windows/System32/wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files (x86)/Windows Live/Shared:/mnt/c/Users/matth_000/AppData/Local/Programs/Python/Python35:/mnt/c/Users/matth_000/AppData/Local/atom/bin:/mnt/c/Users/matth_000/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/matth_000/AppData/Roaming/npm:/mnt/c/Users/matth_000/AppData/Local/Google/Cloud SDK/google-cloud-sdk/bin
+10 verbose lifecycle teamspark@0.0.0~start: CWD: /mnt/c/Users/matth_000/workspace/teamspark/teamspark
 11 silly lifecycle teamspark@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle teamspark@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle teamspark@0.0.0~start: Failed to exec start script
 14 verbose stack Error: teamspark@0.0.0 start: `node ./bin/www`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
-14 verbose stack     at emitTwo (events.js:106:13)
-14 verbose stack     at EventEmitter.emit (events.js:191:7)
-14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
-14 verbose stack     at emitTwo (events.js:106:13)
-14 verbose stack     at ChildProcess.emit (events.js:191:7)
-14 verbose stack     at maybeClose (internal/child_process.js:886:16)
-14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+14 verbose stack     at EventEmitter.<anonymous> (/usr/share/npm/lib/utils/lifecycle.js:232:16)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at EventEmitter.emit (events.js:172:7)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/share/npm/lib/utils/spawn.js:24:14)
+14 verbose stack     at emitTwo (events.js:87:13)
+14 verbose stack     at ChildProcess.emit (events.js:172:7)
+14 verbose stack     at maybeClose (internal/child_process.js:821:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
 15 verbose pkgid teamspark@0.0.0
-16 verbose cwd /Users/fezbook/Documents/University/CITS3403/Project 2/teamspark/teamspark
-17 error Darwin 16.5.0
-18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
-19 error node v6.10.3
-20 error npm  v3.10.10
+16 verbose cwd /mnt/c/Users/matth_000/workspace/teamspark/teamspark
+17 error Linux 4.4.0-43-Microsoft
+18 error argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
+19 error node v4.2.6
+20 error npm  v3.5.2
 21 error code ELIFECYCLE
 22 error teamspark@0.0.0 start: `node ./bin/www`
 22 error Exit status 1

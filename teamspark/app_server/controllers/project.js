@@ -130,17 +130,45 @@ module.exports.submitEditProject = function(req, res, next) {
 };
 
 module.exports.deleteProject = function(req, res) {
-  console.log('Trying to delete');
-  Project.findOneAndRemove({'projectTitle':req.params.projectTitle},
-    function(err) {
+  Project.findOne({"title":req.params.projectTitle}, function(err, project) {
       if(err) {
           res.render('error', {
-          message:err.message,
-          error: err
-        });
+              message:err.message,
+              error: err
+          });
       } else {
-        console.log('Trying to delete');
-        res.redirect('/');
+        if(req.user && req.user.username == project.owner) {
+          Project.remove({
+            title: req.params.projectTitle
+          }, function(err) {
+            if(err) {
+              console.log(err);
+              res.status(500);
+              res.render('error', {
+                message: err.message,
+                error: err
+              });
+            } else {
+              console.log(req.params.id, 'removed');
+
+              var updates = {
+                myProject: null,
+                isOwner: null,
+                projectLikes: null,
+                projectMatches: null,
+                projectDislikes: null
+              }
+
+              var newP = Person.findOneAndUpdate({username:req.user.username}, updates, {runValidators:true, new:true}, function (err, doc) {
+                    if (err) console.log(err);
+              });
+              res.redirect('/');
+            }
+          });
+        } else {
+          console.log("Only the project owner can delete a project");
+          res.redirect('/');
+        }
       }
-    }); // executes
+    });
 }
