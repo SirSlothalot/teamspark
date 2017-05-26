@@ -6,6 +6,7 @@ var ctrlReference = require('../controllers/reference');
 var ctrlRegister = require('../controllers/register');
 var ctrlLogin = require('../controllers/login');
 var ctrlLogout = require('../controllers/logout');
+var ctrlBio = require('../controllers/bio')
 
 
 var passport = require('passport');
@@ -16,6 +17,9 @@ router.get('/', ctrlMain.renderIndex);
 
 /*GET Contact pages*/
 router.get('/contact', ctrlContact.renderContact);
+
+/*GET Bio Page. */
+router.get('/about/creators', ctrlBio.renderBio);
 
 /*GET Reference page*/
 router.get('/references', ctrlReference.renderReference);
