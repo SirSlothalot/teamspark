@@ -55,27 +55,27 @@ function compareProject(project, user) {
     }
   }
   var usernode = new Node(project, 0);
-  if (project.virtualTeam == 'no') {
 
-  }
-  for (var i = 0; i < project.programmingLanguages.length; i++) {
-    for (var j = 0; j < user.programmingLanguages.length; j++) {
-      if (project.programmingLanguages[i] == user.programmingLanguages[j]) {
-        usernode.score += 4;
+  if(project.virtualTeam == 'yes' && user.virtualTeam == 'yes' || project.country == user.country && project.state == user.state) {
+    for (var i = 0; i < project.programmingLanguages.length; i++) {
+      for (var j = 0; j < user.programmingLanguages.length; j++) {
+        if (project.programmingLanguages[i] == user.programmingLanguages[j]) {
+              usernode.score += 4;
+        }
       }
     }
-  }
-  if (project.skillLevel <= user.skillLevel) {
-    usernode.score += (1 + user.skillLevel - project.skillLevel) * 3;
-  }
-  if (user.availability >= project.workload) {
-    usernode.score += (1 + user.availability - project.workload) * 2;
-  }
-  var userDate = new Date(user.dob);
-  var projectDate = new Date(project.ageOfOwner);
-  var time = Math.floor((userDate - projectDate) / (1000 * 60 * 60 * 24 * 365))
-  if (time <= 10) {
-    usernode.score += 1 + 10 - time;
+    if (project.skillLevel <= user.skillLevel) {
+      usernode.score += (1 + user.skillLevel - project.skillLevel) * 3;
+    }
+    if (user.availability >= project.workload) {
+      usernode.score += (1 + user.availability - project.workload) * 2;
+    }
+    var userDate = new Date(user.dob);
+    var projectDate = new Date(project.ageOfOwner);
+    var time = Math.floor((userDate - projectDate) / (1000 * 60 * 60 * 24 * 365))
+    if (time <= 10) {
+      usernode.score += 1 + 10 - time;
+    }
   }
   return usernode;
 }
@@ -134,27 +134,125 @@ function comparePerson(project, user) {
     }
   }
   var usernode = new Node(user, 0);
-  if (project.virtualTeam == 'no') {
-
-  }
-  for (var i = 0; i < project.programmingLanguages.length; i++) {
-    for (var j = 0; j < user.programmingLanguages.length; j++) {
-      if (project.programmingLanguages[i] == user.programmingLanguages[j]) {
-        usernode.score += 4;
+  if (project.virtualTeam == 'yes' && user.virtualTeam == 'yes' || project.country == user.country && project.state == user.state) {
+    for (var i = 0; i < project.programmingLanguages.length; i++) {
+      for (var j = 0; j < user.programmingLanguages.length; j++) {
+        if (project.programmingLanguages[i] == user.programmingLanguages[j]) {
+          usernode.score += 4;
+        }
       }
     }
-  }
-  if (project.skillLevel <= user.skillLevel) {
-    usernode.score += (1 + user.skillLevel - project.skillLevel) * 3;
-  }
-  if (user.availability >= project.workload) {
-    usernode.score += (1 + user.availability - project.workload) * 2;
-  }
-  var userDate = new Date(user.dob);
-  var projectDate = new Date(project.ageOfOwner);
-  var time = Math.floor((userDate - projectDate) / (1000 * 60 * 60 * 24 * 365))
-  if (time <= 10) {
-    usernode.score += 1 + 10 - time;
+    if (project.skillLevel <= user.skillLevel) {
+      usernode.score += (1 + user.skillLevel - project.skillLevel) * 3;
+    }
+    if (user.availability >= project.workload) {
+      usernode.score += (1 + user.availability - project.workload) * 2;
+    }
+    var userDate = new Date(user.dob);
+    var projectDate = new Date(project.ageOfOwner);
+    var time = Math.floor((userDate - projectDate) / (1000 * 60 * 60 * 24 * 365))
+    if (time <= 10) {
+      usernode.score += 1 + 10 - time;
+    }
   }
   return usernode;
+}
+
+exports.checkProjectForMutual = function(username, projectTitle) {
+  Project.findOne({'title':projectTitle}, function(err, project) {
+    if(err) {
+        res.render('error', {
+            message:err.message,
+            error: err
+        });
+    } else {
+      for(var i = 0; i < project.userLikes.length; i++) {
+        if(project.userLikes[i] == username) {
+          //EMIT EVENT
+
+          project.userMatches.push(username);
+          project.save(function(err, data){
+            if(err){
+              console.log(err);
+              res.render('error', {
+                message:err.message,
+                error: err
+              });
+            } else {
+              Person.findOne({'username':username}, function(err, user) {
+                if(err) {
+                  res.render('error', {
+                      message:err.message,
+                      error: err
+                  });
+                } else {
+                  user.projectMatches.push(projectTitle);
+                  user.save(function(err, data){
+                    if(err){
+                      console.log(err);
+                      res.render('error', {
+                        message:err.message,
+                        error: err
+                      });
+                    }
+                  });
+                }
+                console.log('found a mutual liking between ' + projectTitle + ' and ' + username);
+              });
+            }
+          });
+          break;
+        }
+      }
+    }
+  });
+}
+
+exports.checkPersonForMutual = function(username, projectTitle) {
+  Person.findOne({'username':username}, function(err, user) {
+    if(err) {
+      res.render('error', {
+          message:err.message,
+          error: err
+      });
+    } else {
+      for(var i = 0; i < user.projectLikes.length; i++) {
+        if(user.projectLikes[i] == projectTitle) {
+          //EMIT EVENT
+          user.projectMatches.push(projectTitle);
+          user.save(function(err, data){
+            if(err){
+              console.log(err);
+              res.render('error', {
+                message:err.message,
+                error: err
+              });
+            } else {
+              Project.findOne({'title':projectTitle}, function(err, project) {
+                if(err) {
+                    res.render('error', {
+                        message:err.message,
+                        error: err
+                    });
+                } else {
+                  project.userMatches.push(username);
+                  project.save(function(err, data){
+                    if(err){
+                      console.log(err);
+                      res.render('error', {
+                        message:err.message,
+                        error: err
+                      });
+                    }
+                  });
+                }
+                console.log('found a mutual liking between ' + projectTitle + ' and ' + username);
+              });
+            }
+          });
+          break;
+        }
+      }
+    }
+  });
 }

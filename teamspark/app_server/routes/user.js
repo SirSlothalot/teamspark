@@ -23,4 +23,7 @@ router.post('/:username/edit', ctrlProfile.submitEditProfile);
 
 router.get('/:username/view', ctrlMatch.renderAllProjects);
 
+router.get('/match/like/:username/:projectTitle', ctrlMatch.likeProject);
+router.get('/match/dislike/:username/:projectTitle', ctrlMatch.dislikeProject);
+
 module.exports = router;

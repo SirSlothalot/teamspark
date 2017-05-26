@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 var PQueue = require("fastpriorityqueue");
 var Project = mongoose.model('Project');
 var Person = mongoose.model('Person');
-var UniqueString = mongoose.model('UniqueString');
 var matcher = require('./matching');
 
 module.exports.renderAllProjects = function(req, res) {
@@ -59,8 +58,7 @@ module.exports.likeUser = function(req, res, next) {
         });
     }
     if (req.user && req.user.username == result.owner) {
-      var name = new UniqueString({string: req.params.username});
-      result.userLikes.push(name);
+      result.userLikes.push(req.params.username);
       result.save(function(err, data){
         if(err){
           console.log(err);
@@ -76,4 +74,87 @@ module.exports.likeUser = function(req, res, next) {
       res.redirect('/project/' + req.params.projectTitle + '/view');
     }
   })
+}
+
+module.exports.dislikeUser = function(req, res, next) {
+  Project.findOne({'title':req.params.projectTitle}, function(err, result) {
+    if(err) {
+        res.render('error', {
+            message:err.message,
+            error: err
+        });
+    }
+    if (req.user && req.user.username == result.owner) {
+      result.userDislikes.push(req.params.username);
+      result.save(function(err, data){
+        if(err){
+          console.log(err);
+          res.status(500);
+          res.render('error', {
+            message:err.message,
+            error: err
+          });
+        } else {
+          console.log(data, 'disliked user saved');
+        }
+      });
+      res.redirect('/project/' + req.params.projectTitle + '/view');
+    }
+  })
+}
+
+module.exports.likeProject = function(req, res, next) {
+  if (req.user && req.user.username == req.params.username) {
+    Person.findOne({'username':req.user.username}, function(err, result) {
+      if(err) {
+        res.render('error', {
+            message:err.message,
+            error: err
+        });
+      }
+      result.projectLikes.push(req.params.projectTitle);
+      result.save(function(err, data){
+        if(err){
+          console.log(err);
+          res.status(500);
+          res.render('error', {
+            message:err.message,
+            error: err
+          });
+        } else {
+          console.log(data, 'liked project saved');
+        }
+      matcher.checkProjectForMutual(req.user.username, req.params.projectTitle);
+      });
+      res.redirect('/user/' + req.user.username + '/view');
+    })
+  }
+}
+
+module.exports.dislikeProject = function(req, res, next) {
+  if (req.user && req.user.username == req.params.username) {
+    Person.findOne({'username':req.user.username}, function(err, result) {
+      if(err) {
+        res.render('error', {
+            message:err.message,
+            error: err
+        });
+      }
+      result.projectDislikes.push(req.params.projectTitle);
+      result.save(function(err, data){
+        if(err){
+          console.log(err);
+          res.status(500);
+          res.render('error', {
+            message:err.message,
+            error: err
+          });
+        } else {
+          console.log(data, 'disliked project saved');
+        }
+        matcher.checkPersonForMutual(req.user.username, req.params.projectTitle);
+      });
+      res.redirect('/user/' + req.user.username + '/view');
+    })
+  }
 }

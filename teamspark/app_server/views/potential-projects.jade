@@ -57,7 +57,13 @@ block content
                                 |  hrs/week
                     .row
                       button.btn.btn-default.btn-block(onclick='location.href="/project/#{projects[j].title}"') View Project
-                        
+                    .row
+                      .btn-group.btn-group(role='group', aria-label='...')
+                        button.btn.btn-success(onclick="window.location='/user/match/like/#{user.username}/#{projects[j].title}'; this.disabled=true;", method='post') Like 
+                          span.glyphicon.glyphicon-ok
+                        button.btn.btn-danger(onclick="window.location='/user/match/dislike/#{user.username}/#{projects[j].title}'; this.disabled=true;", method='post')
+                          span.glyphicon.glyphicon-remove
+                          |  Dislike  
     
   script.
     $(function(){

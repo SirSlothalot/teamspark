@@ -10,24 +10,31 @@ html
     
     script(src="/socket.io/socket.io.js")
     script(src="http://code.jquery.com/jquery-1.11.1.js")
-    script.
-      console.log('loading script');
-      var socket = io();
-      console.log('connected');
-      
-      function send(){
-        console.log('send');
-        var message = document.getElementById('message');
-        socket.emit('message', message.value);
-        message.value = '';
-      };
-      
-      socket.on('message', function(msg){
-        var messages = document.getElementById('messages');
-        var newText = document.createElement('li');
-        newText.innerHTML = msg;
-        messages.appendChild(newText);
-      });
+    //- script.
+      //- console.log('loading script');
+      //- if(user)
+      //-   var socket = io();
+      //-   console.log('connected');
+      //-   socket.emit("add-user", {"username": '#{user.username}'});
+      //-   
+      //-   socket.on("notification", function(data){
+      //-     //add notifaction popup on top left of screen
+      //-   });
+      //- 
+      //- function send(){
+      //-   console.log('send');
+      //-   var message = document.getElementById('message');
+      //-   socket.emit('message', message.value);
+      //-   message.value = '';
+      //- };
+      //- 
+      //- 
+      //- socket.on('message', function(msg){
+      //-   var messages = document.getElementById('messages');
+      //-   var newText = document.createElement('li');
+      //-   newText.innerHTML = msg;
+      //-   messages.appendChild(newText);
+      //- });
     
   body(onload="selectionMatcher()")
     nav.navbar.navbar-fixed-top.navbar-inverse.bg-faded( role="navigation" )

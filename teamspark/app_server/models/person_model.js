@@ -134,9 +134,9 @@ var personSchema = new mongoose.Schema(
         isOwner:{type:Boolean},
         myProject:{type:String},
 
-        projectPotentials:{type:[String]},
+        projectLikes:{type:[String]},
         projectMatches:{type:[String]},
-
+        projectDislikes:{type:[String]}
     }
 );
 

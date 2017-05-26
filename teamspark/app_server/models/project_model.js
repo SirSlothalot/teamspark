@@ -64,20 +64,13 @@ var projectSchema = new mongoose.Schema(
 
         submissionDate:{type:Date, require:true},
 
-        userLikes:{type:[UniqueString]},
-        userMatches:{type:[UniqueString]},
-        userDislikes:{type:[UniqueString]}
+        userLikes:{type: [String]},
+        userMatches:{type: [String]},
+        userDislikes:{type: [String]}
     }
 );
 
-var UniqueString = new mongoose.Schema(
-  {
-    user: {type:String, unique:true}
-  }
-);
 
 projectSchema.plugin(uniqueValidator);
-UniqueString.plugin(uniqueValidator);
 
 module.exports = mongoose.model('Project', projectSchema);
-module.exports = mongoose.model('UniqueString', UniqueString);

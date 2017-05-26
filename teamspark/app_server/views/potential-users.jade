@@ -59,9 +59,9 @@ block content
                           button.btn.btn-default.btn-block(onclick='location.href="/user/#{people[j].username}"') View Profile
                         .row
                           .btn-group.btn-group(role='group', aria-label='...')
-                            a.btn.btn-success(href='/project/match/like/#{user.myProject}/#{people[j].username}', method='post') Like 
+                            button.btn.btn-success(onclick="window.location='/project/match/like/#{user.myProject}/#{people[j].username}'; this.disabled=true;", method='post') Like 
                               span.glyphicon.glyphicon-ok
-                            button.btn.btn-danger
+                            button.btn.btn-danger(onclick="window.location='/project/match/dislike/#{user.myProject}/#{people[j].username}'; this.disabled=true;", method='post')
                               span.glyphicon.glyphicon-remove
                               |  Dislike
                         

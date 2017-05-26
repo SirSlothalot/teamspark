@@ -128,3 +128,18 @@ module.exports.submitEditProject = function(req, res, next) {
         }
     });
 };
+
+module.exports.deleteProject = function(req, res) {
+  console.log('Trying to delete');
+  Project.where().findOneAndRemove({'projectTitle':req.params.projectTitle},
+    function(err) {
+      if(err) {
+          res.render('error', {
+          message:err.message,
+          error: err
+        });
+      } else {
+        res.redirect('/');
+      }
+    }); // executes
+}
