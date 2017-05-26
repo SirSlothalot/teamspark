@@ -46,7 +46,7 @@ module.exports.newPerson = function(req, res) {
 //Delete a person
 module.exports.deletePerson = function(req, res) {
   Person.remove({
-    _id: req.params.id
+    username: req.params.username
   }, function(err) {
     if (err) {
       console.log(err);
@@ -57,7 +57,7 @@ module.exports.deletePerson = function(req, res) {
       });
     } else {
       console.log(req.param.id, ' removed');
-      getPersons(req, res);
+      res.redirect('/');
     }
   });
 }

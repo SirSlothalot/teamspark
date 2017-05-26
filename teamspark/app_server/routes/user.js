@@ -13,7 +13,7 @@ router.get('/', ctrlPerson.personList);
 router.post('/', ctrlPerson.newPerson);
 
 
-router.get('/delete/:username', ctrlPerson.deletePerson);
+router.post('/:username/delete', ctrlPerson.deletePerson);
 
 router.get('/:username', ctrlProfile.renderProfile);
 
