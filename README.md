@@ -1,6 +1,7 @@
 ## Push for heroku
 ```
-git subtree push --prefix teamspark heroku master
+git push heroku master
+heroku open
 ```
 ## How to run
 ```
