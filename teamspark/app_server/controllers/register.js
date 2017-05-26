@@ -66,6 +66,9 @@ module.exports.submitRegister = function(req,res) {
         }
     );
 
+
+    //console.log(reg.body.imagePath);
+
     var newImg = new Image(
       {
         data: fs.readFileSync(req.body.imagePath).toString('base64'),

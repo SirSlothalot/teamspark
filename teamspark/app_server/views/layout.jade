@@ -51,7 +51,24 @@ html
           #navbar-inverse.collapse.navbar-collapse
             ul.nav.navbar-nav
               li: a( href="/contact" ) Contact
-              li: a( href="/references") References
+              li.dropdown
+                a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) About
+                  span.caret
+                ul.dropdown-menu( role="menu")
+                  li: a(href="")
+                    span.glyphicon.glyphicon-question-sign
+                    |  How Teamspark Works
+                  li: a(href="")
+                    span.glyphicon.glyphicon-floppy-disk
+                    |  Our Matching Algorithm
+                  li: a(href="")
+                    span.glyphicon.glyphicon-wrench
+                    |  Testing and Validation Strategies
+                  li: a(href="")
+                    span.glyphicon.glyphicon-briefcase
+                    |  The Team Behind Teamspark
+
+                  
             ul.nav.navbar-nav.navbar-right
               li: a( href="/register")
                 span.glyphicon.glyphicon-user
@@ -63,7 +80,22 @@ html
           #navbar-inverse.collapse.navbar-collapse
             ul.nav.navbar-nav
               li: a( href="/contact" ) Contact
-              li: a( href="/references") References
+              li.dropdown
+                a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) About
+                  span.caret
+                ul.dropdown-menu( role="menu")
+                  li: a(href="")
+                    span.glyphicon.glyphicon-question-sign
+                    |  How Teamspark Works
+                  li: a(href="")
+                    span.glyphicon.glyphicon-floppy-disk
+                    |  Our Matching Algorithm
+                  li: a(href="")
+                    span.glyphicon.glyphicon-wrench
+                    |  Testing and Validation Strategies
+                  li: a(href="")
+                    span.glyphicon.glyphicon-briefcase
+                    |  The Team Behind Teamspark
               li.dropdown
                 a.dropdown-toggle( href="#", data-toggle="dropdown", role="button", aria-expanded="false" ) Project
                   span.caret
