@@ -50,111 +50,119 @@ module.exports.renderAllPeople = function(req, res, next) {
 }
 
 module.exports.likeUser = function(req, res, next) {
-  Project.findOne({'title':req.params.projectTitle}, function(err, result) {
-    if(err) {
-        res.render('error', {
-            message:err.message,
-            error: err
-        });
+  Project.findOne({
+    'title': req.params.projectTitle
+  }, function(err, result) {
+    if (err) {
+      res.render('error', {
+        message: err.message,
+        error: err
+      });
     }
     if (req.user && req.user.username == result.owner) {
       result.userLikes.push(req.params.username);
-      result.save(function(err, data){
-        if(err){
+      result.save(function(err, data) {
+        if (err) {
           console.log(err);
           res.status(500);
           res.render('error', {
-            message:err.message,
+            message: err.message,
             error: err
           });
         } else {
           console.log(data, 'liked user saved');
         }
+        matcher.checkPersonForMutual(req.params.username, req.params.projectTitle);
+        res.redirect('/project/' + req.params.projectTitle + '/view');
       });
-      res.redirect('/project/' + req.params.projectTitle + '/view');
     }
   })
 }
 
 module.exports.dislikeUser = function(req, res, next) {
-  Project.findOne({'title':req.params.projectTitle}, function(err, result) {
-    if(err) {
-        res.render('error', {
-            message:err.message,
-            error: err
-        });
+  Project.findOne({
+    'title': req.params.projectTitle
+  }, function(err, result) {
+    if (err) {
+      res.render('error', {
+        message: err.message,
+        error: err
+      });
     }
     if (req.user && req.user.username == result.owner) {
       result.userDislikes.push(req.params.username);
-      result.save(function(err, data){
-        if(err){
+      result.save(function(err, data) {
+        if (err) {
           console.log(err);
           res.status(500);
           res.render('error', {
-            message:err.message,
+            message: err.message,
             error: err
           });
         } else {
           console.log(data, 'disliked user saved');
         }
+        res.redirect('/project/' + req.params.projectTitle + '/view');
       });
-      res.redirect('/project/' + req.params.projectTitle + '/view');
     }
   })
 }
 
 module.exports.likeProject = function(req, res, next) {
   if (req.user && req.user.username == req.params.username) {
-    Person.findOne({'username':req.user.username}, function(err, result) {
-      if(err) {
+    Person.findOne({
+      'username': req.user.username
+    }, function(err, result) {
+      if (err) {
         res.render('error', {
-            message:err.message,
-            error: err
+          message: err.message,
+          error: err
         });
       }
       result.projectLikes.push(req.params.projectTitle);
-      result.save(function(err, data){
-        if(err){
+      result.save(function(err, data) {
+        if (err) {
           console.log(err);
           res.status(500);
           res.render('error', {
-            message:err.message,
+            message: err.message,
             error: err
           });
         } else {
           console.log(data, 'liked project saved');
         }
-      matcher.checkProjectForMutual(req.user.username, req.params.projectTitle);
+        matcher.checkProjectForMutual(req.user.username, req.params.projectTitle);
+        res.redirect('/user/' + req.user.username + '/view');
       });
-      res.redirect('/user/' + req.user.username + '/view');
     })
   }
 }
 
 module.exports.dislikeProject = function(req, res, next) {
   if (req.user && req.user.username == req.params.username) {
-    Person.findOne({'username':req.user.username}, function(err, result) {
-      if(err) {
+    Person.findOne({
+      'username': req.user.username
+    }, function(err, result) {
+      if (err) {
         res.render('error', {
-            message:err.message,
-            error: err
+          message: err.message,
+          error: err
         });
       }
       result.projectDislikes.push(req.params.projectTitle);
-      result.save(function(err, data){
-        if(err){
+      result.save(function(err, data) {
+        if (err) {
           console.log(err);
           res.status(500);
           res.render('error', {
-            message:err.message,
+            message: err.message,
             error: err
           });
         } else {
           console.log(data, 'disliked project saved');
         }
-        matcher.checkPersonForMutual(req.user.username, req.params.projectTitle);
+        res.redirect('/user/' + req.user.username + '/view');
       });
-      res.redirect('/user/' + req.user.username + '/view');
     })
   }
 }

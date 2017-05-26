@@ -54,6 +54,13 @@ function compareProject(project, user) {
       }
     }
   }
+  if (user.projectLikes) {
+    for (var i = 0; i < user.projectLikes.length; i++) {
+      if (user.projectLikes[i] == project.title) {
+        return null;
+      }
+    }
+  }
   var usernode = new Node(project, 0);
 
   if(project.virtualTeam == 'yes' && user.virtualTeam == 'yes' || project.country == user.country && project.state == user.state) {
@@ -209,6 +216,7 @@ exports.checkProjectForMutual = function(username, projectTitle) {
 }
 
 exports.checkPersonForMutual = function(username, projectTitle) {
+  console.log("THingy" + username + projectTitle);
   Person.findOne({'username':username}, function(err, user) {
     if(err) {
       res.render('error', {
@@ -217,8 +225,10 @@ exports.checkPersonForMutual = function(username, projectTitle) {
       });
     } else {
       for(var i = 0; i < user.projectLikes.length; i++) {
+        console.log("THingy");
         if(user.projectLikes[i] == projectTitle) {
           //EMIT EVENT
+          console.log("Tingyyyyyyyy");
           user.projectMatches.push(projectTitle);
           user.save(function(err, data){
             if(err){
@@ -235,6 +245,7 @@ exports.checkPersonForMutual = function(username, projectTitle) {
                         error: err
                     });
                 } else {
+                  console.log("Tingyyyyyyyyaaaa");
                   project.userMatches.push(username);
                   project.save(function(err, data){
                     if(err){
@@ -250,6 +261,7 @@ exports.checkPersonForMutual = function(username, projectTitle) {
               });
             }
           });
+          console.log("Tingyyyyyyyy");
           break;
         }
       }
