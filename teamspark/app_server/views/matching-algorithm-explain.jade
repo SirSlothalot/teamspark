@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .container-fluid
+    .row
+      #coverflow01.coverflow
+        #main.jumbotron
+          //img#avatarImg.avatar(src='/images/user_image.png', alt='Avatar')
+          h1 The matching alogorithm
+    .row
+      .content
+        .container
+          .row
+            h4 The matching algorithm works similarly to the tinder matching system, where a project and a person have to both like eachother to be matched.
+            | This allows the matching algorithm to be quite simple.
+            | However, it also ranks all potential matches in an order of how applicable they are to the user/project. This means the person using the site has the easiest possible experience
+            | With more time this could have been alot more streamlined and optimised, and idealy use sockets to do all this in real time.
