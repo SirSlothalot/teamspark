@@ -1,6 +1,7 @@
 require('../models/db');
 var mongoose = require('mongoose');
 var Person = mongoose.model('Person');
+var Image = mongoose.model('Image');
 
 //Return person
 module.exports.renderProfile = function (req,res){
@@ -14,9 +15,24 @@ module.exports.renderProfile = function (req,res){
                     });
                 } else {
                     console.log('find complete');
-                    res.render('profile', {'person':result, 'user':req.user});
+                    Image.findOne({"user": req.params.username}).exec(
+                      function(err, picture) {
+                          if(err) {
+                              res.render('error', {
+                                  message:err.messagr,
+                                  error: err
+                              });
+                          } else {
+                              console.log('find complete');
+                              //res.render('profile', {'image':result, 'pic':req.user});
+                              res.render('profile', {'person':result, 'user':req.user, 'image':picture, 'pic':req.user});
+                          }
+
+                      })
+
                 }
             })
+
     } else {
         res.redirect('/');
         Console.log('Cannot view profile. You are not logged in.');
