@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var PQueue = require("fastpriorityqueue");
 var Project = mongoose.model('Project');
 var Person = mongoose.model('Person');
+var UniqueString = mongoose.model('UniqueString');
 var matcher = require('./matching');
 
 module.exports.renderAllProjects = function(req, res) {
@@ -59,8 +60,19 @@ module.exports.likeUser = function(req, res, next) {
     }
     if (req.user && req.user.username == result.owner) {
       var name = new UniqueString({string: req.params.username});
-      result.userPotentials.save(name);
-      result.save();
+      result.userLikes.push(name);
+      result.save(function(err, data){
+        if(err){
+          console.log(err);
+          res.status(500);
+          res.render('error', {
+            message:err.message,
+            error: err
+          });
+        } else {
+          console.log(data, 'liked user saved');
+        }
+      });
       res.redirect('/project/' + req.params.projectTitle + '/view');
     }
   })

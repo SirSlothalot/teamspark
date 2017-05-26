@@ -126,9 +126,9 @@ function comparePerson(project, user) {
       }
     }
   }
-  if (project.userPotentials) {
-    for (var i = 0; i < project.userPotentials.length; i++) {
-      if (project.userPotentials[i] == user.username) {
+  if (project.userLikes) {
+    for (var i = 0; i < project.userLikes.length; i++) {
+      if (project.userLikes[i] == user.username) {
         return null;
       }
     }

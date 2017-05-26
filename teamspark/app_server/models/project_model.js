@@ -64,11 +64,20 @@ var projectSchema = new mongoose.Schema(
 
         submissionDate:{type:Date, require:true},
 
-        userPotentials:{type:[String]},
-        userMatches:{type:[String]}
+        userLikes:{type:[UniqueString]},
+        userMatches:{type:[UniqueString]},
+        userDislikes:{type:[UniqueString]}
     }
 );
 
+var UniqueString = new mongoose.Schema(
+  {
+    user: {type:String, unique:true}
+  }
+);
+
 projectSchema.plugin(uniqueValidator);
+UniqueString.plugin(uniqueValidator);
 
 module.exports = mongoose.model('Project', projectSchema);
+module.exports = mongoose.model('UniqueString', UniqueString);
