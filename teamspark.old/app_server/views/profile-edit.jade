@@ -1,0 +1,96 @@
+extends layout
+
+block content
+  .container-fluid
+    .row
+      #coverflow01.coverflow
+        .row
+          .col-md-6.col-md-offset-3
+              form.entries(name='/user/' + user.username + '/edit', method="post", onload='makeFooter()')
+                  img#avatarImg.avatar(src='/images/logo.png', alpostt='Avatar')
+                  br
+                  p
+                    | Edit your 
+                    b Teamspark
+                    |  account
+                  .form-group
+                      label Full Name *
+                      p#nameError
+                      input#fullname(type='text', name='fullname', value='#{person.fullname}', required)
+                  .form-group
+                      label Email Address *
+                      p#emailError
+                      input#email(type='text', name='email', value='#{person.email}', required)
+                  .form-group
+                      label Date of Birth *
+                      p#dobError
+                      input#dob(type='text', name='dob', value='#{person.dob}', required)
+                  .form-group#progLanguages
+                      label Favourite Programming Language *
+                      - for (var i = 0; i < person.programmingLanguages.length; i++)
+                          select#selectProgLanguage(name='programmingLanguages')
+                            option(value='#{person.programmingLanguages[i]}') #{person.programmingLanguages[i]}
+                   .form-group
+                       button#plusExtraProgLang(name = 'posproglang', type='button', onclick='return addLangOpt()') +
+                       button#minusExtraProgLang(name = 'negproglang', type = 'button', onclick='return minusLangOpt()') -
+                  .form-group
+                      label Skill Level *
+                      select#skillLevel(name='skillLevel')
+                        option(value='#{person.skillLevel}') #{person.skillLevel}
+                        option(value='1') No prior experience/ Noob.
+                        option(value='2') Know the basics of my favourite programming language.
+                        option(value='3') Can solve complex problems efficiently using data structures and algorithms.
+                        option(value='4') Regularly take part in programming competitions with above average performance.
+                        option(value='5') Have worked as a software dev/ engineer for over 2 years.
+                        option(value='6') Have worked for a major tech company/ contributed to an open source project used by 1000+ users.
+                  .form-group
+                      label Area of Interest
+                      select#interest(name='userInterest')
+                        option(value='#{person.userInterest}') #{person.userInterest}
+                        option(value='Machine Learning') Machine Learning.
+                        option(value='Web App Development') Web App Development.
+                        option(value='Data Mining') Data Mining.
+                        option(value='Graphics and Animation') Graphics and Animation.
+                        option(value='Game Development') Game Development.
+                        option(value='UX Design') UX Design.
+                        option(value='Network and Security') Network and Security.
+                        option(value='Systems Programming') Systems Programming.
+                        option(value='Research') Research.
+                  .form-group
+                      label Availability for collaboration (Weekly)
+                      select#availability(name='availability')
+                        option(value='#{person.availability}') #{person.availability} hours per week
+                        option(value='5') 5 hours or less.
+                        option(value='10') 10 hours per week.
+                        option(value='15') 15 hours per week.
+                        option(value='20') 20 hours per week.
+                        options(value='21') More than 20 hours per week.
+                  .form-group
+                      label Location *
+                      .form-group
+                          label Country
+                          select#country(name='country', onclick="getState()")
+                            option(value='#{person.country}') #{person.country}
+                          label State/ Province
+                          select#state(name ='state')
+                            option(value='#{person.state}') #{person.state}
+                          label City/ Town/ Suburb
+                          input#suburb(type='text', name ='suburb', placeholder='Crawley', value ='#{person.suburb}')
+                  .form-group
+                      label Bio
+                      textarea#bio(type='textarea', name='bio', required) #{person.bio}
+                  .form-group
+                      label Remote Location *
+                      select#online(name="virtualTeam")
+                        option(value="yes") Yes
+                        option(value="no") No
+                  .form-group#accountsGroup
+                      label Accounts
+                      - for (var i = 0; i < person.accounts.length; i++)
+                          input#gitHubAcc(type='text', name ='accounts', value='#{person.accounts[i]}')
+                  .form-group
+                      button#plusExtraAccount(name = 'posaccounts', type='button', onclick='return addAccountOpt()') +
+                      button#minusExtraAccount(name = 'negaccounts', type = 'button', onclick='return minusAccountOpt()') -
+                  .form-group
+                      button.btn.btn-lg.btn-default.btn-block(onclick='return validateSignUp()') Update
+              script(type='text/javascript', src='/javascripts/sign_up_event.js')

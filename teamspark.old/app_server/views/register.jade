@@ -1,0 +1,121 @@
+extends layout
+
+block content
+    #coverflowRegister.coverflow
+        .container-fluid
+            .row
+                .col-md-6.col-md-offset-3
+                    form.entries(name='/register', method="post")
+                        img#avatarImg.avatar(src='/images/logo.png', alt='Avatar')
+                        h2
+                          |  Create a new
+                          b  Teamspark
+                          |  account
+                        .form-group
+                            label Full Name *
+                            p#nameError
+                            input#fullname(type='text', name='fullname', placeholder='Full Name', required, onblur = "validateFullName()", onfocus = "resetFullName()")
+                        .form-group
+                            label Email Address *
+                            p#emailError
+                            input#email(type='text', name='email', placeholder='name@example.com', required, onblur = "validateEMail()", onfocus = "resetEMail()")
+                        .form-group
+                            label Username *
+                            p#usernameError
+                            input#username(type='text', name='username', placeholder='lord_gabeN', onblur = "validateUName()", onfocus = "resetUName()",  required)
+                        .form-group
+                            label Profile Picture
+                            //- br
+                            //- br
+                            //- img#display(src="/images/user_image.png")
+                            //- br
+                            //br
+                            input#imagePath(type="text", placeholder="path/to/image", name="imagePath", readonly)
+                            //input#imageFile(type="file", name="imageFile")
+                            //br
+                            //p#data(name='fileLoc', required) "./public/images/user_images.png"
+                            //button#uploadPic(name = 'ulpic', type='button') Upload
+                        .form-group
+                            label Password *
+                            p#passwdError
+                            input#passwd(type='Password', name='password', required, onblur = "validatePasswd()", onfocus = "resetPasswd()")
+                            label Confirm Password *
+                            p#rePasswdError
+                            input#rPasswd(type='Password', name='rePassword', required, onblur = "validateRPasswd()", onfocus = "resetRPasswd()")
+                        .form-group
+                            label Date of Birth *
+                            p#dobError
+                            input#dob(type='text', name='dob', placeholder='dd/mm/yyyy', required, onblur = "validateDOB()", onfocus = "resetDOB()")
+                        .form-group#progLanguages
+                          label Favourite Programming Language *
+                          select#selectProgLanguage(name='programmingLanguages')
+                        .form-group
+                          .btn-group.btn-group-sm(role='group', aria-label='...')
+                            button#plusExtraProgLang.btn.btn-default(type='button', name = 'posproglang', onclick='return addLangOpt()')
+                              span.glyphicon.glyphicon-plus
+                            button#minusExtraProgLang.btn.btn-default(name = 'negproglang', type = 'button', onclick='return minusLangOpt()')
+                              span.glyphicon.glyphicon-minus
+                        .form-group
+                            label Skill Level *
+                            select#skillLevel(name='skillLevel')
+                              option(value='1') No prior experience/ Noob.
+                              option(value='2') Know the basics of my favourite programming language.
+                              option(value='3') Can solve complex problems efficiently using data structures and algorithms.
+                              option(value='4') Regularly take part in programming competitions with above average performance.
+                              option(value='5') Have worked as a software dev/ engineer for over 2 years.
+                              option(value='6') Have worked for a major tech company/ contributed to an open source project used by 1000+ users.
+                        .form-group
+                            label Area of Interest
+                            select#interest(name='userInterest')
+                              option(value='Machine Learning') Machine Learning.
+                              option(value='Web App Development') Web App Development.
+                              option(value='Data Mining') Data Mining.
+                              option(value='Graphics and Animation') Graphics and Animation.
+                              option(value='Game Development') Game Development.
+                              option(value='UX Design') UX Design.
+                              option(value='Networks and Security') Networks and Security.
+                              option(value='Systems Programming') Systems Programming.
+                              option(value='Research') Research.
+                        .form-group
+                            label Availability for collaboration (Weekly)
+                            select#availability(name='availability')
+                              option(value='5') 5 hours or less.
+                              option(value='10') 10 hours per week.
+                              option(value='15') 15 hours per week.
+                              option(value='20') 20 hours per week.
+                              options(value='21') More than 20 hours per week.
+                        //- .form-group
+                        //-     label Location (Use Google Location Service)
+                        //-     br
+                        //-     br
+                        //-     img.avatar(src='/images/location.png', alpostt='gmaps')
+                        .form-group
+                            label Location *
+                            .form-group
+                                label Country
+                                select#country(name='country', onclick="getState()")
+                                label State/ Province
+                                select#state(name ='state')
+                                label City/ Town/ Suburb
+                                input#suburb(type='text', name ='suburb', placeholder='Crawley')
+                        .form-group
+                            label Remote Location *
+                            select#online(name="virtualTeam")
+                              option(value="yes") Yes
+                              option(value="no") No
+                        .form-group
+                            label Bio
+                            textarea#bio(type='textarea', name='bio', placeholder='Tell potential team members more about yourself...', required)
+                        .form-group#accountsGroup
+                            label Accounts
+                            input#gitHubAcc(type='text', name ='accounts', placeholder='github.com/example')
+                        .form-group
+                          .btn-group.btn-group-sm(role='group', aria-label='...')
+                            button#plusExtraAccount.btn.btn-default(name = 'posaccounts', type='button', onclick='return addAccountOpt()')
+                              span.glyphicon.glyphicon-plus
+                            button#minusExtraAccount.btn.btn-default(name = 'negaccounts', type = 'button', onclick='return minusAccountOpt()')
+                              span.glyphicon.glyphicon-minus
+                        .form-group
+                            button.btn.btn-lg.btn-default.btn-block(onclick='return validateSignUp()') Create
+                    script(type='text/javascript', src='/javascripts/sign_up_event.js')
+                    script(src="/javascripts/jquery.js")

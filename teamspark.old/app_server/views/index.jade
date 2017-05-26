@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .container-fluid
+    .row
+      #coverflow01.coverflow
+        #main.jumbotron
+          img(src="images/teamsparkicon.png", style="width:150px; height:auto")
+          h1.display-3 #include "teamspark.h"
+          p.lead Introducing the newest way to collaborate
+    .row
+      #content01.content
+        h3 Having difficulty finding the perfect team?
+        h3 Want to collaborate on a cool project?
+        h3 Get more done by collaborating on interesting projects, making new friends and sharing ideas!
+    .row
+      #coverflow02.coverflow
+        h3 Stay Motivated
+        h3 Teamspark finds you team members based on your skillset.
+        h3 Matching the right project for you.
+    .row
+      #content02.content
+        h3 Find like minded people to work with
+        h3 See your matches
+  script(type='text/javascript', src='/javascripts/socketevents.js')

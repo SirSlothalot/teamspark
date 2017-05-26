@@ -1,0 +1,60 @@
+//To access potential users
+// - for (var i = 0; i < users.length; i++)
+//      - users[i].username;
+//      - users[i].whatever;
+
+//To access the project
+//  project.title;
+//  project.whatever;
+
+extends layout
+
+block content
+  .container-fluid
+    .row
+      #coverflow01.coverflow
+        #main.jumbotron
+          h1 Choose your team!
+          h3 These are all the people that could be in your project
+    .row
+      #content03.content
+        .row
+          .col-lg-offset-1.col-lg-10
+            .row
+              - for (var j = 0; j < people.length; j++)
+                - if (j%3 ==0)
+                  .row
+                .col-sm-4
+                  .tile.well
+                    .row
+                      .col-lg-6
+                        .thumbnail
+                          img.img-responsive(src = "data:image/png;base64,#{people[j].data}", alt='Avatar', style="width: 100%")
+                      .col-lg-6
+                        .text-left
+                          h3 #{people[j].fullname}
+                          h4.breakWord #{people[j].username}
+                    .row
+                      .col-xs-offest-1.col-xs-10
+                        .text-left
+                          h4 Bio: 
+                          h5.breakWord.truncate #{people[j].bio}
+                          h4 Languages: 
+                          h5
+                            - for (var i=0; i<people[j].programmingLanguages.length; i++)
+                              - if (i != people[j].programmingLanguages.length - 1)
+                                span= people[j].programmingLanguages[i]+", "
+                              - else
+                                span= people[j].programmingLanguages[i]
+                          h4 Skill Level: 
+                          h5 #{people[j].skillLevel}
+                    .row
+                      button.btn.btn-default.btn-block(onclick='location.href="/user/#{people[j].username}"') View Profile
+                        
+    
+  script.
+    $(function(){
+      $('.truncate').succinct({
+        size: 240
+      });
+    });
