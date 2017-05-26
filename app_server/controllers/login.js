@@ -20,6 +20,6 @@ module.exports.submitLogin = function(req, res) {
                 }
             });
     } else {
-        res.redirect('/login');
+        res.redirect('/');
     }
 };
