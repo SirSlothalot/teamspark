@@ -7,6 +7,9 @@ var ctrlRegister = require('../controllers/register');
 var ctrlLogin = require('../controllers/login');
 var ctrlLogout = require('../controllers/logout');
 var ctrlBio = require('../controllers/bio')
+var ctrlAbout = require('../controllers/about')
+var ctrlTest = require('../controllers/test-explain');
+var ctrlAlgorithmExp = require('../controllers/matching-algorithm-explained')
 
 
 var passport = require('passport');
@@ -21,6 +24,9 @@ router.get('/contact', ctrlContact.renderContact);
 /*GET Bio Page. */
 router.get('/about/creators', ctrlBio.renderBio);
 
+router.get('/about/matching_algorithm', ctrlAlgorithmExp.renderMatchingAlgorithm);
+
+router.get('/about', ctrlAbout.renderAbout);
 /*GET Reference page*/
 router.get('/references', ctrlReference.renderReference);
 //
@@ -42,5 +48,7 @@ router.post('/login', passport.authenticate('local'), ctrlLogin.submitLogin);
 //router.get('/profile/:username/edit', ctrlProfile.edit);
 
 router.get('/logout', ctrlLogout.logoutUser);
+
+router.get('/about/test_explained',ctrlTest.renderTestExp);
 
 module.exports = router;
