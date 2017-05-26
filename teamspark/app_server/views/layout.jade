@@ -7,7 +7,28 @@ html
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-
+    
+    script(src="/socket.io/socket.io.js")
+    script(src="http://code.jquery.com/jquery-1.11.1.js")
+    script.
+      console.log('loading script');
+      var socket = io();
+      console.log('connected');
+      
+      function send(){
+        console.log('send');
+        var message = document.getElementById('message');
+        socket.emit('message', message.value);
+        message.value = '';
+      };
+      
+      socket.on('message', function(msg){
+        var messages = document.getElementById('messages');
+        var newText = document.createElement('li');
+        newText.innerHTML = msg;
+        messages.appendChild(newText);
+      });
+    
   body(onload="selectionMatcher()")
     nav.navbar.navbar-fixed-top.navbar-inverse.bg-faded( role="navigation" )
       .container-fluid

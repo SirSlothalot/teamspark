@@ -7,4 +7,11 @@ var messageSchema = new mongoose.Schema(
     time: Date
   });
 
-mongoose.model('Message', messageSchema, 'messages');
+  var chatRoomSchema = new mongoose.Schema(
+    {
+      project: {type:String, required:true},
+      messages: [messageSchema]
+    });
+
+mongoose.model('ChatRoom', chatRoomSchema);
+mongoose.model('Message', messageSchema);
