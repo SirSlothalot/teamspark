@@ -1,0 +1,95 @@
+//To access potential users
+// - for (var i = 0; i < users.length; i++)
+//      - users[i].username;
+//      - users[i].whatever;
+
+//To access the project
+//  project.title;
+//  project.whatever;
+
+extends layout
+
+block content
+  .container-fluid
+      .row
+        #coverflow01.coverflow
+          #main.jumbotron
+            h1 The Team
+            h3 Behind Teamspark
+
+
+  .row
+    #content03.content
+      .row
+        .col-lg-offset-1.col-lg-10
+          .row
+              .col-sm-4
+                .tile.well
+                  .row
+                    .col-lg-6
+                      .thumbnail
+                        img.img-responsive(src = "/images/abrar_amin.jpg", alt='Avatar', style="width: 100%")
+                    .col-lg-6
+                      .text-left
+                        h3 Abrar Amin
+                        h4.breakWord Co-Founder
+                    h3 Bio
+                    h4
+                        | I am currently in my third year of Electrical Engineering and Computer Science double major at UWA. I like Pokemon.
+                    h3 Student Number 
+                        span.glyphicon.glyphicon-user
+                    h4 21518928 
+          
+          
+          
+              .col-sm-4
+                .tile.well
+                  .row
+                    .col-lg-6
+                      .thumbnail
+                        img.img-responsive(src = "/images/ben_chidlow.jpg", alt='Avatar', style="width: 100%")
+                    .col-lg-6
+                      .text-left
+                        h3 Ben Chidlow
+                        h4.breakWord Co-Founder
+                    h3 Bio
+                    h4.breakWord  
+                          | I am Ben Chidlow.
+                    h3 Student Number 
+                              span.glyphicon.glyphicon-user
+                    h4 217
+                        
+              .col-sm-4
+                .tile.well
+                  .row
+                    .col-lg-6
+                      .thumbnail
+                        img.img-responsive(src = "/images/matt_stagoll.jpg", alt='Avatar', style="width: 100%")
+                    .col-lg-6
+                      .text-left
+                        h3 Matt Stagoll
+                        h4.breakWord Co-Founder
+                    h3 Bio
+                    h4.breakWord
+                          | I am Matt Stagoll.
+                    h3 Student Number 
+                          span.glyphicon.glyphicon-user
+                    h4 217
+                        
+                        
+
+                  
+    //- #content03.content
+    //-   .row
+    //-     .col-lg-offset-1.col-lg-10
+    //-       .row
+    //-           .col-sm-4
+    //-             .tile.well
+    //-               .row
+    //-                 .col-lg-6
+    //-                   .thumbnail
+    //-                     img.img-responsive(src = "/images/abrar_amin.jpg", alt='Avatar', style="width: 100%")
+    //-                 .col-lg-6
+    //-                   .text-left
+    //-                     h3 Abrar Amin
+    //-                     h4.breakWord Co-Founder
