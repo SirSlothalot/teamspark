@@ -23,4 +23,7 @@ router.get('/:projectTitle/view', ctrlMatch.renderAllPeople);
 
 router.get('/:projectTitle/chat', ctrlChat.renderChatroom);
 
+router.get('/match/like/:projectTitle/:username', ctrlMatch.likeUser);
+// router.post('/match/dislike/:projectTitle/:username', ctrlMatch.dislikeUser);
+
 module.exports = router;

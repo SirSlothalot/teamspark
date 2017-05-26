@@ -17,7 +17,7 @@ exports.findProjects = function(user, req, res) {
     function(err, simpleData) {
       if (err) {
         res.render('error', {
-          message: err.messagr,
+          message: err.message,
           error: err
         });
       } else {
@@ -88,7 +88,7 @@ exports.findPeople = function(project, req, res) {
     function(err, simpleData) {
       if (err) {
         res.render('error', {
-          message: err.messagr,
+          message: err.message,
           error: err
         });
       } else {
@@ -122,6 +122,13 @@ function comparePerson(project, user) {
   if(project.members) {
     for (var i = 0; i < project.members.length; i++) {
       if (project.members[i].username == user.username) {
+        return null;
+      }
+    }
+  }
+  if (project.userPotentials) {
+    for (var i = 0; i < project.userPotentials.length; i++) {
+      if (project.userPotentials[i] == user.username) {
         return null;
       }
     }
