@@ -25,12 +25,12 @@ function validateSignUp()
 	//if (!fs.existsSync(filepath)) {
     //	document.getElementById("imagePath").value = "./public/images/user_image.png";
     //}
-	// return(validateImagePath() && validateFullName()  && validateEMail() && validateUName() && validatePasswd()
-	// 	&& validateRPasswd() && validateDOB());
+	return(validateImagePath() && validateFullName()  && validateEMail() && validateUName() && validatePasswd()
+	 	&& validateRPasswd() && validateDOB());
 	//document.getElementById("imagePath").value = "./public/images/user_image.png";
 
-	return(validateFullName()  && validateEMail() && validateUName() && validatePasswd()
-		&& validateRPasswd() && validateDOB());
+	//return(validateFullName()  && validateEMail() && validateUName() && validatePasswd()
+	//	&& validateRPasswd() && validateDOB());
 
 }
 

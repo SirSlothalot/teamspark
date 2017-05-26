@@ -127,8 +127,8 @@ var personSchema = new mongoose.Schema(
         accounts:{type:[String], require:false},
 
         //profilepic:{type:Buffer, require:true}
-        data:{type:Buffer, require:true},
-        contentType:{type:String, require:true},
+        // data:{type:Buffer, require:true},
+        // contentType:{type:String, require:true},
         //profilepic: { data: Buffer, contentType: String }
 
         isOwner:{type:Boolean},

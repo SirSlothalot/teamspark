@@ -41,3 +41,4 @@ process.on('SIGTERM', function() {
 require('./person_model.js');
 require('./project_model.js');
 require('./chat_model.js');
+require('./image_model.js');

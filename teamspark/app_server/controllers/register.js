@@ -1,5 +1,8 @@
+require('../models/db');
+var mongoose = require('mongoose');
 var passport = require('passport');
 var Person = require('../models/person_model');
+var Image = mongoose.model('Image');
 
 module.exports.renderRegister = function(req, res, next) {
       res.render('register', { title: 'Register', user: req.user});
@@ -17,6 +20,7 @@ module.exports.submitRegister = function(req,res) {
                 username: req.body.username,
 
                 dob: req.body.dob,
+                spokenLanguages: req.body.spokenLanguages,
 
                 // online: req.body.online,
 
@@ -32,16 +36,15 @@ module.exports.submitRegister = function(req,res) {
                 bio: req.body.bio,
                 accounts: req.body.accounts,
 
-                virtualTeam: req.body.virtualTeam,
+
 
                     //data: fs.readFileSync("/home/abrar/Desktop/agile-web-development/teamspark/matt-project/resources/images/teamspark-icon.png").toString('base64'),
-                //data: fs.readFileSync(req.body.imagePath).toString('base64'),
-                data: fs.readFileSync("./public/images/tux.png").toString('base64'),
+                // data: fs.readFileSync(req.body.imagePath).toString('base64'),
                 //console.log("Image file not found, set to default.");
                 //data: fs.readFileSync("./public/images/user_image.png").toString('base64');
                     //data: fs.readFileSync(req.body.data).toString('base64'),
 
-                contentType: "image/png"
+                // contentType: "image/png"
                 //data: req.body.data
             }),
         req.body.password,
@@ -62,4 +65,19 @@ module.exports.submitRegister = function(req,res) {
             })
         }
     );
+
+    var newImg = new Image(
+      {
+        data: fs.readFileSync(req.body.imagePath).toString('base64'),
+    //console.log("Image file not found, set to default.");
+    //data: fs.readFileSync("./public/images/user_image.png").toString('base64');
+        //data: fs.readFileSync(req.body.data).toString('base64'),
+
+        contentType: "image/png",
+
+        user: req.body.username
+
+      });
+      newImg.save();
+      console.log("Stored");
 };
