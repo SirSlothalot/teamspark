@@ -1,8 +1,0 @@
-extends layout
-
-block content
-  #main.errorDiv
-    img(src='/images/404.gif', alt='404')
-    h1= message
-    h2= error.status
-    pre #{error.stack}

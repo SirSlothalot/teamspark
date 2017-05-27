@@ -5,8 +5,8 @@ block content
     .row
       #coverflow01.coverflow
         #main.jumbotron
-          //img#avatarImg.avatar(src='/images/user_image.png', alt='Avatar')
-          img(src='data:image/png;base64,#{image.data}', style="height=150px; width=150px;")
+          img#avatarImg.avatar(src='/images/user_image.png', alt='Avatar')
+          //img(src='data:image/png;base64,#{image.data}', style="height=150px; width=150px;")
           h1 #{person.fullname}
           h2
             i #{person.username}
